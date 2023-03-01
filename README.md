@@ -1,4 +1,4 @@
-# National Rail Data - Performance 
+# RailScope: Real-Time Performance Analysis for UK National Rail
 
 ## Project description:
 
