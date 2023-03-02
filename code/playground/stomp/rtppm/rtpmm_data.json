@@ -1,0 +1,3843 @@
+{
+    "RTPPMData": {
+        "RAGThresholds": [
+            {
+                "type": "TOC",
+                "good": "92",
+                "medium": "89"
+            },
+            {
+                "type": "FOC",
+                "good": "87",
+                "medium": "80"
+            },
+            {
+                "type": "PPT",
+                "good": "91",
+                "medium": "85"
+            },
+            {
+                "type": "RTM_PUNC_TT3",
+                "good": "92",
+                "medium": "89"
+            },
+            {
+                "type": "RTM_PUNC",
+                "good": "65",
+                "medium": "55"
+            },
+            {
+                "type": "RTM_REL",
+                "good": "2",
+                "medium": "4"
+            }
+        ],
+        "WebPPMLink": "http://connect/Performance/PPM/PPMGuide.doc x",
+        "PPT": {
+            "text": "87",
+            "rag": "A",
+            "ragDisplayFlag": "Y"
+        },
+        "NationalPage": {
+            "WebFixedMsg1": "^<5 mins; *<10 mins",
+            "WebFixedMsg2": "The Public Performance Measure shows the performance of trains against the timetable, measured as the percentage of trains arriving at destination 'on time'. ",
+            "StaleFlag": "N",
+            "NationalPPM": {
+                "Total": "17176",
+                "OnTime": "14996",
+                "Late": "2180",
+                "CancelVeryLate": "852",
+                "PPM": {
+                    "text": "87",
+                    "rag": "R",
+                    "ragDisplayFlag": "Y"
+                },
+                "RollingPPM": {
+                    "text": "84",
+                    "rag": "R",
+                    "trendInd": "-"
+                }
+            },
+            "Sector": [
+                {
+                    "SectorPPM": {
+                        "Total": "9171",
+                        "OnTime": "7947",
+                        "Late": "1224",
+                        "CancelVeryLate": "502",
+                        "PPM": {
+                            "text": "86",
+                            "rag": "R"
+                        },
+                        "RollingPPM": {
+                            "text": "82",
+                            "rag": "R",
+                            "trendInd": "-"
+                        }
+                    },
+                    "sectorCode": "LSE",
+                    "sectorDesc": "London and South East"
+                },
+                {
+                    "SectorPPM": {
+                        "Total": "1227",
+                        "OnTime": "1066",
+                        "Late": "161",
+                        "CancelVeryLate": "61",
+                        "PPM": {
+                            "text": "86",
+                            "rag": "R"
+                        },
+                        "RollingPPM": {
+                            "text": "91",
+                            "rag": "A",
+                            "trendInd": "+"
+                        }
+                    },
+                    "sectorCode": "LD",
+                    "sectorDesc": "Long Distance"
+                },
+                {
+                    "SectorPPM": {
+                        "Total": "4914",
+                        "OnTime": "4280",
+                        "Late": "634",
+                        "CancelVeryLate": "222",
+                        "PPM": {
+                            "text": "87",
+                            "rag": "R"
+                        },
+                        "RollingPPM": {
+                            "text": "84",
+                            "rag": "R",
+                            "trendInd": "-"
+                        }
+                    },
+                    "sectorCode": "REG",
+                    "sectorDesc": "Regional"
+                },
+                {
+                    "SectorPPM": {
+                        "Total": "1864",
+                        "OnTime": "1703",
+                        "Late": "161",
+                        "CancelVeryLate": "67",
+                        "PPM": {
+                            "text": "91",
+                            "rag": "A"
+                        },
+                        "RollingPPM": {
+                            "text": "92",
+                            "rag": "G",
+                            "trendInd": "+"
+                        }
+                    },
+                    "sectorCode": "SCO",
+                    "sectorDesc": "Scotland"
+                }
+            ],
+            "Operator": [
+                {
+                    "Total": "492",
+                    "PPM": {
+                        "text": "97",
+                        "rag": "G"
+                    },
+                    "RollingPPM": {
+                        "text": "93",
+                        "rag": "G",
+                        "displayFlag": "Y",
+                        "trendInd": "-"
+                    },
+                    "code": "64",
+                    "name": "Merseyrail",
+                    "keySymbol": "^"
+                },
+                {
+                    "Total": "290",
+                    "PPM": {
+                        "text": "95",
+                        "rag": "G"
+                    },
+                    "RollingPPM": {
+                        "text": "73",
+                        "rag": "R",
+                        "displayFlag": "Y",
+                        "trendInd": "-"
+                    },
+                    "code": "74",
+                    "name": "Chiltern",
+                    "keySymbol": "^"
+                },
+                {
+                    "Total": "544",
+                    "PPM": {
+                        "text": "95",
+                        "rag": "G"
+                    },
+                    "RollingPPM": {
+                        "text": "81",
+                        "rag": "R",
+                        "displayFlag": "Y",
+                        "trendInd": "-"
+                    },
+                    "code": "33",
+                    "name": "Elizabeth line",
+                    "keySymbol": "^"
+                },
+                {
+                    "Total": "1292",
+                    "PPM": {
+                        "text": "95",
+                        "rag": "G"
+                    },
+                    "RollingPPM": {
+                        "text": "98",
+                        "rag": "G",
+                        "displayFlag": "Y",
+                        "trendInd": "+"
+                    },
+                    "code": "30",
+                    "name": "London Overground",
+                    "keySymbol": "^"
+                },
+                {
+                    "Total": "1313",
+                    "PPM": {
+                        "text": "94",
+                        "rag": "G"
+                    },
+                    "RollingPPM": {
+                        "text": "94",
+                        "rag": "G",
+                        "displayFlag": "Y",
+                        "trendInd": "="
+                    },
+                    "code": "84",
+                    "name": "South Western Railway",
+                    "keySymbol": "^"
+                },
+                {
+                    "Total": "1005",
+                    "PPM": {
+                        "text": "93",
+                        "rag": "G"
+                    },
+                    "RollingPPM": {
+                        "text": "97",
+                        "rag": "G",
+                        "displayFlag": "Y",
+                        "trendInd": "+"
+                    },
+                    "code": "21",
+                    "name": "Greater Anglia"
+                },
+                {
+                    "Total": "276",
+                    "PPM": {
+                        "text": "93",
+                        "rag": "G"
+                    },
+                    "RollingPPM": {
+                        "text": "88",
+                        "rag": "R",
+                        "displayFlag": "Y",
+                        "trendInd": "-"
+                    },
+                    "code": "79",
+                    "name": "c2c",
+                    "keySymbol": "^"
+                },
+                {
+                    "Total": "1857",
+                    "PPM": {
+                        "text": "91",
+                        "rag": "A"
+                    },
+                    "RollingPPM": {
+                        "text": "92",
+                        "rag": "G",
+                        "displayFlag": "Y",
+                        "trendInd": "+"
+                    },
+                    "code": "60",
+                    "name": "ScotRail",
+                    "keySymbol": "^"
+                },
+                {
+                    "Total": "212",
+                    "PPM": {
+                        "text": "90",
+                        "rag": "A"
+                    },
+                    "RollingPPM": {
+                        "text": "87",
+                        "rag": "R",
+                        "displayFlag": "Y",
+                        "trendInd": "-"
+                    },
+                    "code": "65",
+                    "name": "Avanti West Coast",
+                    "keySymbol": "*"
+                },
+                {
+                    "Total": "186",
+                    "PPM": {
+                        "text": "90",
+                        "rag": "A"
+                    },
+                    "RollingPPM": {
+                        "text": "82",
+                        "rag": "R",
+                        "displayFlag": "Y",
+                        "trendInd": "-"
+                    },
+                    "code": "27",
+                    "name": "CrossCountry",
+                    "keySymbol": "*"
+                },
+                {
+                    "Total": "1281",
+                    "PPM": {
+                        "text": "90",
+                        "rag": "A"
+                    },
+                    "RollingPPM": {
+                        "text": "90",
+                        "rag": "A",
+                        "displayFlag": "Y",
+                        "trendInd": "="
+                    },
+                    "code": "25",
+                    "name": "Great Western Railway"
+                },
+                {
+                    "Total": "401",
+                    "PPM": {
+                        "text": "89",
+                        "rag": "A"
+                    },
+                    "RollingPPM": {
+                        "text": "96",
+                        "rag": "G",
+                        "displayFlag": "Y",
+                        "trendInd": "+"
+                    },
+                    "code": "28",
+                    "name": "East Midlands Railway"
+                },
+                {
+                    "Total": "129",
+                    "PPM": {
+                        "text": "89",
+                        "rag": "A"
+                    },
+                    "RollingPPM": {
+                        "text": "100",
+                        "rag": "G",
+                        "displayFlag": "Y",
+                        "trendInd": "+"
+                    },
+                    "code": "61",
+                    "name": "London North Eastern Railway",
+                    "keySymbol": "*"
+                },
+                {
+                    "Total": "956",
+                    "PPM": {
+                        "text": "89",
+                        "rag": "A"
+                    },
+                    "RollingPPM": {
+                        "text": "80",
+                        "rag": "R",
+                        "displayFlag": "Y",
+                        "trendInd": "-"
+                    },
+                    "code": "29",
+                    "name": "West Midlands Trains",
+                    "keySymbol": "^"
+                },
+                {
+                    "Total": "2161",
+                    "PPM": {
+                        "text": "86",
+                        "rag": "R"
+                    },
+                    "RollingPPM": {
+                        "text": "87",
+                        "rag": "R",
+                        "displayFlag": "Y",
+                        "trendInd": "+"
+                    },
+                    "code": "23",
+                    "name": "Northern Trains",
+                    "keySymbol": "^"
+                },
+                {
+                    "Total": "7",
+                    "PPM": {
+                        "text": "85",
+                        "rag": "R"
+                    },
+                    "RollingPPM": {
+                        "text": "-1",
+                        "rag": "W",
+                        "displayFlag": "Y"
+                    },
+                    "code": "35",
+                    "name": "Caledonian Sleeper",
+                    "keySymbol": "*"
+                },
+                {
+                    "Total": "1379",
+                    "PPM": {
+                        "text": "83",
+                        "rag": "R"
+                    },
+                    "RollingPPM": {
+                        "text": "87",
+                        "rag": "R",
+                        "displayFlag": "Y",
+                        "trendInd": "+"
+                    },
+                    "code": "80",
+                    "name": "Southeastern",
+                    "keySymbol": "^"
+                },
+                {
+                    "Total": "815",
+                    "PPM": {
+                        "text": "79",
+                        "rag": "R"
+                    },
+                    "RollingPPM": {
+                        "text": "78",
+                        "rag": "R",
+                        "displayFlag": "Y",
+                        "trendInd": "-"
+                    },
+                    "code": "71",
+                    "name": "Transport for Wales",
+                    "keySymbol": "^"
+                },
+                {
+                    "Total": "244",
+                    "PPM": {
+                        "text": "78",
+                        "rag": "R"
+                    },
+                    "RollingPPM": {
+                        "text": "90",
+                        "rag": "A",
+                        "displayFlag": "Y",
+                        "trendInd": "+"
+                    },
+                    "code": "20",
+                    "name": "TransPennine Express",
+                    "keySymbol": "*"
+                },
+                {
+                    "Total": "2336",
+                    "PPM": {
+                        "text": "70",
+                        "rag": "R"
+                    },
+                    "RollingPPM": {
+                        "text": "55",
+                        "rag": "R",
+                        "displayFlag": "Y",
+                        "trendInd": "-"
+                    },
+                    "code": "88",
+                    "name": "Govia Thameslink Railway",
+                    "keySymbol": "^"
+                }
+            ],
+            "WebDisplayPeriod": "60"
+        },
+        "OOCPage": {
+            "WebFixedMsg1": "The Public Performance Measure shows the performance of trains against the timetable, measured as the percentage of trains arriving at destination 'on time'.                                                            ^<5 mins; *<10 mins",
+            "Operator": [
+                {
+                    "Total": "125",
+                    "PPM": {
+                        "text": "94",
+                        "rag": "G"
+                    },
+                    "RollingPPM": {
+                        "text": "100",
+                        "rag": "G",
+                        "displayFlag": "Y",
+                        "trendInd": "+"
+                    },
+                    "code": "86",
+                    "name": "Heathrow Express"
+                },
+                {
+                    "Total": "11",
+                    "PPM": {
+                        "text": "90",
+                        "rag": "A"
+                    },
+                    "RollingPPM": {
+                        "text": "-1",
+                        "rag": "W",
+                        "displayFlag": "Y"
+                    },
+                    "code": "55",
+                    "name": "Hull Trains",
+                    "keySymbol": "*"
+                },
+                {
+                    "Total": "8",
+                    "PPM": {
+                        "text": "87",
+                        "rag": "R"
+                    },
+                    "RollingPPM": {
+                        "text": "100",
+                        "rag": "G",
+                        "displayFlag": "Y",
+                        "trendInd": "+"
+                    },
+                    "code": "45",
+                    "name": "Lumo",
+                    "keySymbol": "*"
+                },
+                {
+                    "Total": "16",
+                    "PPM": {
+                        "text": "62",
+                        "rag": "R"
+                    },
+                    "RollingPPM": {
+                        "text": "50",
+                        "rag": "R",
+                        "displayFlag": "Y",
+                        "trendInd": "-"
+                    },
+                    "code": "22",
+                    "name": "Grand Central",
+                    "keySymbol": "*"
+                }
+            ],
+            "WebDisplayPeriod": "30"
+        },
+        "FOCPage": {
+            "WebFixedMsg2": "On this screen the Freight Performance values shown are the number of trains arriving at destination within 15 minutes of their scheduled time.",
+            "NationalPPM": {
+                "Total": "489",
+                "OnTime": "418",
+                "Late": "71",
+                "PPM": {
+                    "text": "85",
+                    "rag": "A",
+                    "ragDisplayFlag": "Y"
+                },
+                "RollingPPM": {
+                    "text": "83",
+                    "rag": "A",
+                    "trendInd": "-"
+                }
+            },
+            "Operator": [
+                {
+                    "Total": "23",
+                    "PPM": {
+                        "text": "95",
+                        "rag": "G"
+                    },
+                    "RollingPPM": {
+                        "text": "100",
+                        "rag": "G",
+                        "displayFlag": "Y",
+                        "trendInd": "+"
+                    },
+                    "code": "97",
+                    "name": "Direct Rail Services"
+                },
+                {
+                    "Total": "39",
+                    "PPM": {
+                        "text": "89",
+                        "rag": "G"
+                    },
+                    "RollingPPM": {
+                        "text": "100",
+                        "rag": "G",
+                        "displayFlag": "Y",
+                        "trendInd": "+"
+                    },
+                    "code": "42",
+                    "name": "Colas Freight"
+                },
+                {
+                    "Total": "59",
+                    "PPM": {
+                        "text": "89",
+                        "rag": "G"
+                    },
+                    "RollingPPM": {
+                        "text": "100",
+                        "rag": "G",
+                        "displayFlag": "Y",
+                        "trendInd": "+"
+                    },
+                    "code": "FLI",
+                    "name": "Freightliner Intermodal"
+                },
+                {
+                    "Total": "179",
+                    "PPM": {
+                        "text": "87",
+                        "rag": "G"
+                    },
+                    "RollingPPM": {
+                        "text": "82",
+                        "rag": "A",
+                        "displayFlag": "Y",
+                        "trendInd": "-"
+                    },
+                    "code": "05",
+                    "name": "DB Cargo"
+                },
+                {
+                    "Total": "106",
+                    "PPM": {
+                        "text": "87",
+                        "rag": "G"
+                    },
+                    "RollingPPM": {
+                        "text": "87",
+                        "rag": "G",
+                        "displayFlag": "Y",
+                        "trendInd": "="
+                    },
+                    "code": "NRM",
+                    "name": "Network Rail - Materials "
+                },
+                {
+                    "Total": "111",
+                    "PPM": {
+                        "text": "83",
+                        "rag": "A"
+                    },
+                    "RollingPPM": {
+                        "text": "83",
+                        "rag": "A",
+                        "displayFlag": "Y",
+                        "trendInd": "="
+                    },
+                    "code": "54",
+                    "name": "GB Railfreight"
+                },
+                {
+                    "Total": "78",
+                    "PPM": {
+                        "text": "74",
+                        "rag": "R"
+                    },
+                    "RollingPPM": {
+                        "text": "70",
+                        "rag": "R",
+                        "displayFlag": "Y",
+                        "trendInd": "-"
+                    },
+                    "code": "FHH",
+                    "name": "Freightliner Heavy Haul"
+                }
+            ],
+            "WebDisplayPeriod": "45"
+        },
+        "CommonOperatorPage": {
+            "WebDisplayPeriod": "60",
+            "WebFixedMsg1": "The Public Performance Measure shows the performance of trains against the timetable, measured as the percentage of trains arriving at destination 'on time'.                                                            ^<5 mins; *<10 mins"
+        },
+        "OperatorPage": [
+            {
+                "Operator": {
+                    "Total": "16",
+                    "OnTime": "10",
+                    "Late": "6",
+                    "CancelVeryLate": "3",
+                    "PPM": {
+                        "text": "62",
+                        "rag": "R"
+                    },
+                    "RollingPPM": {
+                        "text": "50",
+                        "rag": "R",
+                        "displayFlag": "Y",
+                        "trendInd": "-"
+                    },
+                    "code": "22",
+                    "name": "Grand Central",
+                    "keySymbol": "*"
+                },
+                "OprToleranceTotal": {
+                    "Total": "16",
+                    "OnTime": "10",
+                    "Late": "6",
+                    "CancelVeryLate": "3",
+                    "timeband": "10"
+                },
+                "OprServiceGrp": [
+                    {
+                        "Total": "6",
+                        "OnTime": "2",
+                        "Late": "4",
+                        "CancelVeryLate": "2",
+                        "PPM": {
+                            "text": "33",
+                            "rag": "R"
+                        },
+                        "RollingPPM": {
+                            "text": "0",
+                            "rag": "R",
+                            "displayFlag": "Y",
+                            "trendInd": "-"
+                        },
+                        "name": "Kings X - Bradford",
+                        "timeband": "10"
+                    },
+                    {
+                        "Total": "10",
+                        "OnTime": "8",
+                        "Late": "2",
+                        "CancelVeryLate": "1",
+                        "PPM": {
+                            "text": "80",
+                            "rag": "R"
+                        },
+                        "RollingPPM": {
+                            "text": "100",
+                            "rag": "G",
+                            "displayFlag": "Y",
+                            "trendInd": "+"
+                        },
+                        "name": "Kings X - Sunderland",
+                        "timeband": "10"
+                    }
+                ]
+            },
+            {
+                "Operator": {
+                    "Total": "2336",
+                    "OnTime": "1658",
+                    "Late": "678",
+                    "CancelVeryLate": "353",
+                    "PPM": {
+                        "text": "70",
+                        "rag": "R"
+                    },
+                    "RollingPPM": {
+                        "text": "55",
+                        "rag": "R",
+                        "displayFlag": "Y",
+                        "trendInd": "-"
+                    },
+                    "code": "88",
+                    "name": "Govia Thameslink Railway",
+                    "keySymbol": "^"
+                },
+                "OprToleranceTotal": {
+                    "Total": "2336",
+                    "OnTime": "1658",
+                    "Late": "678",
+                    "CancelVeryLate": "353",
+                    "timeband": "5"
+                },
+                "OprServiceGrp": [
+                    {
+                        "Total": "62",
+                        "OnTime": "22",
+                        "Late": "40",
+                        "CancelVeryLate": "28",
+                        "PPM": {
+                            "text": "35",
+                            "rag": "R"
+                        },
+                        "RollingPPM": {
+                            "text": "33",
+                            "rag": "R",
+                            "displayFlag": "Y",
+                            "trendInd": "-"
+                        },
+                        "name": "Gatwick Express",
+                        "timeband": "5",
+                        "sectorCode": "LSE"
+                    },
+                    {
+                        "Total": "202",
+                        "OnTime": "181",
+                        "Late": "21",
+                        "CancelVeryLate": "7",
+                        "PPM": {
+                            "text": "89",
+                            "rag": "A"
+                        },
+                        "RollingPPM": {
+                            "text": "75",
+                            "rag": "R",
+                            "displayFlag": "Y",
+                            "trendInd": "-"
+                        },
+                        "name": "Great Northern Metro",
+                        "timeband": "5",
+                        "sectorCode": "LSE"
+                    },
+                    {
+                        "Total": "190",
+                        "OnTime": "111",
+                        "Late": "79",
+                        "CancelVeryLate": "37",
+                        "PPM": {
+                            "text": "58",
+                            "rag": "R"
+                        },
+                        "RollingPPM": {
+                            "text": "44",
+                            "rag": "R",
+                            "displayFlag": "Y",
+                            "trendInd": "-"
+                        },
+                        "name": "Great Northern Outer",
+                        "timeband": "5",
+                        "sectorCode": "LSE"
+                    },
+                    {
+                        "Total": "377",
+                        "OnTime": "306",
+                        "Late": "71",
+                        "CancelVeryLate": "30",
+                        "PPM": {
+                            "text": "81",
+                            "rag": "R"
+                        },
+                        "RollingPPM": {
+                            "text": "44",
+                            "rag": "R",
+                            "displayFlag": "Y",
+                            "trendInd": "-"
+                        },
+                        "name": "Southern Coastway ",
+                        "timeband": "5",
+                        "sectorCode": "LSE"
+                    },
+                    {
+                        "Total": "506",
+                        "OnTime": "454",
+                        "Late": "52",
+                        "CancelVeryLate": "12",
+                        "PPM": {
+                            "text": "89",
+                            "rag": "A"
+                        },
+                        "RollingPPM": {
+                            "text": "88",
+                            "rag": "R",
+                            "displayFlag": "Y",
+                            "trendInd": "-"
+                        },
+                        "name": "Southern Metro",
+                        "timeband": "5",
+                        "sectorCode": "LSE"
+                    },
+                    {
+                        "Total": "502",
+                        "OnTime": "265",
+                        "Late": "237",
+                        "CancelVeryLate": "148",
+                        "PPM": {
+                            "text": "52",
+                            "rag": "R"
+                        },
+                        "RollingPPM": {
+                            "text": "34",
+                            "rag": "R",
+                            "displayFlag": "Y",
+                            "trendInd": "-"
+                        },
+                        "name": "Southern Outer",
+                        "timeband": "5",
+                        "sectorCode": "LSE"
+                    },
+                    {
+                        "Total": "30",
+                        "OnTime": "25",
+                        "Late": "5",
+                        "CancelVeryLate": "2",
+                        "PPM": {
+                            "text": "83",
+                            "rag": "R"
+                        },
+                        "RollingPPM": {
+                            "text": "100",
+                            "rag": "G",
+                            "displayFlag": "Y",
+                            "trendInd": "+"
+                        },
+                        "name": "Southern West London Line ",
+                        "timeband": "5",
+                        "sectorCode": "LSE"
+                    },
+                    {
+                        "Total": "33",
+                        "OnTime": "24",
+                        "Late": "9",
+                        "CancelVeryLate": "4",
+                        "PPM": {
+                            "text": "72",
+                            "rag": "R"
+                        },
+                        "RollingPPM": {
+                            "text": "60",
+                            "rag": "R",
+                            "displayFlag": "Y",
+                            "trendInd": "-"
+                        },
+                        "name": "Thameslink Kent Outer",
+                        "timeband": "5",
+                        "sectorCode": "LSE"
+                    },
+                    {
+                        "Total": "98",
+                        "OnTime": "82",
+                        "Late": "16",
+                        "CancelVeryLate": "4",
+                        "PPM": {
+                            "text": "83",
+                            "rag": "R"
+                        },
+                        "RollingPPM": {
+                            "text": "71",
+                            "rag": "R",
+                            "displayFlag": "Y",
+                            "trendInd": "-"
+                        },
+                        "name": "Thameslink North Metro (MML)",
+                        "timeband": "5",
+                        "sectorCode": "LSE"
+                    },
+                    {
+                        "Total": "72",
+                        "OnTime": "32",
+                        "Late": "40",
+                        "CancelVeryLate": "21",
+                        "PPM": {
+                            "text": "44",
+                            "rag": "R"
+                        },
+                        "RollingPPM": {
+                            "text": "10",
+                            "rag": "R",
+                            "displayFlag": "Y",
+                            "trendInd": "-"
+                        },
+                        "name": "Thameslink North Outer (MML)",
+                        "timeband": "5",
+                        "sectorCode": "LSE"
+                    },
+                    {
+                        "Total": "120",
+                        "OnTime": "99",
+                        "Late": "21",
+                        "CancelVeryLate": "2",
+                        "PPM": {
+                            "text": "82",
+                            "rag": "R"
+                        },
+                        "RollingPPM": {
+                            "text": "83",
+                            "rag": "R",
+                            "displayFlag": "Y",
+                            "trendInd": "+"
+                        },
+                        "name": "Thameslink South Metro",
+                        "timeband": "5",
+                        "sectorCode": "LSE"
+                    },
+                    {
+                        "Total": "144",
+                        "OnTime": "57",
+                        "Late": "87",
+                        "CancelVeryLate": "58",
+                        "PPM": {
+                            "text": "39",
+                            "rag": "R"
+                        },
+                        "RollingPPM": {
+                            "text": "29",
+                            "rag": "R",
+                            "displayFlag": "Y",
+                            "trendInd": "-"
+                        },
+                        "name": "Thameslink Sussex Outer",
+                        "timeband": "5",
+                        "sectorCode": "LSE"
+                    }
+                ]
+            },
+            {
+                "Operator": {
+                    "Total": "78",
+                    "OnTime": "58",
+                    "Late": "20",
+                    "CancelVeryLate": "0",
+                    "PPM": {
+                        "text": "74",
+                        "rag": "R"
+                    },
+                    "RollingPPM": {
+                        "text": "70",
+                        "rag": "R",
+                        "displayFlag": "Y",
+                        "trendInd": "-"
+                    },
+                    "code": "FHH",
+                    "name": "Freightliner Heavy Haul"
+                },
+                "OprToleranceTotal": {
+                    "Total": "78",
+                    "OnTime": "58",
+                    "Late": "20",
+                    "CancelVeryLate": "0",
+                    "timeband": "15"
+                },
+                "OprServiceGrp": {
+                    "Total": "78",
+                    "OnTime": "58",
+                    "Late": "20",
+                    "CancelVeryLate": "0",
+                    "PPM": {
+                        "text": "74",
+                        "rag": "R"
+                    },
+                    "RollingPPM": {
+                        "text": "70",
+                        "rag": "R",
+                        "displayFlag": "Y",
+                        "trendInd": "-"
+                    },
+                    "name": "Unallocated Trains",
+                    "timeband": "15"
+                }
+            },
+            {
+                "Operator": {
+                    "Total": "244",
+                    "OnTime": "191",
+                    "Late": "53",
+                    "CancelVeryLate": "38",
+                    "PPM": {
+                        "text": "78",
+                        "rag": "R"
+                    },
+                    "RollingPPM": {
+                        "text": "90",
+                        "rag": "A",
+                        "displayFlag": "Y",
+                        "trendInd": "+"
+                    },
+                    "code": "20",
+                    "name": "TransPennine Express",
+                    "keySymbol": "*"
+                },
+                "OprToleranceTotal": {
+                    "Total": "244",
+                    "OnTime": "191",
+                    "Late": "53",
+                    "CancelVeryLate": "38",
+                    "timeband": "10"
+                },
+                "OprServiceGrp": [
+                    {
+                        "Total": "188",
+                        "OnTime": "153",
+                        "Late": "35",
+                        "CancelVeryLate": "28",
+                        "PPM": {
+                            "text": "81",
+                            "rag": "R"
+                        },
+                        "RollingPPM": {
+                            "text": "92",
+                            "rag": "G",
+                            "displayFlag": "Y",
+                            "trendInd": "+"
+                        },
+                        "name": "North Trans Peninne",
+                        "timeband": "10",
+                        "sectorCode": "LD"
+                    },
+                    {
+                        "Total": "28",
+                        "OnTime": "24",
+                        "Late": "4",
+                        "CancelVeryLate": "3",
+                        "PPM": {
+                            "text": "85",
+                            "rag": "R"
+                        },
+                        "RollingPPM": {
+                            "text": "100",
+                            "rag": "G",
+                            "displayFlag": "Y",
+                            "trendInd": "+"
+                        },
+                        "name": "Preston - Scotland",
+                        "timeband": "10",
+                        "sectorCode": "LD"
+                    },
+                    {
+                        "Total": "28",
+                        "OnTime": "14",
+                        "Late": "14",
+                        "CancelVeryLate": "7",
+                        "PPM": {
+                            "text": "50",
+                            "rag": "R"
+                        },
+                        "RollingPPM": {
+                            "text": "66",
+                            "rag": "R",
+                            "displayFlag": "Y",
+                            "trendInd": "+"
+                        },
+                        "name": "South Trans Pennine",
+                        "timeband": "10",
+                        "sectorCode": "LD"
+                    }
+                ]
+            },
+            {
+                "Operator": {
+                    "Total": "815",
+                    "OnTime": "644",
+                    "Late": "171",
+                    "CancelVeryLate": "55",
+                    "PPM": {
+                        "text": "79",
+                        "rag": "R"
+                    },
+                    "RollingPPM": {
+                        "text": "78",
+                        "rag": "R",
+                        "displayFlag": "Y",
+                        "trendInd": "-"
+                    },
+                    "code": "71",
+                    "name": "Transport for Wales",
+                    "keySymbol": "^"
+                },
+                "OprToleranceTotal": {
+                    "Total": "815",
+                    "OnTime": "644",
+                    "Late": "171",
+                    "CancelVeryLate": "55",
+                    "timeband": "5"
+                },
+                "OprServiceGrp": [
+                    {
+                        "Total": "47",
+                        "OnTime": "37",
+                        "Late": "10",
+                        "CancelVeryLate": "5",
+                        "PPM": {
+                            "text": "78",
+                            "rag": "R"
+                        },
+                        "RollingPPM": {
+                            "text": "87",
+                            "rag": "R",
+                            "displayFlag": "Y",
+                            "trendInd": "+"
+                        },
+                        "name": "Cambrian",
+                        "timeband": "5",
+                        "sectorCode": "REG"
+                    },
+                    {
+                        "Total": "425",
+                        "OnTime": "342",
+                        "Late": "83",
+                        "CancelVeryLate": "30",
+                        "PPM": {
+                            "text": "80",
+                            "rag": "R"
+                        },
+                        "RollingPPM": {
+                            "text": "84",
+                            "rag": "R",
+                            "displayFlag": "Y",
+                            "trendInd": "+"
+                        },
+                        "name": "Cardiff Valleys",
+                        "timeband": "5",
+                        "sectorCode": "REG"
+                    },
+                    {
+                        "Total": "92",
+                        "OnTime": "86",
+                        "Late": "6",
+                        "CancelVeryLate": "2",
+                        "PPM": {
+                            "text": "93",
+                            "rag": "G"
+                        },
+                        "RollingPPM": {
+                            "text": "100",
+                            "rag": "G",
+                            "displayFlag": "Y",
+                            "trendInd": "+"
+                        },
+                        "name": "Inter Urban North Wales",
+                        "timeband": "5",
+                        "sectorCode": "REG"
+                    },
+                    {
+                        "Total": "45",
+                        "OnTime": "34",
+                        "Late": "11",
+                        "CancelVeryLate": "2",
+                        "PPM": {
+                            "text": "75",
+                            "rag": "R"
+                        },
+                        "RollingPPM": {
+                            "text": "83",
+                            "rag": "R",
+                            "displayFlag": "Y",
+                            "trendInd": "+"
+                        },
+                        "name": "Marches",
+                        "timeband": "5",
+                        "sectorCode": "REG"
+                    },
+                    {
+                        "Total": "48",
+                        "OnTime": "34",
+                        "Late": "14",
+                        "CancelVeryLate": "0",
+                        "PPM": {
+                            "text": "70",
+                            "rag": "R"
+                        },
+                        "RollingPPM": {
+                            "text": "75",
+                            "rag": "R",
+                            "displayFlag": "Y",
+                            "trendInd": "+"
+                        },
+                        "name": "North Wales Rural",
+                        "timeband": "5",
+                        "sectorCode": "REG"
+                    },
+                    {
+                        "Total": "92",
+                        "OnTime": "56",
+                        "Late": "36",
+                        "CancelVeryLate": "14",
+                        "PPM": {
+                            "text": "60",
+                            "rag": "R"
+                        },
+                        "RollingPPM": {
+                            "text": "50",
+                            "rag": "R",
+                            "displayFlag": "Y",
+                            "trendInd": "-"
+                        },
+                        "name": "South, West & Central Wales",
+                        "timeband": "5",
+                        "sectorCode": "REG"
+                    },
+                    {
+                        "Total": "66",
+                        "OnTime": "55",
+                        "Late": "11",
+                        "CancelVeryLate": "2",
+                        "PPM": {
+                            "text": "83",
+                            "rag": "R"
+                        },
+                        "RollingPPM": {
+                            "text": "55",
+                            "rag": "R",
+                            "displayFlag": "Y",
+                            "trendInd": "-"
+                        },
+                        "name": "Wales To England",
+                        "timeband": "5",
+                        "sectorCode": "REG"
+                    }
+                ]
+            },
+            {
+                "Operator": {
+                    "Total": "1379",
+                    "OnTime": "1150",
+                    "Late": "229",
+                    "CancelVeryLate": "48",
+                    "PPM": {
+                        "text": "83",
+                        "rag": "R"
+                    },
+                    "RollingPPM": {
+                        "text": "87",
+                        "rag": "R",
+                        "displayFlag": "Y",
+                        "trendInd": "+"
+                    },
+                    "code": "80",
+                    "name": "Southeastern",
+                    "keySymbol": "^"
+                },
+                "OprToleranceTotal": {
+                    "Total": "1379",
+                    "OnTime": "1150",
+                    "Late": "229",
+                    "CancelVeryLate": "48",
+                    "timeband": "5"
+                },
+                "OprServiceGrp": [
+                    {
+                        "Total": "56",
+                        "OnTime": "51",
+                        "Late": "5",
+                        "CancelVeryLate": "0",
+                        "PPM": {
+                            "text": "91",
+                            "rag": "A"
+                        },
+                        "RollingPPM": {
+                            "text": "85",
+                            "rag": "R",
+                            "displayFlag": "Y",
+                            "trendInd": "-"
+                        },
+                        "name": "Kent High Speed Off Peak",
+                        "timeband": "5",
+                        "sectorCode": "LSE"
+                    },
+                    {
+                        "Total": "49",
+                        "OnTime": "43",
+                        "Late": "6",
+                        "CancelVeryLate": "0",
+                        "PPM": {
+                            "text": "87",
+                            "rag": "R"
+                        },
+                        "RollingPPM": {
+                            "text": "-1",
+                            "rag": "W",
+                            "displayFlag": "Y"
+                        },
+                        "name": "Kent High Speed Peak",
+                        "timeband": "5",
+                        "sectorCode": "LSE"
+                    },
+                    {
+                        "Total": "274",
+                        "OnTime": "240",
+                        "Late": "34",
+                        "CancelVeryLate": "5",
+                        "PPM": {
+                            "text": "87",
+                            "rag": "R"
+                        },
+                        "RollingPPM": {
+                            "text": "87",
+                            "rag": "R",
+                            "displayFlag": "Y",
+                            "trendInd": "="
+                        },
+                        "name": "Kent Mainline Off-Peak",
+                        "timeband": "5",
+                        "sectorCode": "LSE"
+                    },
+                    {
+                        "Total": "105",
+                        "OnTime": "73",
+                        "Late": "32",
+                        "CancelVeryLate": "4",
+                        "PPM": {
+                            "text": "69",
+                            "rag": "R"
+                        },
+                        "RollingPPM": {
+                            "text": "83",
+                            "rag": "R",
+                            "displayFlag": "Y",
+                            "trendInd": "+"
+                        },
+                        "name": "Kent Mainline Peak",
+                        "timeband": "5",
+                        "sectorCode": "LSE"
+                    },
+                    {
+                        "Total": "610",
+                        "OnTime": "507",
+                        "Late": "103",
+                        "CancelVeryLate": "34",
+                        "PPM": {
+                            "text": "83",
+                            "rag": "R"
+                        },
+                        "RollingPPM": {
+                            "text": "93",
+                            "rag": "G",
+                            "displayFlag": "Y",
+                            "trendInd": "+"
+                        },
+                        "name": "Kent Metro Off-Peak",
+                        "timeband": "5",
+                        "sectorCode": "LSE"
+                    },
+                    {
+                        "Total": "173",
+                        "OnTime": "125",
+                        "Late": "48",
+                        "CancelVeryLate": "5",
+                        "PPM": {
+                            "text": "72",
+                            "rag": "R"
+                        },
+                        "RollingPPM": {
+                            "text": "71",
+                            "rag": "R",
+                            "displayFlag": "Y",
+                            "trendInd": "-"
+                        },
+                        "name": "Kent Metro Peak",
+                        "timeband": "5",
+                        "sectorCode": "LSE"
+                    },
+                    {
+                        "Total": "112",
+                        "OnTime": "111",
+                        "Late": "1",
+                        "CancelVeryLate": "0",
+                        "PPM": {
+                            "text": "99",
+                            "rag": "G"
+                        },
+                        "RollingPPM": {
+                            "text": "100",
+                            "rag": "G",
+                            "displayFlag": "Y",
+                            "trendInd": "+"
+                        },
+                        "name": "Kent Rural",
+                        "timeband": "5",
+                        "sectorCode": "LSE"
+                    }
+                ]
+            },
+            {
+                "Operator": {
+                    "Total": "111",
+                    "OnTime": "93",
+                    "Late": "18",
+                    "CancelVeryLate": "0",
+                    "PPM": {
+                        "text": "83",
+                        "rag": "A"
+                    },
+                    "RollingPPM": {
+                        "text": "83",
+                        "rag": "A",
+                        "displayFlag": "Y",
+                        "trendInd": "="
+                    },
+                    "code": "54",
+                    "name": "GB Railfreight"
+                },
+                "OprToleranceTotal": {
+                    "Total": "111",
+                    "OnTime": "93",
+                    "Late": "18",
+                    "CancelVeryLate": "0",
+                    "timeband": "15"
+                }
+            },
+            {
+                "Operator": {
+                    "Total": "7",
+                    "OnTime": "6",
+                    "Late": "1",
+                    "CancelVeryLate": "1",
+                    "PPM": {
+                        "text": "85",
+                        "rag": "R"
+                    },
+                    "RollingPPM": {
+                        "text": "-1",
+                        "rag": "W",
+                        "displayFlag": "Y"
+                    },
+                    "code": "35",
+                    "name": "Caledonian Sleeper",
+                    "keySymbol": "*"
+                },
+                "OprToleranceTotal": {
+                    "Total": "7",
+                    "OnTime": "6",
+                    "Late": "1",
+                    "CancelVeryLate": "1",
+                    "timeband": "10"
+                },
+                "OprServiceGrp": {
+                    "Total": "7",
+                    "OnTime": "6",
+                    "Late": "1",
+                    "CancelVeryLate": "1",
+                    "PPM": {
+                        "text": "85",
+                        "rag": "R"
+                    },
+                    "RollingPPM": {
+                        "text": "-1",
+                        "rag": "W",
+                        "displayFlag": "Y"
+                    },
+                    "name": "Caledonian Sleeper",
+                    "timeband": "10",
+                    "sectorCode": "SCO"
+                }
+            },
+            {
+                "Operator": {
+                    "Total": "2161",
+                    "OnTime": "1865",
+                    "Late": "296",
+                    "CancelVeryLate": "118",
+                    "PPM": {
+                        "text": "86",
+                        "rag": "R"
+                    },
+                    "RollingPPM": {
+                        "text": "87",
+                        "rag": "R",
+                        "displayFlag": "Y",
+                        "trendInd": "+"
+                    },
+                    "code": "23",
+                    "name": "Northern Trains",
+                    "keySymbol": "^"
+                },
+                "OprToleranceTotal": {
+                    "Total": "2161",
+                    "OnTime": "1865",
+                    "Late": "296",
+                    "CancelVeryLate": "118",
+                    "timeband": "5"
+                },
+                "OprServiceGrp": [
+                    {
+                        "Total": "143",
+                        "OnTime": "124",
+                        "Late": "19",
+                        "CancelVeryLate": "3",
+                        "PPM": {
+                            "text": "86",
+                            "rag": "R"
+                        },
+                        "RollingPPM": {
+                            "text": "88",
+                            "rag": "R",
+                            "displayFlag": "Y",
+                            "trendInd": "+"
+                        },
+                        "name": "Lancashire & Cumbria Inter Urban",
+                        "timeband": "5",
+                        "sectorCode": "REG"
+                    },
+                    {
+                        "Total": "163",
+                        "OnTime": "135",
+                        "Late": "28",
+                        "CancelVeryLate": "19",
+                        "PPM": {
+                            "text": "82",
+                            "rag": "R"
+                        },
+                        "RollingPPM": {
+                            "text": "95",
+                            "rag": "G",
+                            "displayFlag": "Y",
+                            "trendInd": "+"
+                        },
+                        "name": "Lancashire & Cumbria Local",
+                        "timeband": "5",
+                        "sectorCode": "REG"
+                    },
+                    {
+                        "Total": "162",
+                        "OnTime": "130",
+                        "Late": "32",
+                        "CancelVeryLate": "13",
+                        "PPM": {
+                            "text": "80",
+                            "rag": "R"
+                        },
+                        "RollingPPM": {
+                            "text": "95",
+                            "rag": "G",
+                            "displayFlag": "Y",
+                            "trendInd": "+"
+                        },
+                        "name": "Merseyrail City Lines",
+                        "timeband": "5",
+                        "sectorCode": "REG"
+                    },
+                    {
+                        "Total": "164",
+                        "OnTime": "96",
+                        "Late": "68",
+                        "CancelVeryLate": "37",
+                        "PPM": {
+                            "text": "58",
+                            "rag": "R"
+                        },
+                        "RollingPPM": {
+                            "text": "79",
+                            "rag": "R",
+                            "displayFlag": "Y",
+                            "trendInd": "+"
+                        },
+                        "name": "North Manchester",
+                        "timeband": "5",
+                        "sectorCode": "REG"
+                    },
+                    {
+                        "Total": "169",
+                        "OnTime": "147",
+                        "Late": "22",
+                        "CancelVeryLate": "10",
+                        "PPM": {
+                            "text": "86",
+                            "rag": "R"
+                        },
+                        "RollingPPM": {
+                            "text": "92",
+                            "rag": "G",
+                            "displayFlag": "Y",
+                            "trendInd": "+"
+                        },
+                        "name": "South & East Yorkshire Inter Urban",
+                        "timeband": "5",
+                        "sectorCode": "REG"
+                    },
+                    {
+                        "Total": "141",
+                        "OnTime": "131",
+                        "Late": "10",
+                        "CancelVeryLate": "6",
+                        "PPM": {
+                            "text": "92",
+                            "rag": "G"
+                        },
+                        "RollingPPM": {
+                            "text": "95",
+                            "rag": "G",
+                            "displayFlag": "Y",
+                            "trendInd": "+"
+                        },
+                        "name": "South & East Yorkshire Local",
+                        "timeband": "5",
+                        "sectorCode": "REG"
+                    },
+                    {
+                        "Total": "387",
+                        "OnTime": "351",
+                        "Late": "36",
+                        "CancelVeryLate": "4",
+                        "PPM": {
+                            "text": "90",
+                            "rag": "A"
+                        },
+                        "RollingPPM": {
+                            "text": "90",
+                            "rag": "A",
+                            "displayFlag": "Y",
+                            "trendInd": "="
+                        },
+                        "name": "South Manchester",
+                        "timeband": "5",
+                        "sectorCode": "REG"
+                    },
+                    {
+                        "Total": "155",
+                        "OnTime": "135",
+                        "Late": "20",
+                        "CancelVeryLate": "14",
+                        "PPM": {
+                            "text": "87",
+                            "rag": "R"
+                        },
+                        "RollingPPM": {
+                            "text": "85",
+                            "rag": "R",
+                            "displayFlag": "Y",
+                            "trendInd": "-"
+                        },
+                        "name": "Tyne, Tees & Wear",
+                        "timeband": "5",
+                        "sectorCode": "REG"
+                    },
+                    {
+                        "Total": "253",
+                        "OnTime": "210",
+                        "Late": "43",
+                        "CancelVeryLate": "7",
+                        "PPM": {
+                            "text": "83",
+                            "rag": "R"
+                        },
+                        "RollingPPM": {
+                            "text": "59",
+                            "rag": "R",
+                            "displayFlag": "Y",
+                            "trendInd": "-"
+                        },
+                        "name": "West & North Yorkshire Inter Urban",
+                        "timeband": "5",
+                        "sectorCode": "REG"
+                    },
+                    {
+                        "Total": "424",
+                        "OnTime": "406",
+                        "Late": "18",
+                        "CancelVeryLate": "5",
+                        "PPM": {
+                            "text": "95",
+                            "rag": "G"
+                        },
+                        "RollingPPM": {
+                            "text": "94",
+                            "rag": "G",
+                            "displayFlag": "Y",
+                            "trendInd": "-"
+                        },
+                        "name": "West & North Yorkshire Local",
+                        "timeband": "5",
+                        "sectorCode": "REG"
+                    }
+                ]
+            },
+            {
+                "Operator": {
+                    "Total": "8",
+                    "OnTime": "7",
+                    "Late": "1",
+                    "CancelVeryLate": "0",
+                    "PPM": {
+                        "text": "87",
+                        "rag": "R"
+                    },
+                    "RollingPPM": {
+                        "text": "100",
+                        "rag": "G",
+                        "displayFlag": "Y",
+                        "trendInd": "+"
+                    },
+                    "code": "45",
+                    "name": "Lumo",
+                    "keySymbol": "*"
+                },
+                "OprToleranceTotal": {
+                    "Total": "8",
+                    "OnTime": "7",
+                    "Late": "1",
+                    "CancelVeryLate": "0",
+                    "timeband": "10"
+                },
+                "OprServiceGrp": {
+                    "Total": "8",
+                    "OnTime": "7",
+                    "Late": "1",
+                    "CancelVeryLate": "0",
+                    "PPM": {
+                        "text": "87",
+                        "rag": "R"
+                    },
+                    "RollingPPM": {
+                        "text": "100",
+                        "rag": "G",
+                        "displayFlag": "Y",
+                        "trendInd": "+"
+                    },
+                    "name": "Lumo - London King's Cross - Newcastle - Edinburgh",
+                    "timeband": "10"
+                }
+            },
+            {
+                "Operator": {
+                    "Total": "179",
+                    "OnTime": "157",
+                    "Late": "22",
+                    "CancelVeryLate": "0",
+                    "PPM": {
+                        "text": "87",
+                        "rag": "G"
+                    },
+                    "RollingPPM": {
+                        "text": "82",
+                        "rag": "A",
+                        "displayFlag": "Y",
+                        "trendInd": "-"
+                    },
+                    "code": "05",
+                    "name": "DB Cargo"
+                },
+                "OprToleranceTotal": {
+                    "Total": "179",
+                    "OnTime": "157",
+                    "Late": "22",
+                    "CancelVeryLate": "0",
+                    "timeband": "15"
+                }
+            },
+            {
+                "Operator": {
+                    "Total": "106",
+                    "OnTime": "93",
+                    "Late": "13",
+                    "CancelVeryLate": "0",
+                    "PPM": {
+                        "text": "87",
+                        "rag": "G"
+                    },
+                    "RollingPPM": {
+                        "text": "87",
+                        "rag": "G",
+                        "displayFlag": "Y",
+                        "trendInd": "="
+                    },
+                    "code": "NRM",
+                    "name": "Network Rail - Materials "
+                },
+                "OprToleranceTotal": {
+                    "Total": "106",
+                    "OnTime": "93",
+                    "Late": "13",
+                    "CancelVeryLate": "0",
+                    "timeband": "10"
+                },
+                "OprServiceGrp": {
+                    "Total": "106",
+                    "OnTime": "93",
+                    "Late": "13",
+                    "CancelVeryLate": "0",
+                    "PPM": {
+                        "text": "87",
+                        "rag": "G"
+                    },
+                    "RollingPPM": {
+                        "text": "87",
+                        "rag": "G",
+                        "displayFlag": "Y",
+                        "trendInd": "="
+                    },
+                    "name": "Unallocated Trains",
+                    "timeband": "10"
+                }
+            },
+            {
+                "Operator": {
+                    "Total": "401",
+                    "OnTime": "358",
+                    "Late": "43",
+                    "CancelVeryLate": "14",
+                    "PPM": {
+                        "text": "89",
+                        "rag": "A"
+                    },
+                    "RollingPPM": {
+                        "text": "96",
+                        "rag": "G",
+                        "displayFlag": "Y",
+                        "trendInd": "+"
+                    },
+                    "code": "28",
+                    "name": "East Midlands Railway"
+                },
+                "OprToleranceTotal": [
+                    {
+                        "Total": "196",
+                        "OnTime": "171",
+                        "Late": "25",
+                        "CancelVeryLate": "8",
+                        "timeband": "5"
+                    },
+                    {
+                        "Total": "205",
+                        "OnTime": "187",
+                        "Late": "18",
+                        "CancelVeryLate": "6",
+                        "timeband": "10"
+                    }
+                ],
+                "OprServiceGrp": [
+                    {
+                        "Total": "53",
+                        "OnTime": "50",
+                        "Late": "3",
+                        "CancelVeryLate": "0",
+                        "PPM": {
+                            "text": "94",
+                            "rag": "G"
+                        },
+                        "RollingPPM": {
+                            "text": "100",
+                            "rag": "G",
+                            "displayFlag": "Y",
+                            "trendInd": "+"
+                        },
+                        "name": "East Midlands Inter City",
+                        "timeband": "10",
+                        "sectorCode": "LD"
+                    },
+                    {
+                        "Total": "123",
+                        "OnTime": "110",
+                        "Late": "13",
+                        "CancelVeryLate": "5",
+                        "PPM": {
+                            "text": "89",
+                            "rag": "A"
+                        },
+                        "RollingPPM": {
+                            "text": "95",
+                            "rag": "G",
+                            "displayFlag": "Y",
+                            "trendInd": "+"
+                        },
+                        "name": "East Midlands Inter Urban",
+                        "timeband": "10",
+                        "sectorCode": "LD"
+                    },
+                    {
+                        "Total": "132",
+                        "OnTime": "125",
+                        "Late": "7",
+                        "CancelVeryLate": "2",
+                        "PPM": {
+                            "text": "94",
+                            "rag": "G"
+                        },
+                        "RollingPPM": {
+                            "text": "100",
+                            "rag": "G",
+                            "displayFlag": "Y",
+                            "trendInd": "+"
+                        },
+                        "name": "East Midlands Local",
+                        "timeband": "5",
+                        "sectorCode": "REG"
+                    },
+                    {
+                        "Total": "64",
+                        "OnTime": "46",
+                        "Late": "18",
+                        "CancelVeryLate": "6",
+                        "PPM": {
+                            "text": "71",
+                            "rag": "R"
+                        },
+                        "RollingPPM": {
+                            "text": "88",
+                            "rag": "R",
+                            "displayFlag": "Y",
+                            "trendInd": "+"
+                        },
+                        "name": "East Midlands Regional",
+                        "timeband": "5",
+                        "sectorCode": "REG"
+                    },
+                    {
+                        "Total": "29",
+                        "OnTime": "27",
+                        "Late": "2",
+                        "CancelVeryLate": "1",
+                        "PPM": {
+                            "text": "93",
+                            "rag": "G"
+                        },
+                        "RollingPPM": {
+                            "text": "100",
+                            "rag": "G",
+                            "displayFlag": "Y",
+                            "trendInd": "+"
+                        },
+                        "name": "Liverpool - Norwich",
+                        "timeband": "10",
+                        "sectorCode": "LD"
+                    }
+                ]
+            },
+            {
+                "Operator": {
+                    "Total": "39",
+                    "OnTime": "35",
+                    "Late": "4",
+                    "CancelVeryLate": "0",
+                    "PPM": {
+                        "text": "89",
+                        "rag": "G"
+                    },
+                    "RollingPPM": {
+                        "text": "100",
+                        "rag": "G",
+                        "displayFlag": "Y",
+                        "trendInd": "+"
+                    },
+                    "code": "42",
+                    "name": "Colas Freight"
+                },
+                "OprToleranceTotal": {
+                    "Total": "39",
+                    "OnTime": "35",
+                    "Late": "4",
+                    "CancelVeryLate": "0",
+                    "timeband": "15"
+                }
+            },
+            {
+                "Operator": {
+                    "Total": "59",
+                    "OnTime": "53",
+                    "Late": "6",
+                    "CancelVeryLate": "0",
+                    "PPM": {
+                        "text": "89",
+                        "rag": "G"
+                    },
+                    "RollingPPM": {
+                        "text": "100",
+                        "rag": "G",
+                        "displayFlag": "Y",
+                        "trendInd": "+"
+                    },
+                    "code": "FLI",
+                    "name": "Freightliner Intermodal"
+                },
+                "OprToleranceTotal": {
+                    "Total": "59",
+                    "OnTime": "53",
+                    "Late": "6",
+                    "CancelVeryLate": "0",
+                    "timeband": "15"
+                },
+                "OprServiceGrp": {
+                    "Total": "59",
+                    "OnTime": "53",
+                    "Late": "6",
+                    "CancelVeryLate": "0",
+                    "PPM": {
+                        "text": "89",
+                        "rag": "G"
+                    },
+                    "RollingPPM": {
+                        "text": "100",
+                        "rag": "G",
+                        "displayFlag": "Y",
+                        "trendInd": "+"
+                    },
+                    "name": "Unallocated Trains",
+                    "timeband": "15"
+                }
+            },
+            {
+                "Operator": {
+                    "Total": "129",
+                    "OnTime": "116",
+                    "Late": "13",
+                    "CancelVeryLate": "4",
+                    "PPM": {
+                        "text": "89",
+                        "rag": "A"
+                    },
+                    "RollingPPM": {
+                        "text": "100",
+                        "rag": "G",
+                        "displayFlag": "Y",
+                        "trendInd": "+"
+                    },
+                    "code": "61",
+                    "name": "London North Eastern Railway",
+                    "keySymbol": "*"
+                },
+                "OprToleranceTotal": {
+                    "Total": "129",
+                    "OnTime": "116",
+                    "Late": "13",
+                    "CancelVeryLate": "4",
+                    "timeband": "10"
+                },
+                "OprServiceGrp": [
+                    {
+                        "Total": "10",
+                        "OnTime": "7",
+                        "Late": "3",
+                        "CancelVeryLate": "1",
+                        "PPM": {
+                            "text": "70",
+                            "rag": "R"
+                        },
+                        "RollingPPM": {
+                            "text": "100",
+                            "rag": "G",
+                            "displayFlag": "Y",
+                            "trendInd": "+"
+                        },
+                        "name": "Anglo - Scottish (Aberdeen / Inverness)",
+                        "timeband": "10",
+                        "sectorCode": "LD"
+                    },
+                    {
+                        "Total": "52",
+                        "OnTime": "46",
+                        "Late": "6",
+                        "CancelVeryLate": "1",
+                        "PPM": {
+                            "text": "88",
+                            "rag": "R"
+                        },
+                        "RollingPPM": {
+                            "text": "100",
+                            "rag": "G",
+                            "displayFlag": "Y",
+                            "trendInd": "+"
+                        },
+                        "name": "Anglo-Scottish",
+                        "timeband": "10",
+                        "sectorCode": "LD"
+                    },
+                    {
+                        "Total": "64",
+                        "OnTime": "60",
+                        "Late": "4",
+                        "CancelVeryLate": "2",
+                        "PPM": {
+                            "text": "93",
+                            "rag": "G"
+                        },
+                        "RollingPPM": {
+                            "text": "100",
+                            "rag": "G",
+                            "displayFlag": "Y",
+                            "trendInd": "+"
+                        },
+                        "name": "West Yorkshire",
+                        "timeband": "10",
+                        "sectorCode": "LD"
+                    },
+                    {
+                        "Total": "3",
+                        "OnTime": "3",
+                        "Late": "0",
+                        "CancelVeryLate": "0",
+                        "PPM": {
+                            "text": "100",
+                            "rag": "G"
+                        },
+                        "RollingPPM": {
+                            "text": "-1",
+                            "rag": "W",
+                            "displayFlag": "Y"
+                        },
+                        "name": "West Yorkshire - Kings X - Bradford / Hull",
+                        "timeband": "10",
+                        "sectorCode": "LD"
+                    }
+                ]
+            },
+            {
+                "Operator": {
+                    "Total": "956",
+                    "OnTime": "860",
+                    "Late": "96",
+                    "CancelVeryLate": "27",
+                    "PPM": {
+                        "text": "89",
+                        "rag": "A"
+                    },
+                    "RollingPPM": {
+                        "text": "80",
+                        "rag": "R",
+                        "displayFlag": "Y",
+                        "trendInd": "-"
+                    },
+                    "code": "29",
+                    "name": "West Midlands Trains",
+                    "keySymbol": "^"
+                },
+                "OprToleranceTotal": {
+                    "Total": "956",
+                    "OnTime": "860",
+                    "Late": "96",
+                    "CancelVeryLate": "27",
+                    "timeband": "5"
+                },
+                "OprServiceGrp": [
+                    {
+                        "Total": "45",
+                        "OnTime": "43",
+                        "Late": "2",
+                        "CancelVeryLate": "0",
+                        "PPM": {
+                            "text": "95",
+                            "rag": "G"
+                        },
+                        "RollingPPM": {
+                            "text": "83",
+                            "rag": "R",
+                            "displayFlag": "Y",
+                            "trendInd": "-"
+                        },
+                        "name": "Trent Valley",
+                        "timeband": "5",
+                        "sectorCode": "REG"
+                    },
+                    {
+                        "Total": "34",
+                        "OnTime": "34",
+                        "Late": "0",
+                        "CancelVeryLate": "0",
+                        "PPM": {
+                            "text": "100",
+                            "rag": "G"
+                        },
+                        "RollingPPM": {
+                            "text": "100",
+                            "rag": "G",
+                            "displayFlag": "Y",
+                            "trendInd": "="
+                        },
+                        "name": "WCML : Branch Lines",
+                        "timeband": "5",
+                        "sectorCode": "LSE"
+                    },
+                    {
+                        "Total": "178",
+                        "OnTime": "169",
+                        "Late": "9",
+                        "CancelVeryLate": "0",
+                        "PPM": {
+                            "text": "94",
+                            "rag": "G"
+                        },
+                        "RollingPPM": {
+                            "text": "88",
+                            "rag": "R",
+                            "displayFlag": "Y",
+                            "trendInd": "-"
+                        },
+                        "name": "WCML : London - Northampton",
+                        "timeband": "5",
+                        "sectorCode": "LSE"
+                    },
+                    {
+                        "Total": "98",
+                        "OnTime": "78",
+                        "Late": "20",
+                        "CancelVeryLate": "0",
+                        "PPM": {
+                            "text": "79",
+                            "rag": "R"
+                        },
+                        "RollingPPM": {
+                            "text": "57",
+                            "rag": "R",
+                            "displayFlag": "Y",
+                            "trendInd": "-"
+                        },
+                        "name": "West Midlands - Inter Urban",
+                        "timeband": "5",
+                        "sectorCode": "REG"
+                    },
+                    {
+                        "Total": "309",
+                        "OnTime": "267",
+                        "Late": "42",
+                        "CancelVeryLate": "13",
+                        "PPM": {
+                            "text": "86",
+                            "rag": "R"
+                        },
+                        "RollingPPM": {
+                            "text": "69",
+                            "rag": "R",
+                            "displayFlag": "Y",
+                            "trendInd": "-"
+                        },
+                        "name": "West Midlands - New St (Local)",
+                        "timeband": "5",
+                        "sectorCode": "REG"
+                    },
+                    {
+                        "Total": "292",
+                        "OnTime": "269",
+                        "Late": "23",
+                        "CancelVeryLate": "14",
+                        "PPM": {
+                            "text": "92",
+                            "rag": "G"
+                        },
+                        "RollingPPM": {
+                            "text": "90",
+                            "rag": "A",
+                            "displayFlag": "Y",
+                            "trendInd": "-"
+                        },
+                        "name": "West Midlands - Snow Hill",
+                        "timeband": "5",
+                        "sectorCode": "REG"
+                    }
+                ]
+            },
+            {
+                "Operator": {
+                    "Total": "1281",
+                    "OnTime": "1155",
+                    "Late": "126",
+                    "CancelVeryLate": "19",
+                    "PPM": {
+                        "text": "90",
+                        "rag": "A"
+                    },
+                    "RollingPPM": {
+                        "text": "90",
+                        "rag": "A",
+                        "displayFlag": "Y",
+                        "trendInd": "="
+                    },
+                    "code": "25",
+                    "name": "Great Western Railway"
+                },
+                "OprToleranceTotal": [
+                    {
+                        "Total": "1089",
+                        "OnTime": "998",
+                        "Late": "91",
+                        "CancelVeryLate": "17",
+                        "timeband": "5"
+                    },
+                    {
+                        "Total": "192",
+                        "OnTime": "157",
+                        "Late": "35",
+                        "CancelVeryLate": "2",
+                        "timeband": "10"
+                    }
+                ],
+                "OprServiceGrp": [
+                    {
+                        "Total": "140",
+                        "OnTime": "127",
+                        "Late": "13",
+                        "CancelVeryLate": "0",
+                        "PPM": {
+                            "text": "90",
+                            "rag": "A"
+                        },
+                        "RollingPPM": {
+                            "text": "95",
+                            "rag": "G",
+                            "displayFlag": "Y",
+                            "trendInd": "+"
+                        },
+                        "name": "Bristol Suburban",
+                        "timeband": "5",
+                        "sectorCode": "REG"
+                    },
+                    {
+                        "Total": "116",
+                        "OnTime": "105",
+                        "Late": "11",
+                        "CancelVeryLate": "9",
+                        "PPM": {
+                            "text": "90",
+                            "rag": "A"
+                        },
+                        "RollingPPM": {
+                            "text": "64",
+                            "rag": "R",
+                            "displayFlag": "Y",
+                            "trendInd": "-"
+                        },
+                        "name": "Devon",
+                        "timeband": "5",
+                        "sectorCode": "REG"
+                    },
+                    {
+                        "Total": "57",
+                        "OnTime": "43",
+                        "Late": "14",
+                        "CancelVeryLate": "1",
+                        "PPM": {
+                            "text": "75",
+                            "rag": "R"
+                        },
+                        "RollingPPM": {
+                            "text": "66",
+                            "rag": "R",
+                            "displayFlag": "Y",
+                            "trendInd": "-"
+                        },
+                        "name": "London - Bristol",
+                        "timeband": "10",
+                        "sectorCode": "LD"
+                    },
+                    {
+                        "Total": "60",
+                        "OnTime": "57",
+                        "Late": "3",
+                        "CancelVeryLate": "0",
+                        "PPM": {
+                            "text": "95",
+                            "rag": "G"
+                        },
+                        "RollingPPM": {
+                            "text": "100",
+                            "rag": "G",
+                            "displayFlag": "Y",
+                            "trendInd": "+"
+                        },
+                        "name": "London - Cotswolds",
+                        "timeband": "10",
+                        "sectorCode": "LD"
+                    },
+                    {
+                        "Total": "50",
+                        "OnTime": "36",
+                        "Late": "14",
+                        "CancelVeryLate": "1",
+                        "PPM": {
+                            "text": "72",
+                            "rag": "R"
+                        },
+                        "RollingPPM": {
+                            "text": "100",
+                            "rag": "G",
+                            "displayFlag": "Y",
+                            "trendInd": "+"
+                        },
+                        "name": "London - South Wales",
+                        "timeband": "10",
+                        "sectorCode": "LD"
+                    },
+                    {
+                        "Total": "25",
+                        "OnTime": "21",
+                        "Late": "4",
+                        "CancelVeryLate": "0",
+                        "PPM": {
+                            "text": "84",
+                            "rag": "R"
+                        },
+                        "RollingPPM": {
+                            "text": "100",
+                            "rag": "G",
+                            "displayFlag": "Y",
+                            "trendInd": "+"
+                        },
+                        "name": "London - West Of England",
+                        "timeband": "10",
+                        "sectorCode": "LD"
+                    },
+                    {
+                        "Total": "63",
+                        "OnTime": "50",
+                        "Late": "13",
+                        "CancelVeryLate": "8",
+                        "PPM": {
+                            "text": "79",
+                            "rag": "R"
+                        },
+                        "RollingPPM": {
+                            "text": "100",
+                            "rag": "G",
+                            "displayFlag": "Y",
+                            "trendInd": "+"
+                        },
+                        "name": "North Downs",
+                        "timeband": "5",
+                        "sectorCode": "LSE"
+                    },
+                    {
+                        "Total": "175",
+                        "OnTime": "142",
+                        "Late": "33",
+                        "CancelVeryLate": "0",
+                        "PPM": {
+                            "text": "81",
+                            "rag": "R"
+                        },
+                        "RollingPPM": {
+                            "text": "80",
+                            "rag": "R",
+                            "displayFlag": "Y",
+                            "trendInd": "-"
+                        },
+                        "name": "Outer Thames Valley - London",
+                        "timeband": "5",
+                        "sectorCode": "LSE"
+                    },
+                    {
+                        "Total": "189",
+                        "OnTime": "183",
+                        "Late": "6",
+                        "CancelVeryLate": "0",
+                        "PPM": {
+                            "text": "96",
+                            "rag": "G"
+                        },
+                        "RollingPPM": {
+                            "text": "100",
+                            "rag": "G",
+                            "displayFlag": "Y",
+                            "trendInd": "+"
+                        },
+                        "name": "Plymouth & Cornwall",
+                        "timeband": "5",
+                        "sectorCode": "REG"
+                    },
+                    {
+                        "Total": "83",
+                        "OnTime": "82",
+                        "Late": "1",
+                        "CancelVeryLate": "0",
+                        "PPM": {
+                            "text": "98",
+                            "rag": "G"
+                        },
+                        "RollingPPM": {
+                            "text": "100",
+                            "rag": "G",
+                            "displayFlag": "Y",
+                            "trendInd": "+"
+                        },
+                        "name": "Reading & Oxford Suburban",
+                        "timeband": "5",
+                        "sectorCode": "LSE"
+                    },
+                    {
+                        "Total": "61",
+                        "OnTime": "50",
+                        "Late": "11",
+                        "CancelVeryLate": "0",
+                        "PPM": {
+                            "text": "81",
+                            "rag": "R"
+                        },
+                        "RollingPPM": {
+                            "text": "42",
+                            "rag": "R",
+                            "displayFlag": "Y",
+                            "trendInd": "-"
+                        },
+                        "name": "South Wales - South Coast",
+                        "timeband": "5",
+                        "sectorCode": "REG"
+                    },
+                    {
+                        "Total": "262",
+                        "OnTime": "259",
+                        "Late": "3",
+                        "CancelVeryLate": "0",
+                        "PPM": {
+                            "text": "98",
+                            "rag": "G"
+                        },
+                        "RollingPPM": {
+                            "text": "100",
+                            "rag": "G",
+                            "displayFlag": "Y",
+                            "trendInd": "+"
+                        },
+                        "name": "Thames Valley Branches",
+                        "timeband": "5",
+                        "sectorCode": "LSE"
+                    }
+                ]
+            },
+            {
+                "Operator": {
+                    "Total": "212",
+                    "OnTime": "192",
+                    "Late": "20",
+                    "CancelVeryLate": "2",
+                    "PPM": {
+                        "text": "90",
+                        "rag": "A"
+                    },
+                    "RollingPPM": {
+                        "text": "87",
+                        "rag": "R",
+                        "displayFlag": "Y",
+                        "trendInd": "-"
+                    },
+                    "code": "65",
+                    "name": "Avanti West Coast",
+                    "keySymbol": "*"
+                },
+                "OprToleranceTotal": {
+                    "Total": "212",
+                    "OnTime": "192",
+                    "Late": "20",
+                    "CancelVeryLate": "2",
+                    "timeband": "10"
+                },
+                "OprServiceGrp": [
+                    {
+                        "Total": "24",
+                        "OnTime": "22",
+                        "Late": "2",
+                        "CancelVeryLate": "0",
+                        "PPM": {
+                            "text": "91",
+                            "rag": "A"
+                        },
+                        "RollingPPM": {
+                            "text": "80",
+                            "rag": "R",
+                            "displayFlag": "Y",
+                            "trendInd": "-"
+                        },
+                        "name": "Birmingham - Scotland",
+                        "timeband": "10",
+                        "sectorCode": "LD"
+                    },
+                    {
+                        "Total": "38",
+                        "OnTime": "35",
+                        "Late": "3",
+                        "CancelVeryLate": "0",
+                        "PPM": {
+                            "text": "92",
+                            "rag": "G"
+                        },
+                        "RollingPPM": {
+                            "text": "80",
+                            "rag": "R",
+                            "displayFlag": "Y",
+                            "trendInd": "-"
+                        },
+                        "name": "Euston - Birmingham & Wolverhampton",
+                        "timeband": "10",
+                        "sectorCode": "LD"
+                    },
+                    {
+                        "Total": "25",
+                        "OnTime": "23",
+                        "Late": "2",
+                        "CancelVeryLate": "0",
+                        "PPM": {
+                            "text": "92",
+                            "rag": "G"
+                        },
+                        "RollingPPM": {
+                            "text": "80",
+                            "rag": "R",
+                            "displayFlag": "Y",
+                            "trendInd": "-"
+                        },
+                        "name": "Euston - Carlisle/Scotland",
+                        "timeband": "10",
+                        "sectorCode": "LD"
+                    },
+                    {
+                        "Total": "26",
+                        "OnTime": "25",
+                        "Late": "1",
+                        "CancelVeryLate": "0",
+                        "PPM": {
+                            "text": "96",
+                            "rag": "G"
+                        },
+                        "RollingPPM": {
+                            "text": "100",
+                            "rag": "G",
+                            "displayFlag": "Y",
+                            "trendInd": "+"
+                        },
+                        "name": "Euston - Liverpool",
+                        "timeband": "10",
+                        "sectorCode": "LD"
+                    },
+                    {
+                        "Total": "81",
+                        "OnTime": "69",
+                        "Late": "12",
+                        "CancelVeryLate": "2",
+                        "PPM": {
+                            "text": "85",
+                            "rag": "R"
+                        },
+                        "RollingPPM": {
+                            "text": "90",
+                            "rag": "A",
+                            "displayFlag": "Y",
+                            "trendInd": "+"
+                        },
+                        "name": "Euston - Manchester",
+                        "timeband": "10",
+                        "sectorCode": "LD"
+                    },
+                    {
+                        "Total": "18",
+                        "OnTime": "18",
+                        "Late": "0",
+                        "CancelVeryLate": "0",
+                        "PPM": {
+                            "text": "100",
+                            "rag": "G"
+                        },
+                        "RollingPPM": {
+                            "text": "100",
+                            "rag": "G",
+                            "displayFlag": "Y",
+                            "trendInd": "="
+                        },
+                        "name": "Euston - North Wales",
+                        "timeband": "10",
+                        "sectorCode": "LD"
+                    }
+                ]
+            },
+            {
+                "Operator": {
+                    "Total": "186",
+                    "OnTime": "169",
+                    "Late": "17",
+                    "CancelVeryLate": "9",
+                    "PPM": {
+                        "text": "90",
+                        "rag": "A"
+                    },
+                    "RollingPPM": {
+                        "text": "82",
+                        "rag": "R",
+                        "displayFlag": "Y",
+                        "trendInd": "-"
+                    },
+                    "code": "27",
+                    "name": "CrossCountry",
+                    "keySymbol": "*"
+                },
+                "OprToleranceTotal": {
+                    "Total": "186",
+                    "OnTime": "169",
+                    "Late": "17",
+                    "CancelVeryLate": "9",
+                    "timeband": "10"
+                },
+                "OprServiceGrp": [
+                    {
+                        "Total": "75",
+                        "OnTime": "70",
+                        "Late": "5",
+                        "CancelVeryLate": "2",
+                        "PPM": {
+                            "text": "93",
+                            "rag": "G"
+                        },
+                        "RollingPPM": {
+                            "text": "92",
+                            "rag": "G",
+                            "displayFlag": "Y",
+                            "trendInd": "-"
+                        },
+                        "name": "CrossCountry Inter City",
+                        "timeband": "10",
+                        "sectorCode": "LD"
+                    },
+                    {
+                        "Total": "111",
+                        "OnTime": "99",
+                        "Late": "12",
+                        "CancelVeryLate": "7",
+                        "PPM": {
+                            "text": "89",
+                            "rag": "A"
+                        },
+                        "RollingPPM": {
+                            "text": "73",
+                            "rag": "R",
+                            "displayFlag": "Y",
+                            "trendInd": "-"
+                        },
+                        "name": "CrossCountry Local & Provincial",
+                        "timeband": "10",
+                        "sectorCode": "LD"
+                    }
+                ]
+            },
+            {
+                "Operator": {
+                    "Total": "11",
+                    "OnTime": "10",
+                    "Late": "1",
+                    "CancelVeryLate": "0",
+                    "PPM": {
+                        "text": "90",
+                        "rag": "A"
+                    },
+                    "RollingPPM": {
+                        "text": "-1",
+                        "rag": "W",
+                        "displayFlag": "Y"
+                    },
+                    "code": "55",
+                    "name": "Hull Trains",
+                    "keySymbol": "*"
+                },
+                "OprToleranceTotal": {
+                    "Total": "11",
+                    "OnTime": "10",
+                    "Late": "1",
+                    "CancelVeryLate": "0",
+                    "timeband": "10"
+                }
+            },
+            {
+                "Operator": {
+                    "Total": "1857",
+                    "OnTime": "1697",
+                    "Late": "160",
+                    "CancelVeryLate": "66",
+                    "PPM": {
+                        "text": "91",
+                        "rag": "A"
+                    },
+                    "RollingPPM": {
+                        "text": "92",
+                        "rag": "G",
+                        "displayFlag": "Y",
+                        "trendInd": "+"
+                    },
+                    "code": "60",
+                    "name": "ScotRail",
+                    "keySymbol": "^"
+                },
+                "OprToleranceTotal": {
+                    "Total": "1857",
+                    "OnTime": "1697",
+                    "Late": "160",
+                    "CancelVeryLate": "66",
+                    "timeband": "5"
+                },
+                "OprServiceGrp": [
+                    {
+                        "Total": "305",
+                        "OnTime": "296",
+                        "Late": "9",
+                        "CancelVeryLate": "1",
+                        "PPM": {
+                            "text": "97",
+                            "rag": "G"
+                        },
+                        "RollingPPM": {
+                            "text": "100",
+                            "rag": "G",
+                            "displayFlag": "Y",
+                            "trendInd": "+"
+                        },
+                        "name": "Ayrshire and Inverclyde",
+                        "timeband": "5",
+                        "sectorCode": "SCO"
+                    },
+                    {
+                        "Total": "230",
+                        "OnTime": "221",
+                        "Late": "9",
+                        "CancelVeryLate": "1",
+                        "PPM": {
+                            "text": "96",
+                            "rag": "G"
+                        },
+                        "RollingPPM": {
+                            "text": "100",
+                            "rag": "G",
+                            "displayFlag": "Y",
+                            "trendInd": "+"
+                        },
+                        "name": "East Coast Suburban",
+                        "timeband": "5",
+                        "sectorCode": "SCO"
+                    },
+                    {
+                        "Total": "76",
+                        "OnTime": "73",
+                        "Late": "3",
+                        "CancelVeryLate": "0",
+                        "PPM": {
+                            "text": "96",
+                            "rag": "G"
+                        },
+                        "RollingPPM": {
+                            "text": "80",
+                            "rag": "R",
+                            "displayFlag": "Y",
+                            "trendInd": "-"
+                        },
+                        "name": "Express (E&G)",
+                        "timeband": "5",
+                        "sectorCode": "SCO"
+                    },
+                    {
+                        "Total": "156",
+                        "OnTime": "152",
+                        "Late": "4",
+                        "CancelVeryLate": "0",
+                        "PPM": {
+                            "text": "97",
+                            "rag": "G"
+                        },
+                        "RollingPPM": {
+                            "text": "88",
+                            "rag": "R",
+                            "displayFlag": "Y",
+                            "trendInd": "-"
+                        },
+                        "name": "Glasgow Suburban North",
+                        "timeband": "5",
+                        "sectorCode": "SCO"
+                    },
+                    {
+                        "Total": "305",
+                        "OnTime": "294",
+                        "Late": "11",
+                        "CancelVeryLate": "2",
+                        "PPM": {
+                            "text": "96",
+                            "rag": "G"
+                        },
+                        "RollingPPM": {
+                            "text": "100",
+                            "rag": "G",
+                            "displayFlag": "Y",
+                            "trendInd": "+"
+                        },
+                        "name": "Glasgow Suburban South",
+                        "timeband": "5",
+                        "sectorCode": "SCO"
+                    },
+                    {
+                        "Total": "105",
+                        "OnTime": "87",
+                        "Late": "18",
+                        "CancelVeryLate": "4",
+                        "PPM": {
+                            "text": "82",
+                            "rag": "R"
+                        },
+                        "RollingPPM": {
+                            "text": "100",
+                            "rag": "G",
+                            "displayFlag": "Y",
+                            "trendInd": "+"
+                        },
+                        "name": "Highland Rural",
+                        "timeband": "5",
+                        "sectorCode": "SCO"
+                    },
+                    {
+                        "Total": "181",
+                        "OnTime": "163",
+                        "Late": "18",
+                        "CancelVeryLate": "10",
+                        "PPM": {
+                            "text": "90",
+                            "rag": "A"
+                        },
+                        "RollingPPM": {
+                            "text": "75",
+                            "rag": "R",
+                            "displayFlag": "Y",
+                            "trendInd": "-"
+                        },
+                        "name": "InterCity",
+                        "timeband": "5",
+                        "sectorCode": "SCO"
+                    },
+                    {
+                        "Total": "445",
+                        "OnTime": "360",
+                        "Late": "85",
+                        "CancelVeryLate": "48",
+                        "PPM": {
+                            "text": "80",
+                            "rag": "R"
+                        },
+                        "RollingPPM": {
+                            "text": "87",
+                            "rag": "R",
+                            "displayFlag": "Y",
+                            "trendInd": "+"
+                        },
+                        "name": "North Electrics and Argyle Line",
+                        "timeband": "5",
+                        "sectorCode": "SCO"
+                    },
+                    {
+                        "Total": "54",
+                        "OnTime": "51",
+                        "Late": "3",
+                        "CancelVeryLate": "0",
+                        "PPM": {
+                            "text": "94",
+                            "rag": "G"
+                        },
+                        "RollingPPM": {
+                            "text": "87",
+                            "rag": "R",
+                            "displayFlag": "Y",
+                            "trendInd": "-"
+                        },
+                        "name": "South West Rural",
+                        "timeband": "5",
+                        "sectorCode": "SCO"
+                    }
+                ]
+            },
+            {
+                "Operator": {
+                    "Total": "276",
+                    "OnTime": "257",
+                    "Late": "19",
+                    "CancelVeryLate": "1",
+                    "PPM": {
+                        "text": "93",
+                        "rag": "G"
+                    },
+                    "RollingPPM": {
+                        "text": "88",
+                        "rag": "R",
+                        "displayFlag": "Y",
+                        "trendInd": "-"
+                    },
+                    "code": "79",
+                    "name": "c2c",
+                    "keySymbol": "^"
+                },
+                "OprToleranceTotal": {
+                    "Total": "276",
+                    "OnTime": "257",
+                    "Late": "19",
+                    "CancelVeryLate": "1",
+                    "timeband": "5"
+                },
+                "OprServiceGrp": {
+                    "Total": "276",
+                    "OnTime": "257",
+                    "Late": "19",
+                    "CancelVeryLate": "1",
+                    "PPM": {
+                        "text": "93",
+                        "rag": "G"
+                    },
+                    "RollingPPM": {
+                        "text": "88",
+                        "rag": "R",
+                        "displayFlag": "Y",
+                        "trendInd": "-"
+                    },
+                    "name": "London/Tilbury/Southend/Shoeburyness",
+                    "timeband": "5",
+                    "sectorCode": "LSE"
+                }
+            },
+            {
+                "Operator": {
+                    "Total": "1005",
+                    "OnTime": "937",
+                    "Late": "68",
+                    "CancelVeryLate": "29",
+                    "PPM": {
+                        "text": "93",
+                        "rag": "G"
+                    },
+                    "RollingPPM": {
+                        "text": "97",
+                        "rag": "G",
+                        "displayFlag": "Y",
+                        "trendInd": "+"
+                    },
+                    "code": "21",
+                    "name": "Greater Anglia"
+                },
+                "OprToleranceTotal": [
+                    {
+                        "Total": "946",
+                        "OnTime": "883",
+                        "Late": "63",
+                        "CancelVeryLate": "29",
+                        "timeband": "5"
+                    },
+                    {
+                        "Total": "59",
+                        "OnTime": "54",
+                        "Late": "5",
+                        "CancelVeryLate": "0",
+                        "timeband": "10"
+                    }
+                ],
+                "OprServiceGrp": [
+                    {
+                        "Total": "59",
+                        "OnTime": "54",
+                        "Late": "5",
+                        "CancelVeryLate": "0",
+                        "PPM": {
+                            "text": "91",
+                            "rag": "A"
+                        },
+                        "RollingPPM": {
+                            "text": "100",
+                            "rag": "G",
+                            "displayFlag": "Y",
+                            "trendInd": "+"
+                        },
+                        "name": "Anglia Inter City",
+                        "timeband": "10",
+                        "sectorCode": "LD"
+                    },
+                    {
+                        "Total": "217",
+                        "OnTime": "196",
+                        "Late": "21",
+                        "CancelVeryLate": "11",
+                        "PPM": {
+                            "text": "90",
+                            "rag": "A"
+                        },
+                        "RollingPPM": {
+                            "text": "100",
+                            "rag": "G",
+                            "displayFlag": "Y",
+                            "trendInd": "+"
+                        },
+                        "name": "Anglia Locals",
+                        "timeband": "5",
+                        "sectorCode": "LSE"
+                    },
+                    {
+                        "Total": "250",
+                        "OnTime": "232",
+                        "Late": "18",
+                        "CancelVeryLate": "6",
+                        "PPM": {
+                            "text": "92",
+                            "rag": "G"
+                        },
+                        "RollingPPM": {
+                            "text": "100",
+                            "rag": "G",
+                            "displayFlag": "Y",
+                            "trendInd": "+"
+                        },
+                        "name": "Great Eastern Outers",
+                        "timeband": "5",
+                        "sectorCode": "LSE"
+                    },
+                    {
+                        "Total": "143",
+                        "OnTime": "125",
+                        "Late": "18",
+                        "CancelVeryLate": "10",
+                        "PPM": {
+                            "text": "87",
+                            "rag": "R"
+                        },
+                        "RollingPPM": {
+                            "text": "100",
+                            "rag": "G",
+                            "displayFlag": "Y",
+                            "trendInd": "+"
+                        },
+                        "name": "Southend & Southminster",
+                        "timeband": "5",
+                        "sectorCode": "LSE"
+                    },
+                    {
+                        "Total": "140",
+                        "OnTime": "137",
+                        "Late": "3",
+                        "CancelVeryLate": "2",
+                        "PPM": {
+                            "text": "97",
+                            "rag": "G"
+                        },
+                        "RollingPPM": {
+                            "text": "91",
+                            "rag": "A",
+                            "displayFlag": "Y",
+                            "trendInd": "-"
+                        },
+                        "name": "West Anglia Inners",
+                        "timeband": "5",
+                        "sectorCode": "LSE"
+                    },
+                    {
+                        "Total": "196",
+                        "OnTime": "193",
+                        "Late": "3",
+                        "CancelVeryLate": "0",
+                        "PPM": {
+                            "text": "98",
+                            "rag": "G"
+                        },
+                        "RollingPPM": {
+                            "text": "95",
+                            "rag": "G",
+                            "displayFlag": "Y",
+                            "trendInd": "-"
+                        },
+                        "name": "West Anglia Outers",
+                        "timeband": "5",
+                        "sectorCode": "LSE"
+                    }
+                ]
+            },
+            {
+                "Operator": {
+                    "Total": "1313",
+                    "OnTime": "1236",
+                    "Late": "77",
+                    "CancelVeryLate": "14",
+                    "PPM": {
+                        "text": "94",
+                        "rag": "G"
+                    },
+                    "RollingPPM": {
+                        "text": "94",
+                        "rag": "G",
+                        "displayFlag": "Y",
+                        "trendInd": "="
+                    },
+                    "code": "84",
+                    "name": "South Western Railway",
+                    "keySymbol": "^"
+                },
+                "OprToleranceTotal": {
+                    "Total": "1313",
+                    "OnTime": "1236",
+                    "Late": "77",
+                    "CancelVeryLate": "14",
+                    "timeband": "5"
+                },
+                "OprServiceGrp": [
+                    {
+                        "Total": "368",
+                        "OnTime": "361",
+                        "Late": "7",
+                        "CancelVeryLate": "3",
+                        "PPM": {
+                            "text": "98",
+                            "rag": "G"
+                        },
+                        "RollingPPM": {
+                            "text": "100",
+                            "rag": "G",
+                            "displayFlag": "Y",
+                            "trendInd": "+"
+                        },
+                        "name": "Main Suburban",
+                        "timeband": "5",
+                        "sectorCode": "LSE"
+                    },
+                    {
+                        "Total": "50",
+                        "OnTime": "44",
+                        "Late": "6",
+                        "CancelVeryLate": "0",
+                        "PPM": {
+                            "text": "88",
+                            "rag": "R"
+                        },
+                        "RollingPPM": {
+                            "text": "83",
+                            "rag": "R",
+                            "displayFlag": "Y",
+                            "trendInd": "-"
+                        },
+                        "name": "South Hampshire Locals",
+                        "timeband": "5",
+                        "sectorCode": "LSE"
+                    },
+                    {
+                        "Total": "58",
+                        "OnTime": "54",
+                        "Late": "4",
+                        "CancelVeryLate": "0",
+                        "PPM": {
+                            "text": "93",
+                            "rag": "G"
+                        },
+                        "RollingPPM": {
+                            "text": "100",
+                            "rag": "G",
+                            "displayFlag": "Y",
+                            "trendInd": "+"
+                        },
+                        "name": "Waterloo - Farnham / Alton",
+                        "timeband": "5",
+                        "sectorCode": "LSE"
+                    },
+                    {
+                        "Total": "95",
+                        "OnTime": "86",
+                        "Late": "9",
+                        "CancelVeryLate": "0",
+                        "PPM": {
+                            "text": "90",
+                            "rag": "A"
+                        },
+                        "RollingPPM": {
+                            "text": "86",
+                            "rag": "R",
+                            "displayFlag": "Y",
+                            "trendInd": "-"
+                        },
+                        "name": "Waterloo - Portsmouth",
+                        "timeband": "5",
+                        "sectorCode": "LSE"
+                    },
+                    {
+                        "Total": "61",
+                        "OnTime": "53",
+                        "Late": "8",
+                        "CancelVeryLate": "4",
+                        "PPM": {
+                            "text": "86",
+                            "rag": "R"
+                        },
+                        "RollingPPM": {
+                            "text": "75",
+                            "rag": "R",
+                            "displayFlag": "Y",
+                            "trendInd": "-"
+                        },
+                        "name": "Waterloo - West England",
+                        "timeband": "5",
+                        "sectorCode": "LSE"
+                    },
+                    {
+                        "Total": "276",
+                        "OnTime": "249",
+                        "Late": "27",
+                        "CancelVeryLate": "6",
+                        "PPM": {
+                            "text": "90",
+                            "rag": "A"
+                        },
+                        "RollingPPM": {
+                            "text": "87",
+                            "rag": "R",
+                            "displayFlag": "Y",
+                            "trendInd": "-"
+                        },
+                        "name": "Waterloo - Weymouth",
+                        "timeband": "5",
+                        "sectorCode": "LSE"
+                    },
+                    {
+                        "Total": "223",
+                        "OnTime": "210",
+                        "Late": "13",
+                        "CancelVeryLate": "1",
+                        "PPM": {
+                            "text": "94",
+                            "rag": "G"
+                        },
+                        "RollingPPM": {
+                            "text": "100",
+                            "rag": "G",
+                            "displayFlag": "Y",
+                            "trendInd": "+"
+                        },
+                        "name": "Windsor Inners",
+                        "timeband": "5",
+                        "sectorCode": "LSE"
+                    },
+                    {
+                        "Total": "182",
+                        "OnTime": "179",
+                        "Late": "3",
+                        "CancelVeryLate": "0",
+                        "PPM": {
+                            "text": "98",
+                            "rag": "G"
+                        },
+                        "RollingPPM": {
+                            "text": "96",
+                            "rag": "G",
+                            "displayFlag": "Y",
+                            "trendInd": "-"
+                        },
+                        "name": "Windsor Outers",
+                        "timeband": "5",
+                        "sectorCode": "LSE"
+                    }
+                ]
+            },
+            {
+                "Operator": {
+                    "Total": "125",
+                    "OnTime": "118",
+                    "Late": "7",
+                    "CancelVeryLate": "1",
+                    "PPM": {
+                        "text": "94",
+                        "rag": "G"
+                    },
+                    "RollingPPM": {
+                        "text": "100",
+                        "rag": "G",
+                        "displayFlag": "Y",
+                        "trendInd": "+"
+                    },
+                    "code": "86",
+                    "name": "Heathrow Express"
+                },
+                "OprToleranceTotal": {
+                    "Total": "125",
+                    "OnTime": "118",
+                    "Late": "7",
+                    "CancelVeryLate": "1",
+                    "timeband": "5"
+                }
+            },
+            {
+                "Operator": {
+                    "Total": "290",
+                    "OnTime": "276",
+                    "Late": "14",
+                    "CancelVeryLate": "5",
+                    "PPM": {
+                        "text": "95",
+                        "rag": "G"
+                    },
+                    "RollingPPM": {
+                        "text": "73",
+                        "rag": "R",
+                        "displayFlag": "Y",
+                        "trendInd": "-"
+                    },
+                    "code": "74",
+                    "name": "Chiltern",
+                    "keySymbol": "^"
+                },
+                "OprToleranceTotal": {
+                    "Total": "290",
+                    "OnTime": "276",
+                    "Late": "14",
+                    "CancelVeryLate": "5",
+                    "timeband": "5"
+                },
+                "OprServiceGrp": [
+                    {
+                        "Total": "86",
+                        "OnTime": "78",
+                        "Late": "8",
+                        "CancelVeryLate": "4",
+                        "PPM": {
+                            "text": "90",
+                            "rag": "A"
+                        },
+                        "RollingPPM": {
+                            "text": "11",
+                            "rag": "R",
+                            "displayFlag": "Y",
+                            "trendInd": "-"
+                        },
+                        "name": "Birmingham",
+                        "timeband": "5",
+                        "sectorCode": "LSE"
+                    },
+                    {
+                        "Total": "81",
+                        "OnTime": "80",
+                        "Late": "1",
+                        "CancelVeryLate": "0",
+                        "PPM": {
+                            "text": "98",
+                            "rag": "G"
+                        },
+                        "RollingPPM": {
+                            "text": "100",
+                            "rag": "G",
+                            "displayFlag": "Y",
+                            "trendInd": "+"
+                        },
+                        "name": "Joint",
+                        "timeband": "5",
+                        "sectorCode": "LSE"
+                    },
+                    {
+                        "Total": "65",
+                        "OnTime": "61",
+                        "Late": "4",
+                        "CancelVeryLate": "1",
+                        "PPM": {
+                            "text": "93",
+                            "rag": "G"
+                        },
+                        "RollingPPM": {
+                            "text": "72",
+                            "rag": "R",
+                            "displayFlag": "Y",
+                            "trendInd": "-"
+                        },
+                        "name": "Met",
+                        "timeband": "5",
+                        "sectorCode": "LSE"
+                    },
+                    {
+                        "Total": "58",
+                        "OnTime": "57",
+                        "Late": "1",
+                        "CancelVeryLate": "0",
+                        "PPM": {
+                            "text": "98",
+                            "rag": "G"
+                        },
+                        "RollingPPM": {
+                            "text": "100",
+                            "rag": "G",
+                            "displayFlag": "Y",
+                            "trendInd": "+"
+                        },
+                        "name": "Oxford",
+                        "timeband": "5",
+                        "sectorCode": "LSE"
+                    }
+                ]
+            },
+            {
+                "Operator": {
+                    "Total": "1292",
+                    "OnTime": "1232",
+                    "Late": "60",
+                    "CancelVeryLate": "42",
+                    "PPM": {
+                        "text": "95",
+                        "rag": "G"
+                    },
+                    "RollingPPM": {
+                        "text": "98",
+                        "rag": "G",
+                        "displayFlag": "Y",
+                        "trendInd": "+"
+                    },
+                    "code": "30",
+                    "name": "London Overground",
+                    "keySymbol": "^"
+                },
+                "OprToleranceTotal": {
+                    "Total": "1292",
+                    "OnTime": "1232",
+                    "Late": "60",
+                    "CancelVeryLate": "42",
+                    "timeband": "5"
+                },
+                "OprServiceGrp": [
+                    {
+                        "Total": "468",
+                        "OnTime": "419",
+                        "Late": "49",
+                        "CancelVeryLate": "39",
+                        "PPM": {
+                            "text": "89",
+                            "rag": "A"
+                        },
+                        "RollingPPM": {
+                            "text": "100",
+                            "rag": "G",
+                            "displayFlag": "Y",
+                            "trendInd": "+"
+                        },
+                        "name": "East London Line",
+                        "timeband": "5",
+                        "sectorCode": "LSE"
+                    },
+                    {
+                        "Total": "118",
+                        "OnTime": "116",
+                        "Late": "2",
+                        "CancelVeryLate": "0",
+                        "PPM": {
+                            "text": "98",
+                            "rag": "G"
+                        },
+                        "RollingPPM": {
+                            "text": "100",
+                            "rag": "G",
+                            "displayFlag": "Y",
+                            "trendInd": "+"
+                        },
+                        "name": "London - Watford (D.C Lines)",
+                        "timeband": "5",
+                        "sectorCode": "LSE"
+                    },
+                    {
+                        "Total": "263",
+                        "OnTime": "262",
+                        "Late": "1",
+                        "CancelVeryLate": "0",
+                        "PPM": {
+                            "text": "99",
+                            "rag": "G"
+                        },
+                        "RollingPPM": {
+                            "text": "97",
+                            "rag": "G",
+                            "displayFlag": "Y",
+                            "trendInd": "-"
+                        },
+                        "name": "London Overground West Anglia",
+                        "timeband": "5",
+                        "sectorCode": "LSE"
+                    },
+                    {
+                        "Total": "384",
+                        "OnTime": "376",
+                        "Late": "8",
+                        "CancelVeryLate": "3",
+                        "PPM": {
+                            "text": "97",
+                            "rag": "G"
+                        },
+                        "RollingPPM": {
+                            "text": "96",
+                            "rag": "G",
+                            "displayFlag": "Y",
+                            "trendInd": "-"
+                        },
+                        "name": "North London / West London Orbital",
+                        "timeband": "5",
+                        "sectorCode": "LSE"
+                    },
+                    {
+                        "Total": "59",
+                        "OnTime": "59",
+                        "Late": "0",
+                        "CancelVeryLate": "0",
+                        "PPM": {
+                            "text": "100",
+                            "rag": "G"
+                        },
+                        "RollingPPM": {
+                            "text": "100",
+                            "rag": "G",
+                            "displayFlag": "Y",
+                            "trendInd": "="
+                        },
+                        "name": "Romford-Upminster",
+                        "timeband": "5",
+                        "sectorCode": "LSE"
+                    }
+                ]
+            },
+            {
+                "Operator": {
+                    "Total": "544",
+                    "OnTime": "519",
+                    "Late": "25",
+                    "CancelVeryLate": "2",
+                    "PPM": {
+                        "text": "95",
+                        "rag": "G"
+                    },
+                    "RollingPPM": {
+                        "text": "81",
+                        "rag": "R",
+                        "displayFlag": "Y",
+                        "trendInd": "-"
+                    },
+                    "code": "33",
+                    "name": "Elizabeth line",
+                    "keySymbol": "^"
+                },
+                "OprToleranceTotal": {
+                    "Total": "544",
+                    "OnTime": "519",
+                    "Late": "25",
+                    "CancelVeryLate": "2",
+                    "timeband": "5"
+                },
+                "OprServiceGrp": [
+                    {
+                        "Total": "26",
+                        "OnTime": "26",
+                        "Late": "0",
+                        "CancelVeryLate": "0",
+                        "PPM": {
+                            "text": "100",
+                            "rag": "G"
+                        },
+                        "RollingPPM": {
+                            "text": "100",
+                            "rag": "G",
+                            "displayFlag": "Y",
+                            "trendInd": "="
+                        },
+                        "name": "Elizabeth line Central",
+                        "timeband": "5",
+                        "sectorCode": "LSE"
+                    },
+                    {
+                        "Total": "389",
+                        "OnTime": "364",
+                        "Late": "25",
+                        "CancelVeryLate": "2",
+                        "PPM": {
+                            "text": "93",
+                            "rag": "G"
+                        },
+                        "RollingPPM": {
+                            "text": "75",
+                            "rag": "R",
+                            "displayFlag": "Y",
+                            "trendInd": "-"
+                        },
+                        "name": "Elizabeth line East",
+                        "timeband": "5",
+                        "sectorCode": "LSE"
+                    },
+                    {
+                        "Total": "129",
+                        "OnTime": "129",
+                        "Late": "0",
+                        "CancelVeryLate": "0",
+                        "PPM": {
+                            "text": "100",
+                            "rag": "G"
+                        },
+                        "RollingPPM": {
+                            "text": "100",
+                            "rag": "G",
+                            "displayFlag": "Y",
+                            "trendInd": "="
+                        },
+                        "name": "Elizabeth line West",
+                        "timeband": "5",
+                        "sectorCode": "LSE"
+                    }
+                ]
+            },
+            {
+                "Operator": {
+                    "Total": "23",
+                    "OnTime": "22",
+                    "Late": "1",
+                    "CancelVeryLate": "0",
+                    "PPM": {
+                        "text": "95",
+                        "rag": "G"
+                    },
+                    "RollingPPM": {
+                        "text": "100",
+                        "rag": "G",
+                        "displayFlag": "Y",
+                        "trendInd": "+"
+                    },
+                    "code": "97",
+                    "name": "Direct Rail Services"
+                },
+                "OprToleranceTotal": {
+                    "Total": "23",
+                    "OnTime": "22",
+                    "Late": "1",
+                    "CancelVeryLate": "0",
+                    "timeband": "15"
+                }
+            },
+            {
+                "Operator": {
+                    "Total": "492",
+                    "OnTime": "478",
+                    "Late": "14",
+                    "CancelVeryLate": "5",
+                    "PPM": {
+                        "text": "97",
+                        "rag": "G"
+                    },
+                    "RollingPPM": {
+                        "text": "93",
+                        "rag": "G",
+                        "displayFlag": "Y",
+                        "trendInd": "-"
+                    },
+                    "code": "64",
+                    "name": "Merseyrail",
+                    "keySymbol": "^"
+                },
+                "OprToleranceTotal": {
+                    "Total": "492",
+                    "OnTime": "478",
+                    "Late": "14",
+                    "CancelVeryLate": "5",
+                    "timeband": "5"
+                },
+                "OprServiceGrp": [
+                    {
+                        "Total": "304",
+                        "OnTime": "291",
+                        "Late": "13",
+                        "CancelVeryLate": "5",
+                        "PPM": {
+                            "text": "95",
+                            "rag": "G"
+                        },
+                        "RollingPPM": {
+                            "text": "89",
+                            "rag": "A",
+                            "displayFlag": "Y",
+                            "trendInd": "-"
+                        },
+                        "name": "Northern Lines",
+                        "timeband": "5",
+                        "sectorCode": "REG"
+                    },
+                    {
+                        "Total": "188",
+                        "OnTime": "187",
+                        "Late": "1",
+                        "CancelVeryLate": "0",
+                        "PPM": {
+                            "text": "99",
+                            "rag": "G"
+                        },
+                        "RollingPPM": {
+                            "text": "100",
+                            "rag": "G",
+                            "displayFlag": "Y",
+                            "trendInd": "+"
+                        },
+                        "name": "Wirral Lines",
+                        "timeband": "5",
+                        "sectorCode": "REG"
+                    }
+                ]
+            }
+        ],
+        "snapshotTStamp": "1677790680000"
+    },
+    "Sender": {
+        "organisation": "String",
+        "application": "RTPPM"
+    },
+    "Publication": {
+        "TopicID": "RTPPM/InternalPPM"
+    },
+    "classification": "public",
+    "timestamp": "1677790680000",
+    "owner": "Network Rail"
+}
