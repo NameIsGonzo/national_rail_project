@@ -27,9 +27,12 @@ kafka_options = {
 }
 
 # Define the schema of the incoming Kafka messages
-schema = StructType([
-    StructField("id", IntegerType()),
-    StructField("name", StringType())
+ppt_schema = StructType([
+    StructField("PPT", StructType([
+        StructField("text", StringType()),
+        StructField("rag", StringType()),
+        StructField("ragDisplayFlag", StringType())
+    ]))
 ])
 
 # Read from Kafka as a streaming DataFrame
@@ -38,9 +41,8 @@ df = (
     .format("kafka")
     .options(**kafka_options)
     .load()
-    .selectExpr("CAST(value AS STRING)")
-    .select(from_json(col("value"), schema).alias("data"))
-    .select(col("data.*"))
+    .select(from_json(col("value").cast("string"), ppt_schema).alias("parsed_value"))
+    .select("parsed_value.PPT.text", "parsed_value.PPT.rag")
 )
 
 

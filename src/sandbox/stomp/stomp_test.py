@@ -70,7 +70,7 @@ class StompClient(stomp.ConnectionListener):
             # Extract the RTPPMData from the Frame object
             body_str = frame.body.decode('utf-8')
             body_dict = json.loads(body_str)
-            rtppm_data = body_dict['RTPPMDataMsgV1']
+            rtppm_data = body_dict
 
             with open(filepath, 'w') as f:
                 json.dump(rtppm_data, f)
