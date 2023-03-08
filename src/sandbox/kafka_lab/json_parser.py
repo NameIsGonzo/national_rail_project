@@ -209,7 +209,7 @@ def flatten_operators_page(nested_dicts: list) -> dict:
 
 
 # ['RTPPMDataMsgV1']['RTPPMData']['OperatorPage']
-def flatten_operators_page_groups(nested_dicts: list) -> list:
+def flatten_operators_page_groups(nested_dicts: list) -> list[dict]:
     """
     Iterates over a list of nested dicts and retrieves only the service groups if exist
     After that it flattens the nested dicts inside the service groups and
@@ -297,4 +297,4 @@ def flatten_operators_page_groups(nested_dicts: list) -> list:
         except KeyError as e:
             logging.info(e)
 
-    return service_groups
+    return dict(service_groups)
