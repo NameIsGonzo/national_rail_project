@@ -15,16 +15,19 @@ The dashboard will display key performance indicators such as on-time percentage
 
 The dashboard will be designed for use by both operations managers and other stakeholders who need to monitor the performance of the National Rail system, as well as the general public. By making the dashboard publicly available, anyone can monitor the performance of the National Rail system without having to study the technical aspects of the underlying APIs.
 
-## 🛠️ Pre requisites:
 
-### 📡 Network Rail Account
+## 🛠️ Pre requisites: 
+
+<h3> 📡 Network Rail Account </h3>
+<hr>
 First, register for an account by visiting https://publicdatafeeds.networkrail.co.uk/. 
 <br> 
 
 You will receive a confirmation email 📧. Follow the instructions to log in and change your password. When your account is active, you can connect to the service. Your account may be in one of three states - the system will send you an email when your account is activated and able to access feeds.
 
 
-## 🚀 Apache Spark - PySpark
+<h3> 🚀 Apache Spark - PySpark </h3>
+<hr>
 To get started with this project on your local machine, you'll need to have Apache Spark installed. If you're not sure how to do that, don't worry - DataTalksClub has put together some great tutorials that cover different operating systems:
 
 🐧 [Linux](https://github.com/DataTalksClub/data-engineering-zoomcamp/blob/main/week_5_batch_processing/setup/linux.md)
@@ -42,7 +45,8 @@ Oh, and one more thing - we'll be using PySpark, which is the Python API for Spa
 
 Big thanks to [DataTalksClub](https://github.com/DataTalksClub) for creating these helpful tutorials! 👏
 
-## 🐍 Python Packages
+<h3> 🐍 Python Packages </h3>
+<hr>
 Make sure to run `pip install -r requirements.txt` to install all the necessary Python packages for this project.
 
 
