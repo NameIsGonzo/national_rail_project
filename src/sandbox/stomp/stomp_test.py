@@ -2,15 +2,13 @@ import stomp
 import logging
 import socket
 import time
-import io
-import zlib
-import ppv16.PPv16 as PPv16
 import json
+import os
 
 logging.basicConfig(level=logging.INFO)
 
-username: str = "gonzaloalcala0304@gmail.com"
-password: str = "000dataProject000!"
+username: str = os.environ.get('STOMP_USERNAME')
+password: str = os.environ.get('STOMP_PASSWORD')
 hostname: str = "publicdatafeeds.networkrail.co.uk"
 port: int = 61618
 topic: str = "/topic/RTPPM_ALL"
@@ -62,18 +60,14 @@ class StompClient(stomp.ConnectionListener):
 
     def on_message(self, frame) -> None:
 
-        filepath = r'/Users/gonzo/Desktop/RailScope/national_rail_project/src/sandbox/stomp/rtppm/rtppm_data.json'
         logging.info(frame)
         logging.info('-'*250)
         
         try:
             # Extract the RTPPMData from the Frame object
             body_str = frame.body.decode('utf-8')
-            body_dict = json.loads(body_str)
-            rtppm_data = body_dict
+            json_response = json.loads(body_str)
 
-            with open(filepath, 'w') as f:
-                json.dump(rtppm_data, f)
 
         except Exception as e:
             logging.error(str(e))
@@ -91,4 +85,3 @@ connect_and_subscribe(conn)
 while True:
     pass
 
-conn.disconect()
