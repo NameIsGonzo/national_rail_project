@@ -47,6 +47,12 @@ Big thanks to [DataTalksClub](https://github.com/DataTalksClub) for creating the
 
 <h3> 🐍 Python Packages </h3>
 <hr>
-Make sure to run `pip install -r requirements.txt` to install all the necessary Python packages for this project.
+Make sure to run the following in your terminal
+
+```bash
+pip install -r requirements.txt
+```
+
+To install all the necessary Python packages for this project.
 
 
