@@ -1,0 +1,17 @@
+{
+    "type": "record",
+    "name": "national_ppm",
+    "namespace": "com.example.avro",
+    "fields": [
+        {"name": "Total", "type": "string"},
+        {"name": "OnTime", "type": "string"},
+        {"name": "Late", "type": "string"},
+        {"name": "CancelVeryLate", "type": "string"},
+        {"name": "PPM_text", "type": "string"},
+        {"name": "PPM_rag", "type": "string"},
+        {"name": "PPM_ragDisplayFlag", "type": ["null", "string"]},
+        {"name": "RollingPPM_text", "type": "string"},
+        {"name": "RollingPPM_rag", "type": "string"},
+        {"name": "RollingPPM_trendInd", "type": ["null", "string"]}
+    ]
+}
