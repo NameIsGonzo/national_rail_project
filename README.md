@@ -19,30 +19,9 @@ The dashboard will be designed for use by both operations managers and other sta
 First, register for an account by visiting https://publicdatafeeds.networkrail.co.uk/. 
 You will receive a confirmation email 📧. Follow the instructions to log in and change your password. When your account is active, you can connect to the service. Your account may be in one of three states - the system will send you an email when your account is activated and able to access feeds.
 
-### 🚀 Apache Spark - PySpark
 
-To get started with this project on your local machine, you'll need to have Apache Spark installed. If you're not sure how to do that, don't worry - DataTalksClub has put together some great tutorials that cover different operating systems:
+## ☁️ Cloud 
 
-- 🐧 [Linux](https://github.com/DataTalksClub/data-engineering-zoomcamp/blob/main/week_5_batch_processing/setup/linux.md)
-- 🍎 [MacOS](https://github.com/DataTalksClub/data-engineering-zoomcamp/blob/main/week_5_batch_processing/setup/macos.md)
-- 🖥️ [Windows](https://github.com/DataTalksClub/data-engineering-zoomcamp/blob/main/week_5_batch_processing/setup/windows.md)
+## 💻 Local
 
-Just pick the one that's right for you and follow the instructions.
-
-Oh, and one more thing - we'll be using PySpark, which is the Python API for Spark. If you don't already have PySpark installed and configured, no worries - DataTalksClub has you covered there too:
-
-- 🐍 [PySpark](https://github.com/DataTalksClub/data-engineering-zoomcamp/blob/main/week_5_batch_processing/setup/pyspark.md)
-
-Big thanks to DataTalksClub for creating these helpful tutorials! 👏
-
-### 🐍 Python Packages
-
-Make sure to run the following in your terminal
-
-```bash
-pip install -r requirements.txt
-```
-
-To install all the necessary Python packages for this project.
-
-
+### Project overview
