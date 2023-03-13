@@ -26,19 +26,17 @@ def flatten_national_page_ppm(nested_dict: dict, parent_key="", sep="_") -> dict
                         },
     """
     items: list = []
-
     for key, value in nested_dict.items():
-        new_key: str = f"{parent_key}{sep}{key}" if parent_key else key
+        new_key: str = f'{parent_key}{sep}{key}' if parent_key else key
         if isinstance(value, dict):
             items.extend(flatten_national_page_ppm(value, new_key, sep=sep).items())
         else:
             items.append((new_key, value))
-
     return dict(items)
 
 
-# ['RTPPMDataMsgV1']['RTPPMData']['NationalPage']['Sector']
-def flatten_national_page_sector(nested_dict: list) -> dict:
+# ['RTPPMData']['NationalPage']['Sector']
+def flatten_national_page_sector(nested_dict: list) -> list[dict]:
     """Iterates over a list of nested dictionaries and flattens them into a dict of dicts
 
     example: dict =  "Sector": [
@@ -62,31 +60,33 @@ def flatten_national_page_sector(nested_dict: list) -> dict:
                                 "sectorDesc": "London and South East"
                             }]
     """
-    new_data: dict = {}
+    record_list: list = []
     # Traverse over the dicts inside the list
     for sector in nested_dict:
         # Create dict's from sector code and insert name
-        new_data[sector["sectorCode"]] = {"sectorName": sector["sectorDesc"]}
+        new_data: dict = {
+            "sectorCode": sector["sectorCode"],
+            "sectorName": sector["sectorDesc"],
+        }
         # Traverse over the nested dict's inside SectorPPM
         for key, value in sector["SectorPPM"].items():
             # Explode the nested dicts and add their keys as part of the new key names
             if key == "PPM":
-                new_data[sector["sectorCode"]]["PPM_text"] = value["text"]
-                new_data[sector["sectorCode"]]["PPM_rag"] = value["rag"]
+                new_data["PPM_text"] = value["text"]
+                new_data["PPM_rag"] = value["rag"]
             elif key == "RollingPPM":
-                new_data[sector["sectorCode"]]["RollingPPM_text"] = value["text"]
-                new_data[sector["sectorCode"]]["RollingPPM_rag"] = value["rag"]
-                new_data[sector["sectorCode"]]["RollingPPM_trendInd"] = value[
-                    "trendInd"
-                ]
+                new_data["RollingPPM_text"] = value["text"]
+                new_data["RollingPPM_rag"] = value["rag"]
+                new_data["RollingPPM_trendInd"] = value["trendInd"]
             else:
                 # Insert data that isn't nested
-                new_data[sector["sectorCode"]][key] = value
-    return new_data
+                new_data[key] = value
+        record_list.append(new_data)
+    return record_list
 
 
-# ['RTPPMDataMsgV1']['RTPPMData']['NationalPage']['Operator']
-def flatten_national_page_operators(nested_dict: list) -> dict:
+# ['RTPPMData']['NationalPage']['Operator']
+def flatten_national_page_operators(nested_dict: list) -> list[dict]:
     """Iterates over a list of nested dictionaries and flattens them into a dict of dicts.
     example: dict = "Operator": [
                         {
@@ -105,7 +105,7 @@ def flatten_national_page_operators(nested_dict: list) -> dict:
                             "keySymbol": "*"
                         }]
     """
-    new_data: dict = {}
+    records_list: list = []
     for record in nested_dict:
         # Create a dictionary to store the flattened record
         flat_record = {}
@@ -120,37 +120,38 @@ def flatten_national_page_operators(nested_dict: list) -> dict:
                 flat_record["RollingPPM_text"] = value["text"]
                 flat_record["RollingPPM_rag"] = value["rag"]
                 flat_record["RollingPPM_trendInd"] = value.get("trendInd")
-            elif key != "code" and key != "keySymbol":
-                # Add the key-value pair directly to flat_record
+            elif key == "code":
+                flat_record["operatorCode"] = value
+            elif key != "keySymbol":
                 flat_record[key] = value
-        # Add the flattened record to new_data using code as the key
-        new_data[record["code"]] = flat_record
+        # Add the flattened record to the records list
+        records_list.append(flat_record)
 
-    return new_data
+    return records_list
 
 
-# ['RTPPMDataMsgV1']['RTPPMData']['OOCPage']['Operator']
+# ['RTPPMData']['OOCPage']['Operator']
 def flatten_out_of_course_page(nested_dict: list) -> dict:
     """Since both dicts share the same structure we can call
     our function flatten_national_page_operators"""
     return flatten_national_page_operators(nested_dict)
 
 
-# ['RTPPMDataMsgV1']['RTPPMData']['FOCPage']['NationalPPM']
+# ['RTPPMData']['FOCPage']['NationalPPM']
 def flatten_fooc_page_ppm(nested_dict: list) -> dict:
     """Since both dicts share the same structure we can call
     our function flatten_national_page_ppm"""
     return flatten_national_page_ppm(nested_dict)
 
 
-# ['RTPPMDataMsgV1']['RTPPMData']['FOCPage']['Operator']
+# ['RTPPMData']['FOCPage']['Operator']
 def flatten_fooc_page_operators(nested_dict: list) -> dict:
     """Since both dicts share the same structure we can call
     our function flatten_national_page_operators"""
     return flatten_national_page_operators(nested_dict)
 
 
-# ['RTPPMDataMsgV1']['RTPPMData']['OperatorPage']
+# ['RTPPMData']['OperatorPage']
 def flatten_operators_page(nested_dicts: list) -> dict:
     """
     Iterates over a list of nested dictionaries and flattens them
@@ -184,13 +185,14 @@ def flatten_operators_page(nested_dicts: list) -> dict:
                     }
                 }]
     """
-    new_data = {}
+    records_list: list = []
     for operator in nested_dicts:
         # Create a new dictionary to hold the flattened data for this operator
         flat_dict = {}
 
         # Extract data from the operator dictionary and flatten it
         op_data = operator["Operator"]
+        flat_dict["sectorCode"] = op_data["code"]
         flat_dict["sectorName"] = op_data["name"]
         flat_dict["total"] = op_data["Total"]
         flat_dict["onTime"] = op_data["OnTime"]
@@ -203,12 +205,11 @@ def flatten_operators_page(nested_dicts: list) -> dict:
         flat_dict["RollingPPM_trendInd"] = op_data["RollingPPM"].get("trendInd")
 
         # Add the flattened operator data to the new_data dictionary using the operator code as the key
-        new_data[op_data["code"]] = flat_dict
+        records_list.append(flat_dict)
+    return records_list
 
-    return new_data
 
-
-# ['RTPPMDataMsgV1']['RTPPMData']['OperatorPage']
+# ['RTPPMData']['OperatorPage']
 def flatten_operators_page_groups(nested_dicts: list) -> list[dict]:
     """
     Iterates over a list of nested dicts and retrieves only the service groups if exist
@@ -264,7 +265,7 @@ def flatten_operators_page_groups(nested_dicts: list) -> list[dict]:
         try:
             nested_groups.extend(operator_groups["OprServiceGrp"])
         except KeyError as e:
-            logging.info(e)
+            pass
 
     # Theres a bug in my code which returns the nested_groups with non-dict elements.
     nested_groups: list = [
@@ -297,4 +298,4 @@ def flatten_operators_page_groups(nested_dicts: list) -> list[dict]:
         except KeyError as e:
             logging.info(e)
 
-    return dict(service_groups)
+    return service_groups

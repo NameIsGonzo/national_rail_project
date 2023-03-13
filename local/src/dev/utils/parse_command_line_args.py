@@ -38,13 +38,13 @@ def parse_command_line_args():
     parser.add_argument(
         "--stomp_heartbeat_interval_ms",
         type=int,
-        default=5_000,
+        default=15_000,
         help="STOMP heartbeat interval in milliseconds",
     )
     parser.add_argument(
         "--stomp_reconnect_delay_sec",
         type=int,
-        default=5,
+        default=15,
         help="STOMP reconnect delay in seconds",
     )
     return parser.parse_args()

@@ -37,7 +37,7 @@ class StompClient(stomp.ConnectionListener):
 
 
     def on_heartbeat_timeout(self) -> None:
-        logging.error("Hearbet timeout")
+        logging.error("Hearbeat timeout")
 
 
     def on_error(self, headers, message) -> None:
@@ -64,7 +64,7 @@ class StompClient(stomp.ConnectionListener):
         logging.info('Received response from Network Rail System')
         try:
             # Send the message to the main hub for processing and distribution among topics
-             main_hub(json_response)
+            main_hub(json_response)
         except Exception as e:
             logging.warning('Something went wrong at sending the message to Kafka Producer')
             logging.warning(e)

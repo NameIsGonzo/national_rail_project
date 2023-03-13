@@ -2,11 +2,12 @@ from kafka import KafkaProducer
 from utils import json_parser as parser
 import json
 import logging
+import concurrent.futures
 
 logging.basicConfig(level=logging.DEBUG)
 
 
-def send_to_topic(topic: str, message: dict):
+def send_to_broker_9092(results: list, topics: str) -> None:
 
     try:
         # Kafka Producer set-up
@@ -15,28 +16,138 @@ def send_to_topic(topic: str, message: dict):
             bootstrap_servers=["localhost:9092"],
         )
 
-        # Send message to kafka topic
-        producer.send(topic, message)
-
-        # Flush the producer to ensure all messages are written to Kafka
+        for result, topic in zip(results, topics):
+            # Some result are in the following struct list[dict]
+            if isinstance(result, list):
+                for record in result:
+                    try:
+                        producer.send(topic, record)
+                        logging.info(f"Successfully send {record} to {topic}")
+                    except Exception as e:
+                        logging.error(e)
+            else:
+                try:
+                    # Send message to kafka topic
+                    producer.send(topic, result)
+                    logging.info(f"Successfully send {result} to {topic}")
+                except Exception as e:
+                    logging.error(e)
+        
+        # Flush any remaining message
         producer.flush()
-
-        logging.info(f"Successfully send {message} to {topic}")
-
         # Close the producer
         producer.close()
     except Exception as e:
         logging.warning(e)
 
 
+def send_to_broker_9093(results: list, topics: str) -> None:
+
+    try:
+        # Kafka Producer set-up
+        producer = KafkaProducer(
+            value_serializer=lambda m: json.dumps(m).encode("utf-8"),
+            bootstrap_servers=["localhost:9093"],
+        )
+
+        for result, topic in zip(results, topics):
+            # Some result are in the following struct list[dict]
+            if isinstance(result, list):
+                for record in result:
+                    try:
+                        producer.send(topic, record)
+                        logging.info(f"Successfully send {record} to {topic}")
+                    except Exception as e:
+                        logging.error(e)
+            else:
+                try:
+                    # Send message to kafka topic
+                    producer.send(topic, result)
+                    logging.info(f"Successfully send {result} to {topic}")
+                except Exception as e:
+                    logging.error(e)
+        
+        # Flush any remaining message
+        producer.flush()
+        # Close the producer
+        producer.close()
+    except Exception as e:
+        logging.warning(e)
+
 def main_hub(message: dict):
 
-    # Retrieve nationalppm
-    try:
-        logging.info("Retrieven national ppm information from dict")
-        national_ppm = parser.flatten_national_page_ppm(
-            message["RTPPMData"]["NationalPage"]["NationalPPM"]
+    futures: list = []
+    with concurrent.futures.ThreadPoolExecutor(max_workers=2) as executor:
+        # Submit each parsing function to the executor
+        futures.append(
+            executor.submit(
+                parser.flatten_national_page_ppm,
+                message["RTPPMData"]["NationalPage"]["NationalPPM"],
+            )
         )
-        send_to_topic("rtppmdata.nationalpage.nationalppm", national_ppm)
+
+        futures.append(
+            executor.submit(
+                parser.flatten_national_page_sector,
+                message["RTPPMData"]["NationalPage"]["Sector"],
+            )
+        )
+        futures.append(
+            executor.submit(
+                parser.flatten_national_page_operators,
+                message["RTPPMData"]["NationalPage"]["Operator"],
+            )
+        )
+
+        futures.append(
+            executor.submit(
+                parser.flatten_out_of_course_page,
+                message["RTPPMData"]["OOCPage"]["Operator"],
+            )
+        )
+        futures.append(
+            executor.submit(
+                parser.flatten_fooc_page_ppm,
+                message["RTPPMData"]["FOCPage"]["NationalPPM"],
+            )
+        )
+        futures.append(
+            executor.submit(
+                parser.flatten_fooc_page_operators,
+                message["RTPPMData"]["FOCPage"]["Operator"],
+            )
+        )
+        futures.append(
+            executor.submit(
+                parser.flatten_operators_page, message["RTPPMData"]["OperatorPage"]
+            )
+        )
+        futures.append(
+            executor.submit(
+                parser.flatten_operators_page_groups,
+                message["RTPPMData"]["OperatorPage"],
+            )
+        )
+        # Get the results of each parsing function
+        results: list = [result.result() for result in futures]
+
+    try:
+        results_9092: list = results[0:4]
+        results_9093: list = results[4:]
+        topics_9092: list = [
+            "rtppmdata.nationalpage.nationalppm",
+            "rtppmdata.nationalpage.sector",
+            "rtppmdata.nationalpage.operator",
+            "rtppmdata.oocpage.operator",
+        ]
+        topics_9093: list = [
+            "rtppmdata.focpage.nationalppm",
+            "rtppmdata.focpage.operator",
+            "rtppmdata.operatorpage.operators",
+            "rtppmdata.operatorpage.servicegroups",
+        ]
+        send_to_broker_9092(results_9092, topics_9092)
+        send_to_broker_9093(results_9093, topics_9093)
+
     except Exception as e:
         logging.warning(e)
