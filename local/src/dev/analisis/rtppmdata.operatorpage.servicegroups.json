@@ -1,0 +1,12 @@
+{
+    "name": "Wirral Lines",
+    "Total": "184",
+    "OnTime": "181",
+    "Late": "3",
+    "CancelVeryLate": "0",
+    "PPM_text": "98",
+    "PPM_rag": "G",
+    "RollingPPM_text": "100",
+    "RollingPPM_rag": "G",
+    "RollingPPM_trendInd": "+"
+}
