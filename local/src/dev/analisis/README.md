@@ -12,7 +12,6 @@ This document provides an overview of the various analyses conducted throughout 
 
 ### Open Access Operator Company (OOC)
 1. [Operators]()
-2. []
 
 ### Train Operating Companies (TOCs)
 1. [Operators]()
