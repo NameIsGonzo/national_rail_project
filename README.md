@@ -16,6 +16,12 @@ The dashboard will be designed for use by both operations managers and other sta
 Welcome to the project analysis section! Here, you can find all the in-depth analyses I have conducted on the UK Network Rail Feed dataset to evaluate the performance of the railway system. These analyses cover various aspects such as Public Performance Measure (PPM), trends, and performance distributions, providing valuable insights for stakeholders to make informed decisions on service improvements.
 
 [🔍 Explore the Analysis](./analysis/README.md)
+
+## 📚 Glossary
+Discover the definitions and explanations of terminology used throughout the project. This glossary provides clarity on key terms, making it easier to understand the context and purpose of the analyses.
+
+[Sylabus](./glossary/README.md)
+
 ## 🛠️ Pre requisites:
 
 ### 📡 Network Rail Account
