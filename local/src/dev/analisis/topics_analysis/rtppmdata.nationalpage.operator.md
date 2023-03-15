@@ -2,7 +2,7 @@
 
 ## Real Time Public Performance Measure (RTPPM)
 
-## Operator
+## Operators
 
 ### Description
 The analysis leverages data ingested from the UK Network Rail Feed to evaluate the performance of individual train operating companies. By examining metrics such as the Public Performance Measure (PPM), Rolling PPM, and corresponding performance indicators (RAG status and trend), the analysis provides insights into the relative performance of each operator. This information can be used by stakeholders to identify top-performing operators, as well as those that may require improvement or further investigation.
