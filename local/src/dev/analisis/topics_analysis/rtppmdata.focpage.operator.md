@@ -7,6 +7,7 @@
 ## Description
 The analysis focuses on data ingested from the UK Network Rail Feed to assess the performance of Freight Operating Companies (FOC Operators) within the UK national railway system. By examining various performance metrics, such as the Public Performance Measure (PPM), Rolling PPM, and corresponding performance indicators (RAG status and trend), the analysis aims to provide insights into the operational efficiency of freight transport services. These insights can help stakeholders identify areas that require improvement, monitor the impact of interventions, and facilitate informed decision-making to enhance the performance of freight operators across the rail network.
 
+## Message schema
 ```json
 {
     "Total": "69",
