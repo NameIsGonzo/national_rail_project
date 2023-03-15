@@ -17,7 +17,7 @@ Welcome to the project analysis section! Here, you can find all the in-depth ana
 
 [🔍 Explore the Analysis](./analysis/README.md)
 
-## 📚 Glossary
+## 📚 Project Glossary
 Discover the definitions and explanations of terminology used throughout the project. This glossary provides clarity on key terms, making it easier to understand the context and purpose of the analyses.
 
 [🔎 Explore the Glossary](./glossary/README.md)
