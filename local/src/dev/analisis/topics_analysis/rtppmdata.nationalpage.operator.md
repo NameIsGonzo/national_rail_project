@@ -18,7 +18,7 @@ The analysis leverages data ingested from the UK Network Rail Feed to evaluate t
     "RollingPPM_trendInd": "+",
     "operatorCode": "61",
     "name": "London North Eastern Railway",
-    "timestamp": "14-03-2022T15:46:10"
+    "timestamp": "1678141260000"
 }
 ```
 

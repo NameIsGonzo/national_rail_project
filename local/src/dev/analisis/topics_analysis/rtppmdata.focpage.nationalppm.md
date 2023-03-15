@@ -19,7 +19,7 @@ The analysis focuses on data ingested from the UK Network Rail Feed to assess th
     "RollingPPM_text": "92",
     "RollingPPM_rag": "G",
     "RollingPPM_trendInd": "+",
-    "timestamp": "14-03-2022T15:46:10"
+    "timestamp": "1678141260000"
 }
 ```
 

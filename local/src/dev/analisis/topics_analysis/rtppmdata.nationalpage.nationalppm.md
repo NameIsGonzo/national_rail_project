@@ -21,7 +21,7 @@ The analysis leverages data ingested from the UK Network Rail Feed to calculate 
     "RollingPPM_text": "87",
     "RollingPPM_rag": "R",
     "RollingPPM_trendInd": "-",
-    "timestamp": "14-03-2022T15:46:10"
+    "timestamp": "1678141260000"
 }
 ```
 

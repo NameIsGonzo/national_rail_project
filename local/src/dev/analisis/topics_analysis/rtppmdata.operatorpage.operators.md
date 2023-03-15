@@ -1,3 +1,5 @@
+## Message schema
+
 {
     "sectorCode": "33",
     "sectorName": "Elizabeth line",
@@ -9,5 +11,6 @@
     "PPM_rag": "G",
     "RollingPPM_text": "88",
     "RollingPPM_rag": "R",
-    "RollingPPM_trendInd": "-"
+    "RollingPPM_trendInd": "-",
+    "timestamp": "1678141260000"
 }

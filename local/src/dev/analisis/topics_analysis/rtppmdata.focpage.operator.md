@@ -18,7 +18,7 @@ The analysis focuses on data ingested from the UK Network Rail Feed to assess th
     "RollingPPM_trendInd": "+",
     "operatorCode": "FHH",
     "name": "Freightliner Heavy Haul",
-    "timestamp": "14-03-2022T15:46:10"
+    "timestamp": "1678141260000"
 }
 ```
 

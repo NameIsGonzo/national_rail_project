@@ -18,7 +18,8 @@ The analysis focuses on data ingested from the UK Network Rail Feed to evaluate 
     "RollingPPM_rag": "R",
     "RollingPPM_trendInd": "+",
     "operatorCode": "86",
-    "name": "Heathrow Express"
+    "name": "Heathrow Express",
+    "timestamp": "1678141260000"
 }
 ```
 
