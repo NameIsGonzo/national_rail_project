@@ -14,7 +14,7 @@ This document provides an overview of the various analyses conducted throughout 
 1. [Operators](topics_analysis/rtppmdata.oocpage.operator.md)
 
 ### Train Operating Companies (TOCs)
-1. [Operators]()
+1. [Operators](topics_analysis/rtppmdata.operatorpage.operators.md)
 2. [Service Groups Operators]()
 
 
