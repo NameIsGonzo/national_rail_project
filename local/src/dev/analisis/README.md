@@ -11,7 +11,7 @@ This document provides an overview of the various analyses conducted throughout 
 2. [Operators](topics_analysis/rtppmdata.focpage.operator.md)
 
 ### Open Access Operator Company (OOC)
-1. [Operators]()
+1. [Operators](topics_analysis/rtppmdata.oocpage.operator.md)
 
 ### Train Operating Companies (TOCs)
 1. [Operators]()
@@ -20,9 +20,11 @@ This document provides an overview of the various analyses conducted throughout 
 
 # Syllabus
 
-## RTPPM
-RTPPM is a measure of the punctuality of trains in the UK rail network. It provides real-time data on the performance of the rail system, helping stakeholders identify areas for improvement and monitor the impact of interventions.
+## PPM
+Public Performance Measure (24 hours of data)
 
+## RTPPM
+'Real' Time Public Performance Measure (2 hours of data)
 
 ## NationalPPM
-The National PPM is a high-level performance metric that aggregates data from across the UK rail network. It helps paint a broad picture of the system's performance, capturing trends and changes over time.
+The National PPM is a high-level performance metric that aggregates data from across the UK rail network.
