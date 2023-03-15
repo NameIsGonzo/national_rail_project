@@ -2,24 +2,22 @@
 This document provides an overview of the various analyses conducted throughout the project, along with brief descriptions of each. These analyses have been carefully designed to offer valuable insights into the performance of the UK Network Rail system, helping stakeholders identify areas for improvement and monitor the impact of interventions.
 
 ### National Page
-1. [Public Performance Measure](topics_analisis/rtppmdata.nationalpage.nationalppm.md)
-2. [Operators](topics_analisis/rtppmdata.nationalpage.operator.md)
+1. [Public Performance Measure](topics_analysis/rtppmdata.nationalpage.nationalppm.md)
+2. [Operators](topics_analysis/rtppmdata.nationalpage.operator.md)
+3. [Sectors](topics_analysis/rtppmdata.nationalpage.sector.md)
 
 ### Freight Operating Company (FOC)
-1.
-2.
+1. [Public Performance Measure]()
+2. [Operators]()
 
 ### Open Access Operator Company (OOC)
-1.
-2.
+1. [Operators]()
+2. []
 
-### Operators
-1.
-2.
+### Train Operating Companies (TOCs)
+1. [Operators]()
+2. [Service Groups Operators]()
 
-### Service groups
-1.
-2.
 
 # Syllabus
 
