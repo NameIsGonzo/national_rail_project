@@ -34,4 +34,6 @@ You will receive a confirmation email 📧. Follow the instructions to log in an
 
 ## 💻 Local
 
-### Project overview
+### Project architecture overview
+
+![Project architecture overview](./images/RailScope.png)
