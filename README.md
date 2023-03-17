@@ -31,9 +31,37 @@ You will receive a confirmation email 📧. Follow the instructions to log in an
 
 
 ## ☁️ Cloud 
+In this section we will leaverage all the processing to GCP servers bla bla ba
 
 ## 💻 Local
+If you want to run this project "locally" you can go to this section, please take in mind that you will need to use some cloud services from gcp like GCS for data lake storage, BigQuery for Data warehousing and Google Data Studio to create the dashboards
 
 ### Project architecture overview
 
 ![Project architecture overview](./images/RailScope.png)
+
+The architecture of this project involves several steps to collect, process, and analyze data from UK NationalRail Feed:
+
+1. Using the [StompClient](./local/src/dev/message_producer.py) class, we connect to the UK NationalRail Feed to receive messages every 60 seconds in a JSON format. The class handles the connection, subscription, error handling, and reconnection in case of failure.
+
+2. Before sending the messages to their respective topics, we apply eight functions to break down the 3,000 lines of nested JSON schema into five dictionaries and three lists of dictionaries. These functions run in a pool of two workers for optimal performance. 
+
+3. Once the desired information is extracted from the API response, the output from the functions is sent to their respective topics.
+
+4. Spark Streaming ingests the data and performs schema enforcement for all incoming messages from the Kafka brokers.
+
+5. The data is then loaded to Google Cloud Platform (GCP) without any modification.
+
+6. After validating the schema and loading it into a bucket, we cast the messages into their proper types.
+
+7. Dataframes are processed to create aggregations that provide business value to the data.
+
+8. Certain dataframes can be joined with others to retrieve more complex insights.
+
+9. All dataframes are loaded to a GCS bucket.
+
+10. The data is loaded every hour from the data lake (GCS bucket) into our data warehouse (BigQuery) partitioned by timestamp.
+
+11. The Google Data Studio dashboard is powered by the BigQuery dataset.
+
+This project architecture overview outlines the high-level steps involved in collecting and processing data from UK NationalRail Feed. Each step is designed to ensure the efficient and accurate processing of the data, from extraction to analysis.
