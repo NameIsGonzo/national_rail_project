@@ -44,7 +44,7 @@ The architecture of this project involves several steps to collect, process, and
 
 1. Using the [StompClient](./local/src/dev/message_producer.py) class, we connect to the UK NationalRail Feed to receive messages every 60 seconds in a JSON format. The class handles the connection, subscription, error handling, and reconnection in case of failure.
 
-2. Before sending the messages to their respective topics, we apply eight functions to break down the 3,000 lines of nested JSON schema into five dictionaries and three lists of dictionaries. These functions run in a pool of two workers for optimal performance. 
+2. Before sending the messages to their respective topics, we apply eight [JSON parser functions](./local/src/dev/utils/json_parser.py) to break down the 3,000 lines of nested JSON schema into five dictionaries and three lists of dictionaries. These functions run in a [pool of two workers](./local/src/dev/utils/topic_hub.py) for optimal performance. 
 
 3. Once the desired information is extracted from the API response, the output from the functions is sent to their respective topics.
 
