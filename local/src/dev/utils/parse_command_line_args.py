@@ -44,7 +44,7 @@ def parse_command_line_args():
     parser.add_argument(
         "--stomp_reconnect_delay_sec",
         type=int,
-        default=15,
+        default=30,
         help="STOMP reconnect delay in seconds",
     )
     return parser.parse_args()

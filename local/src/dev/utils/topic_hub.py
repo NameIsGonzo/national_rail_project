@@ -3,6 +3,7 @@ from utils import json_parser as parser
 import json
 import logging
 import concurrent.futures
+from datetime import datetime
 
 logging.basicConfig(level=logging.DEBUG)
 
@@ -32,7 +33,7 @@ def send_to_broker_9092(results: list, topics: str) -> None:
                     logging.info(f"Successfully send {result} to {topic}")
                 except Exception as e:
                     logging.error(e)
-        
+
         # Flush any remaining message
         producer.flush()
         # Close the producer
@@ -66,7 +67,7 @@ def send_to_broker_9093(results: list, topics: str) -> None:
                     logging.info(f"Successfully send {result} to {topic}")
                 except Exception as e:
                     logging.error(e)
-        
+
         # Flush any remaining message
         producer.flush()
         # Close the producer
@@ -74,10 +75,12 @@ def send_to_broker_9093(results: list, topics: str) -> None:
     except Exception as e:
         logging.warning(e)
 
+
 def main_hub(message: dict):
 
     futures: list = []
-    with concurrent.futures.ThreadPoolExecutor(max_workers=2) as executor:
+    timestamp: str = message["timestamp"]
+    with concurrent.futures.ThreadPoolExecutor(max_workers=8) as executor:
         # Submit each parsing function to the executor
         futures.append(
             executor.submit(
@@ -90,12 +93,14 @@ def main_hub(message: dict):
             executor.submit(
                 parser.flatten_national_page_sector,
                 message["RTPPMData"]["NationalPage"]["Sector"],
+                timestamp,
             )
         )
         futures.append(
             executor.submit(
                 parser.flatten_national_page_operators,
                 message["RTPPMData"]["NationalPage"]["Operator"],
+                timestamp,
             )
         )
 
@@ -103,6 +108,7 @@ def main_hub(message: dict):
             executor.submit(
                 parser.flatten_out_of_course_page,
                 message["RTPPMData"]["OOCPage"]["Operator"],
+                timestamp,
             )
         )
         futures.append(
@@ -115,22 +121,27 @@ def main_hub(message: dict):
             executor.submit(
                 parser.flatten_fooc_page_operators,
                 message["RTPPMData"]["FOCPage"]["Operator"],
+                timestamp,
             )
         )
         futures.append(
             executor.submit(
-                parser.flatten_operators_page, message["RTPPMData"]["OperatorPage"]
+                parser.flatten_operators_page,
+                message["RTPPMData"]["OperatorPage"],
+                timestamp,
             )
         )
         futures.append(
             executor.submit(
                 parser.flatten_operators_page_groups,
                 message["RTPPMData"]["OperatorPage"],
+                timestamp,
             )
         )
-        # Get the results of each parsing function
-        results: list = [result.result() for result in futures]
-
+    # Get the results of each parsing function
+    results: list = [result.result() for result in futures]
+    results[0]["timestamp"] = timestamp
+    results[4]["timestamp"] = timestamp
     try:
         results_9092: list = results[0:4]
         results_9093: list = results[4:]

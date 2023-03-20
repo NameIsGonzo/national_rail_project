@@ -4,7 +4,9 @@ logging.basicConfig(level=logging.INFO)
 
 
 # Keys to access: ['RTPPMData']['NationalPage']['NationalPPM']
-def flatten_national_page_ppm(nested_dict: dict, parent_key="", sep="_") -> dict:
+def flatten_national_page_ppm(
+    nested_dict: dict, parent_key="", sep="_"
+) -> dict:
     """Recursively flattens a nested dictionary
     with the following structure:
 
@@ -27,16 +29,22 @@ def flatten_national_page_ppm(nested_dict: dict, parent_key="", sep="_") -> dict
     """
     items: list = []
     for key, value in nested_dict.items():
-        new_key: str = f'{parent_key}{sep}{key}' if parent_key else key
+        new_key: str = f"{parent_key}{sep}{key}" if parent_key else key
         if isinstance(value, dict):
-            items.extend(flatten_national_page_ppm(value, new_key, sep=sep).items())
+            # Recursively call the function to flatten nested dictionaries
+            items.extend(
+                flatten_national_page_ppm(value, new_key, sep=sep).items()
+            )
         else:
+            # Append the flattened key-value pair as a tuple with two items
             items.append((new_key, value))
+
+    # Convert the list of tuples to a dictionary and return it
     return dict(items)
 
 
 # ['RTPPMData']['NationalPage']['Sector']
-def flatten_national_page_sector(nested_dict: list) -> list[dict]:
+def flatten_national_page_sector(nested_dict: list, timestamp) -> list[dict]:
     """Iterates over a list of nested dictionaries and flattens them into a dict of dicts
 
     example: dict =  "Sector": [
@@ -67,6 +75,7 @@ def flatten_national_page_sector(nested_dict: list) -> list[dict]:
         new_data: dict = {
             "sectorCode": sector["sectorCode"],
             "sectorName": sector["sectorDesc"],
+            'timestamp': timestamp,
         }
         # Traverse over the nested dict's inside SectorPPM
         for key, value in sector["SectorPPM"].items():
@@ -86,7 +95,7 @@ def flatten_national_page_sector(nested_dict: list) -> list[dict]:
 
 
 # ['RTPPMData']['NationalPage']['Operator']
-def flatten_national_page_operators(nested_dict: list) -> list[dict]:
+def flatten_national_page_operators(nested_dict: list, timestamp: str) -> list[dict]:
     """Iterates over a list of nested dictionaries and flattens them into a dict of dicts.
     example: dict = "Operator": [
                         {
@@ -108,7 +117,7 @@ def flatten_national_page_operators(nested_dict: list) -> list[dict]:
     records_list: list = []
     for record in nested_dict:
         # Create a dictionary to store the flattened record
-        flat_record = {}
+        flat_record = {'timestamp': timestamp}
         # Add all key-value pairs to flat_record
         for key, value in record.items():
             # Add PPM_text and PPM_rag keys for PPM dictionary
@@ -131,10 +140,10 @@ def flatten_national_page_operators(nested_dict: list) -> list[dict]:
 
 
 # ['RTPPMData']['OOCPage']['Operator']
-def flatten_out_of_course_page(nested_dict: list) -> dict:
+def flatten_out_of_course_page(nested_dict: list, timestamp: str) -> dict:
     """Since both dicts share the same structure we can call
     our function flatten_national_page_operators"""
-    return flatten_national_page_operators(nested_dict)
+    return flatten_national_page_operators(nested_dict, timestamp)
 
 
 # ['RTPPMData']['FOCPage']['NationalPPM']
@@ -145,14 +154,14 @@ def flatten_fooc_page_ppm(nested_dict: list) -> dict:
 
 
 # ['RTPPMData']['FOCPage']['Operator']
-def flatten_fooc_page_operators(nested_dict: list) -> dict:
+def flatten_fooc_page_operators(nested_dict: list, timestamp: str) -> dict:
     """Since both dicts share the same structure we can call
     our function flatten_national_page_operators"""
-    return flatten_national_page_operators(nested_dict)
+    return flatten_national_page_operators(nested_dict, timestamp)
 
 
 # ['RTPPMData']['OperatorPage']
-def flatten_operators_page(nested_dicts: list) -> dict:
+def flatten_operators_page(nested_dicts: list, timestamp: str) -> dict:
     """
     Iterates over a list of nested dictionaries and flattens them
     into a single dict. Returns a dict of all our nested dicts
@@ -188,7 +197,7 @@ def flatten_operators_page(nested_dicts: list) -> dict:
     records_list: list = []
     for operator in nested_dicts:
         # Create a new dictionary to hold the flattened data for this operator
-        flat_dict = {}
+        flat_dict = {'timestamp': timestamp}
 
         # Extract data from the operator dictionary and flatten it
         op_data = operator["Operator"]
@@ -210,7 +219,7 @@ def flatten_operators_page(nested_dicts: list) -> dict:
 
 
 # ['RTPPMData']['OperatorPage']
-def flatten_operators_page_groups(nested_dicts: list) -> list[dict]:
+def flatten_operators_page_groups(nested_dicts: list, timestamp: str) -> list[dict]:
     """
     Iterates over a list of nested dicts and retrieves only the service groups if exist
     After that it flattens the nested dicts inside the service groups and
@@ -275,7 +284,7 @@ def flatten_operators_page_groups(nested_dicts: list) -> list[dict]:
     #
     for service_group in nested_groups:
         # Create a single record for each nested service group
-        record: dict = {}
+        record: dict = {'timestamp': timestamp}
 
         try:
             record["name"] = service_group["name"]
