@@ -2,7 +2,7 @@ import logging
 from pyspark.sql import SparkSession
 from pyspark.sql.functions import from_json, col, lit
 from spark_utils import incoming_schemas as schemas
-from spark_utils import casting_functions as cast
+from spark_utils import casting_strings as cast
 
 logging.basicConfig(level=logging.INFO)
 
