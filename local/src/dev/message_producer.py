@@ -48,8 +48,20 @@ class StompClient(stomp.ConnectionListener):
         logging.warning(
             f"Disconnected - waiting {self.args.stomp_reconnect_delay_sec} seconds before exiting"
         )
-        time.sleep(self.args.stomp_reconnect_delay_sec)
-        exit(-1)
+        while True:
+            try:
+                conn = stomp.Connection12(
+                    [(self.args.stomp_hostname, self.args.stomp_port)],
+                    auto_decode=False,
+                    heartbeats=(self.args.stomp_heartbeat_interval_ms, self.args.stomp_heartbeat_interval_ms),
+                )
+                conn.set_listener("", StompClient(self.args))
+                StompClient(self.args).connect_and_subscribe(conn)
+                break
+            except Exception as e:
+                logging.error(f"Error reconnecting to {self.args.stomp_hostname}:{self.args.stomp_port}")
+                logging.error(e)
+                time.sleep(self.args.stomp_reconnect_delay_sec)
 
 
     def on_connecting(self, host_and_port) -> None:
