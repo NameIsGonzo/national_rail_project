@@ -79,7 +79,8 @@ def send_to_broker_9093(results: list, topics: str) -> None:
 def main_hub(message: dict):
 
     futures: list = []
-    timestamp: str = message["timestamp"]
+    timestamp: datetime =  datetime.fromtimestamp(int(message["timestamp"])/1000)
+    timestamp_str = timestamp.strftime('%Y-%m-%d %H:%M:%S')
     with concurrent.futures.ThreadPoolExecutor(max_workers=8) as executor:
         # Submit each parsing function to the executor
         futures.append(
@@ -93,14 +94,14 @@ def main_hub(message: dict):
             executor.submit(
                 parser.flatten_national_page_sector,
                 message["RTPPMData"]["NationalPage"]["Sector"],
-                timestamp,
+                timestamp_str,
             )
         )
         futures.append(
             executor.submit(
                 parser.flatten_national_page_operators,
                 message["RTPPMData"]["NationalPage"]["Operator"],
-                timestamp,
+                timestamp_str,
             )
         )
 
@@ -108,7 +109,7 @@ def main_hub(message: dict):
             executor.submit(
                 parser.flatten_out_of_course_page,
                 message["RTPPMData"]["OOCPage"]["Operator"],
-                timestamp,
+                timestamp_str,
             )
         )
         futures.append(
@@ -121,27 +122,27 @@ def main_hub(message: dict):
             executor.submit(
                 parser.flatten_fooc_page_operators,
                 message["RTPPMData"]["FOCPage"]["Operator"],
-                timestamp,
+                timestamp_str,
             )
         )
         futures.append(
             executor.submit(
                 parser.flatten_operators_page,
                 message["RTPPMData"]["OperatorPage"],
-                timestamp,
+                timestamp_str,
             )
         )
         futures.append(
             executor.submit(
                 parser.flatten_operators_page_groups,
                 message["RTPPMData"]["OperatorPage"],
-                timestamp,
+                timestamp_str,
             )
         )
     # Get the results of each parsing function
     results: list = [result.result() for result in futures]
-    results[0]["timestamp"] = timestamp
-    results[4]["timestamp"] = timestamp
+    results[0]["timestamp"] = timestamp_str
+    results[4]["timestamp"] = timestamp_str
     try:
         results_9092: list = results[0:4]
         results_9093: list = results[4:]
