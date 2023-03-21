@@ -1,8 +1,8 @@
 import logging
 from pyspark.sql import SparkSession
-from pyspark.sql.functions import from_json, col
-from utils import incoming_schemas as schemas
-
+from pyspark.sql.functions import from_json, col, lit
+from spark_utils import incoming_schemas as schemas
+from spark_utils import casting_functions as cast
 
 logging.basicConfig(level=logging.INFO)
 
@@ -15,6 +15,17 @@ schema_dict: dict = {
     "rtppmdata.focpage.operator": schemas.focpage_operator,
     "rtppmdata.operatorpage.operators": schemas.operatorpage_operators,
     "rtppmdata.operatorpage.servicegroups": schemas.operatorpage_service_operators,
+}
+
+casting_dict: dict = {
+    "rtppmdata.nationalpage.nationalppm": cast.nationalpage_nationalppm,
+    "rtppmdata.nationalpage.sector": None,
+    "rtppmdata.nationalpage.operator": None,
+    "rtppmdata.oocpage.operator": None,
+    "rtppmdata.focpage.nationalppm": None,
+    "rtppmdata.focpage.operator": None,
+    "rtppmdata.operatorpage.operators": None,
+    "rtppmdata.operatorpage.servicegroups": None,
 }
 
 
@@ -50,11 +61,15 @@ class SparkConsumer:
 
         spark = (
             SparkSession.builder.appName("Spark Streaming Main Ingestion")
+            .config("spark.executor.cores", "8")
+            .config("spark.executor.memory", "8g")
             .config("spark.jars.packages", ",".join(packages))
+            .config("spark.sql.shuffle.partitions", 8)
             .getOrCreate()
         )
 
         for topic in self.kafka_topics:
+            casting_expr = casting_dict.get(topic)
             kafka_options = {
                 "kafka.bootstrap.servers": f"{self.kafka_host}:{self.kafka_port}",
                 "subscribe": topic,
@@ -68,13 +83,16 @@ class SparkConsumer:
                 .selectExpr("CAST(value AS STRING)")
                 .select(from_json(col("value"), schema_dict.get(topic)).alias("data"))
                 .select("data.*")
+                .selectExpr(casting_expr)
             )
 
-            proccessData(topic, df)
+            df.printSchema()
+            df = df.dropDuplicates()
 
             query = (
-                df.writeStream.outputMode("append")
+                df.writeStream.outputMode("update")
                 .format("console")
+                .option("truncate", "false")
                 .start()
             )
 
@@ -93,13 +111,13 @@ if __name__ == "__main__":
     kafka_port: str = "9092"
     kafka_topics: list = [
         "rtppmdata.nationalpage.nationalppm",
-        "rtppmdata.nationalpage.sector",
-        "rtppmdata.nationalpage.operator",
-        "rtppmdata.oocpage.operator",
-        "rtppmdata.focpage.nationalppm",
-        "rtppmdata.focpage.operator",
-        "rtppmdata.operatorpage.operators",
-        "rtppmdata.operatorpage.servicegroups",
+        # "rtppmdata.nationalpage.sector",
+        # "rtppmdata.nationalpage.operator",
+        # "rtppmdata.oocpage.operator",
+        # "rtppmdata.focpage.nationalppm",
+        # "rtppmdata.focpage.operator",
+        # "rtppmdata.operatorpage.operators",
+        # "rtppmdata.operatorpage.servicegroups",
     ]
 
     consumer = SparkConsumer(
