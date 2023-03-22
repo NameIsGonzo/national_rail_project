@@ -5,7 +5,7 @@ from pyspark.sql.types import (
 )
 
 # rtppmdata.nationalpage.nationalppm
-nationalpage_national_ppm = StructType(
+nationalpage_nationalppm = StructType(
     [
         StructField("Total", StringType(), True),
         StructField("OnTime", StringType(), True),
@@ -22,7 +22,7 @@ nationalpage_national_ppm = StructType(
 )
 
 # rtppmdata.nationalpage.sector
-nationalpage_national_sector = StructType(
+nationalpage_nationalsector = StructType(
     [
         StructField("sectorCode", StringType(), True),
         StructField("sectorName", StringType(), True),
@@ -41,7 +41,7 @@ nationalpage_national_sector = StructType(
 
 
 # rtppmdata.nationalpage.operator
-nationalpage_national_operator = StructType(
+nationalpage_nationaloperator = StructType(
     [
         StructField("Total", StringType(), True),
         StructField("PPM_text", StringType(), True),
@@ -125,7 +125,7 @@ operatorpage_operators = StructType(
 
 
 # rtppmdata.operatorpage.servicegroups
-operatorpage_service_operators = StructType(
+operatorpage_serviceoperators = StructType(
     [
         StructField("name", StringType(), True),
         StructField("Total", StringType(), True),
