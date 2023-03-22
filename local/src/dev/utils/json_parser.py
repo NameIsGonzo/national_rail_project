@@ -121,7 +121,9 @@ def flatten_national_page_operators(nested_dict: list, timestamp: str) -> list[d
         # Add all key-value pairs to flat_record
         for key, value in record.items():
             # Add PPM_text and PPM_rag keys for PPM dictionary
-            if key == "PPM":
+            if key == "code":
+                flat_record["operatorCode"] = value
+            elif key == "PPM":
                 flat_record["PPM_text"] = value["text"]
                 flat_record["PPM_rag"] = value["rag"]
             # Add RollingPPM_text, RollingPPM_rag, and RollingPPM_trendInd keys for RollingPPM dictionary
@@ -129,8 +131,6 @@ def flatten_national_page_operators(nested_dict: list, timestamp: str) -> list[d
                 flat_record["RollingPPM_text"] = value["text"]
                 flat_record["RollingPPM_rag"] = value["rag"]
                 flat_record["RollingPPM_trendInd"] = value.get("trendInd")
-            elif key == "code":
-                flat_record["operatorCode"] = value
             elif key != "keySymbol":
                 flat_record[key] = value
         # Add the flattened record to the records list
