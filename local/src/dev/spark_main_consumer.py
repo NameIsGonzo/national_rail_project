@@ -1,9 +1,12 @@
 import logging
 import importlib
+import os
 from pyspark.sql import SparkSession
+from spark_utils import save_to_gcs as save
 
 
 logging.basicConfig(level=logging.INFO)
+gcp_credentials: str = os.environ["GOOGLE_APPLICATION_CREDENTIALS"]
 
 
 class SparkConsumer:
@@ -38,25 +41,36 @@ class SparkConsumer:
             .config("spark.executor.cores", "8")
             .config("spark.executor.memory", "8g")
             .config("spark.jars.packages", ",".join(packages))
+            .config('spark.jars', "/Users/gonzo/Desktop/RailScope/national_rail_project/local/src/hadoop/gcs-connector-hadoop3-latest.jar")
             .config("spark.sql.shuffle.partitions", 16)
+            .config("spark.hadoop.fs.gs.impl", "com.google.cloud.hadoop.fs.gcs.GoogleHadoopFileSystem")
+            .config("spark.hadoop.fs.gs.auth.service.account.enable", "true")
+            .config("spark.hadoop.google.cloud.auth.service.account.json.keyfile", gcp_credentials)
             .getOrCreate()
         )
 
         for topic in self.kafka_topics:
 
-            topic_name = topic.replace(".", "_")
+            topic_name: str = topic.replace('.', '_')
 
             process_module = importlib.import_module(
                 name=f"spark_utils.process_topic_{topic_name}"
             )
             process_func = process_module.process_topic
 
-            query = process_func(spark, topic, self.kafka_host, self.kafka_port)
+            query, df = process_func(spark, topic, self.kafka_host, self.kafka_port)
 
-            queries.append(query)
+            queries.append((query, df, topic_name))
+
+        subqueries: list = []
 
         for query in queries:
-            query.awaitTermination()
+            subqueries.append(save.save_to_railscope_historical_data(query[1], query[2]))
+            query[0].awaitTermination()
+        
+        for subquery in subqueries:
+            subquery.awaitTermination()
+            
 
 
 if __name__ == "__main__":
@@ -67,12 +81,12 @@ if __name__ == "__main__":
     kafka_host: str = "localhost"
     kafka_port: str = "9092"
     kafka_topics: list = [
-        "rtppmdata.nationalpage.nationalppm",
-        "rtppmdata.nationalpage.sector",
-        "rtppmdata.nationalpage.operator",
-        "rtppmdata.oocpage.operator",
-        "rtppmdata.focpage.nationalppm",
-        "rtppmdata.focpage.operator",
+        # "rtppmdata.nationalpage.nationalppm",
+        # "rtppmdata.nationalpage.sector",
+        # "rtppmdata.nationalpage.operator",
+        # "rtppmdata.oocpage.operator",
+        # "rtppmdata.focpage.nationalppm",
+        # "rtppmdata.focpage.operator",
         "rtppmdata.operatorpage.operators",
         "rtppmdata.operatorpage.servicegroups",
     ]
