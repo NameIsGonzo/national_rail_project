@@ -1,10 +1,9 @@
 from pyspark.sql import DataFrame
 from google.cloud import storage
-import os
 import pendulum
 import logging
 
-logging.basicConfig(level= logging.INFO)
+logging.basicConfig(level=logging.INFO)
 
 
 def create_month_folder(year: str, month: str, topic: str, bucket: str) -> bool:
@@ -12,20 +11,22 @@ def create_month_folder(year: str, month: str, topic: str, bucket: str) -> bool:
     try:
         client = storage.Client()
         bucket = client.bucket(bucket)
-        blob = bucket.blob(f'{topic}/{year}/{month}/')
+        blob = bucket.blob(f"{topic}/{year}/{month}/")
         blob.upload_from_string("")
         return True
     except:
-        logging.warning(f'Cant create directory {topic}/{year}/{month} for bucket: {bucket}')
+        logging.warning(
+            f"Cant create directory {topic}/{year}/{month} for bucket: {bucket}"
+        )
         return False
 
 
 def save_to_railscope_historical_data(
     df: DataFrame,
     topic: str,
-    file_format: str = 'csv',
-    output_mode: str = 'append',
-    checkpoint_location: str = 'gs://railscope_historical_data/checkpoint',
+    file_format: str = "parquet",
+    output_mode: str = "append",
+    checkpoint_location: str = "gs://railscope_historical_data/checkpoint",
 ) -> None:
     """
     Save a streaming PySpark DataFrame to a Google Cloud Storage bucket.
@@ -38,22 +39,22 @@ def save_to_railscope_historical_data(
     """
     year: str = str(pendulum.now().year)
     month: str = str(pendulum.now().month)
-    gcs_bucket_path: str = f'gs://railscope_historical_data/{topic}/{year}/{month}/'
+    gcs_bucket_path: str = f"gs://railscope_historical_data/{topic}/{year}/{month}/"
 
     if not checkpoint_location:
         raise ValueError("A Checkpoint location is required for fault-tolerance")
-    
 
-    if create_month_folder(year, month, topic, 'railscope_historical_data'):
+    if create_month_folder(year, month, topic, "railscope_historical_data"):
         # Write the streaming DataFrame to the specified GCS bucket path
-        
+        logging.info(f'Successfully created directory : {gcs_bucket_path}')
+        logging.info(f'Saving topic: {topic}')
         query = (
-            df.coalesce(1).writeStream.format(file_format)
+            df.writeStream.format(file_format)
             .option("path", gcs_bucket_path)
             .option("checkpointLocation", checkpoint_location)
             .outputMode(output_mode)
-            .start()
         )
         return query
     else:
-        logging.warning('An error ocurred while uploading the file into the Bucket')
+        logging.warning("An error ocurred while uploading the file into the Bucket")
+        return

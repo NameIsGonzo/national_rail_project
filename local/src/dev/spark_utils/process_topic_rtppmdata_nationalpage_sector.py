@@ -2,7 +2,6 @@ from pyspark.sql import SparkSession
 from pyspark.sql.functions import from_json, col, lit
 from . import incoming_schemas as schema
 from . import casting_strings as cast
-from . import save_to_gcs as save
 
 
 def process_topic(
@@ -15,8 +14,6 @@ def process_topic(
         "subscribe": topic,
         "startingOffsets": "latest",
     }
-
-    topic_name: str = topic.replace('.', '_')
 
     df = (
         spark.readStream.format("kafka")
@@ -38,6 +35,4 @@ def process_topic(
         .start()
     )
 
-    save.save_to_railscope_historical_data(df, topic_name)
-    
-    return query
+    return query, df

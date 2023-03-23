@@ -2,7 +2,7 @@ from pyspark.sql import SparkSession
 from pyspark.sql.functions import from_json, col, lit
 from . import incoming_schemas as schema
 from . import casting_strings as cast
-from . import save_to_gcs as save
+
 
 def process_topic(
     spark: SparkSession, topic: str, kafka_host: str, kafka_port: str
@@ -13,9 +13,8 @@ def process_topic(
         "kafka.bootstrap.servers": f"{kafka_host}:{kafka_port}",
         "subscribe": topic,
         "startingOffsets": "latest",
-        "failOnDataLoss": "false"
+        "failOnDataLoss": "false",
     }
-
 
     df = (
         spark.readStream.format("kafka")
@@ -36,5 +35,5 @@ def process_topic(
         .option("truncate", False)
         .start()
     )
-    
+
     return query, df
