@@ -27,11 +27,4 @@ def process_topic(
         .withColumn("topic", lit(topic))
     )
 
-    query = (
-        df.writeStream.outputMode("append")
-        .format("console")
-        .option("truncate", False)
-        .start()
-    )
-
-    return query, df
+    return df

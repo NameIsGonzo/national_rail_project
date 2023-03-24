@@ -3,6 +3,7 @@ import importlib
 import os
 from pyspark.sql import SparkSession
 from spark_utils import save_to_gcs as save
+import concurrent.futures
 
 
 logging.basicConfig(level=logging.INFO)
@@ -34,9 +35,6 @@ class SparkConsumer:
             f"org.apache.kafka:kafka-clients:{self.kafka_client}",
         ]
 
-        queries: list = []
-        dataframes: list = []
-
         spark = (
             SparkSession.builder.appName("Spark Streaming Main Ingestion")
             .config("spark.executor.cores", "8")
@@ -59,6 +57,9 @@ class SparkConsumer:
             .getOrCreate()
         )
 
+        queries: list = []
+        dataframes: list = []
+
         for topic in self.kafka_topics:
 
             topic_name: str = topic.replace(".", "_")
@@ -68,19 +69,13 @@ class SparkConsumer:
             )
             process_func = process_module.process_topic
 
-            query, df = process_func(spark, topic, self.kafka_host, self.kafka_port)
+            df = process_func(spark, topic, self.kafka_host, self.kafka_port)
 
-            save.save_to_railscope_historical_data(df, topic_name).start().awaitTermination()
-
+            query = save.save_to_railscope_historical_data(df, topic_name)
             queries.append(query)
 
         for query in queries:
             query.awaitTermination()
-        
-        
-
-
-
 
 if __name__ == "__main__":
 
