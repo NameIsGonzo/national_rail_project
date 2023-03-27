@@ -49,6 +49,7 @@ class StompClient(stomp.ConnectionListener):
             f"Disconnected - waiting {self.args.stomp_reconnect_delay_sec} seconds before exiting"
         )
         while True:
+            time.sleep(15)
             try:
                 conn = stomp.Connection12(
                     [(self.args.stomp_hostname, self.args.stomp_port)],
