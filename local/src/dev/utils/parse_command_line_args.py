@@ -38,7 +38,7 @@ def parse_command_line_args():
     parser.add_argument(
         "--stomp_heartbeat_interval_ms",
         type=int,
-        default=15_000,
+        default=20_000,
         help="STOMP heartbeat interval in milliseconds",
     )
     parser.add_argument(

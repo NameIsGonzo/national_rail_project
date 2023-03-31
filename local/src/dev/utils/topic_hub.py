@@ -80,7 +80,7 @@ def main_hub(message: dict):
 
     futures: list = []
     timestamp: datetime =  datetime.fromtimestamp(int(message["timestamp"])/1000)
-    timestamp_str = timestamp.strftime('%Y-%m-%d %H:%M:%S')
+    timestamp_str = timestamp.strftime('%Y-%m-%d %H:%M')
     with concurrent.futures.ThreadPoolExecutor(max_workers=8) as executor:
         # Submit each parsing function to the executor
         futures.append(

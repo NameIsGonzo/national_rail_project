@@ -2,8 +2,7 @@ import logging
 import importlib
 import os
 from pyspark.sql import SparkSession
-from spark_utils import save_to_gcs as save
-import concurrent.futures
+from spark_utils import insert_into_bq as save
 
 
 logging.basicConfig(level=logging.INFO)
@@ -33,18 +32,22 @@ class SparkConsumer:
         packages = [
             f"org.apache.spark:spark-sql-kafka-0-10_{self.scala_version}:{self.spark_version}",
             f"org.apache.kafka:kafka-clients:{self.kafka_client}",
+            f"com.google.cloud.spark:spark-bigquery-with-dependencies_2.12:0.29.0"
         ]
 
         spark = (
             SparkSession.builder.appName("Spark Streaming Main Ingestion")
             .config("spark.executor.cores", "8")
-            .config("spark.executor.memory", "8g")
+            .config("spark.executor.memory", "12g")
+            .config("spark.driver.memory", "2g")
+            .config("spark.sql.shuffle.partitions", 24)
+            .config("spark.dynamicAllocation.enabled", "true")
+            .config("spark.shuffle.service.enabled", "true")
             .config("spark.jars.packages", ",".join(packages))
             .config(
                 "spark.jars",
                 "/Users/gonzo/Desktop/RailScope/national_rail_project/local/src/hadoop/gcs-connector-hadoop3-latest.jar",
             )
-            .config("spark.sql.shuffle.partitions", 16)
             .config(
                 "spark.hadoop.fs.gs.impl",
                 "com.google.cloud.hadoop.fs.gcs.GoogleHadoopFileSystem",
@@ -54,11 +57,16 @@ class SparkConsumer:
                 "spark.hadoop.google.cloud.auth.service.account.json.keyfile",
                 gcp_credentials,
             )
+            .config("spark.sql.adaptive.enabled", "false")
+            .config("spark.sql.streaming.fileSink.log.compactInterval", 100)
+            .config("spark.cleaner.referenceTracking.cleanCheckpoints", "true")
+            .config("spark.cleaner.referenceTracking.blocking", "true")
+            .config("spark.cleaner.referenceTracking.blockingFraction", "0.5")
             .getOrCreate()
         )
 
-        queries: list = []
-        dataframes: list = []
+        historical_saving_queries: list = []
+        aggregations_queries: list = []
 
         for topic in self.kafka_topics:
 
@@ -68,14 +76,31 @@ class SparkConsumer:
                 name=f"spark_utils.process_topic_{topic_name}"
             )
             process_func = process_module.process_topic
+            aggregation_funct = process_module.aggregations
 
             df = process_func(spark, topic, self.kafka_host, self.kafka_port)
+            results = aggregation_funct(df, topic)
 
-            query = save.save_to_railscope_historical_data(df, topic_name)
-            queries.append(query)
+            if len(results) != 0:
+                for result in results:
+                    console_query = (result.writeStream
+                                        .outputMode('append')
+                                        .format('console')
+                                        .option("truncate", False)
+                                        .start()       
+                                    )
+                    aggregations_queries.append(console_query)
 
-        for query in queries:
+            # query = save.save_historical_to_bq(df, topic_name)
+
+            # historical_saving_queries.append(query)
+
+        for query in aggregations_queries:
             query.awaitTermination()
+
+        # for query in historical_saving_queries:
+        #     query.awaitTermination()
+
 
 if __name__ == "__main__":
 

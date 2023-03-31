@@ -6,27 +6,34 @@ import logging
 logging.basicConfig(level=logging.INFO)
 
 
-def create_month_folder(year: str, month: str, topic: str, bucket: str) -> bool:
-    """Creates the folder for each month"""
+def create_checkpoint_location(topic: str, bucket: str) -> str:
+    """Creates the checkpoint location for each topic query"""
     try:
         client = storage.Client()
         bucket = client.bucket(bucket)
-        blob = bucket.blob(f"{topic}/{year}/{month}/")
-        blob.upload_from_string("")
-        return True
-    except:
-        logging.warning(
-            f"Cant create directory {topic}/{year}/{month} for bucket: {bucket}"
-        )
+        checkpoint_location: str = f"checkpoints/checkpoint_{topic}/"
+        blob = bucket.get_blob(checkpoint_location)
+        if blob is None:
+            # Folder doesn't exist, create it
+            blob = bucket.blob(checkpoint_location)
+            blob.upload_from_string("")
+            logging.info(f"Created folder {checkpoint_location}")
+            return checkpoint_location
+        else:
+            logging.info(f"Folder {checkpoint_location} already exists")
+            return checkpoint_location
+    except Exception as e:
+        logging.warning(f"Cant create checkpoint directory for {topic}")
+        logging.warning(str(e))
         return False
 
 
 def save_to_railscope_historical_data(
     df: DataFrame,
     topic: str,
+    bucket: str = "railscope_historical_data",
     file_format: str = "parquet",
     output_mode: str = "append",
-    checkpoint_location: str = "gs://railscope_historical_data/checkpoint",
 ) -> None:
     """
     Save a streaming PySpark DataFrame to a Google Cloud Storage bucket.
@@ -39,26 +46,22 @@ def save_to_railscope_historical_data(
     """
     year: str = str(pendulum.now().year)
     month: str = str(pendulum.now().month)
+    gcs_bucket_path: str = f"gs://railscope_historical_data/{topic}/{year}/"
 
-    if not checkpoint_location:
-        raise ValueError("A Checkpoint location is required for fault-tolerance")
-
-    gcs_bucket_path: str = f"gs://railscope_historical_data/{topic}/{year}/{month}/"
-    if create_month_folder(year, month, topic, "railscope_historical_data"):
+    checkpoint_location = create_checkpoint_location(topic, bucket)
+    try:
         # Write the streaming DataFrame to the specified GCS bucket path
-        logging.info(f"Successfully created directory : {gcs_bucket_path}")
-        logging.info(f"Saving topic: {topic}")
-
         query = (
-            df.writeStream.format(file_format)
+            df.writeStream
+            .format(file_format)
             .option("path", gcs_bucket_path)
             .option("checkpointLocation", checkpoint_location)
             .option("queryName", f"streaming_query_{topic}")
             .outputMode(output_mode)
+            .trigger(processingTime='10 minutes')
             .start()
         )
-        logging.info(f"Successfully loaded dataframe from topic : {topic}")
         return query
-    else:
+    except Exception as e:
         logging.warning("An error ocurred while uploading the file into the Bucket")
-        return
+        logging.info(str(e))
