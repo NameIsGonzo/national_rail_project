@@ -1,4 +1,4 @@
-nationalpage_nationalppm: list = [
+rtppmdata_nationalpage_nationalppm: list = [
     "CAST(Total AS INT) AS Total",
     "CAST(OnTime AS INT) AS OnTime",
     "CAST(Late AS INT) AS Late",
@@ -12,7 +12,7 @@ nationalpage_nationalppm: list = [
     "CAST(timestamp AS TIMESTAMP) AS timestamp",
 ]
 
-nationalpage_nationalsector: list = [
+rtppmdata_nationalpage_sector: list = [
     "CAST(sectorCode AS STRING) AS sectorCode",
     "CAST(sectorName AS STRING) AS sectorName",
     "CAST(Total AS INT) AS Total",
@@ -27,7 +27,7 @@ nationalpage_nationalsector: list = [
     "CAST(timestamp AS TIMESTAMP) AS timestamp",
 ]
 
-nationalpage_nationaloperator: list = [
+rtppmdata_nationalpage_operator: list = [
     "CAST(Total AS INT) AS Total",
     "CAST(PPM_text AS INT) AS PPM_text",
     "CAST(PPM_rag AS STRING) AS PPM_rag",
@@ -39,7 +39,7 @@ nationalpage_nationaloperator: list = [
     "CAST(timestamp AS TIMESTAMP) AS timestamp",
 ]
 
-oocpage_operator: list = [
+rtppmdata_oocpage_operator: list = [
     "CAST(Total AS INT) AS Total",
     "CAST(PPM_text AS INT) AS PPM_text",
     "CAST(PPM_rag AS STRING) AS PPM_rag",
@@ -51,7 +51,7 @@ oocpage_operator: list = [
     "CAST(timestamp AS TIMESTAMP) AS timestamp",
 ]
 
-focpage_nationalppm: list = [
+rtppmdata_focpage_nationalppm: list = [
     "CAST(Total AS INT) AS Total",
     "CAST(OnTime AS INT) AS OnTime",
     "CAST(Late AS INT) AS Late",
@@ -64,7 +64,7 @@ focpage_nationalppm: list = [
     "CAST(timestamp AS TIMESTAMP) AS timestamp",
 ]
 
-focpage_operator: list = [
+rtppmdata_focpage_operator: list = [
     "CAST(Total AS INT) AS Total",
     "CAST(PPM_text AS INT) AS PPM_text",
     "CAST(PPM_rag AS STRING) AS PPM_rag",
@@ -76,7 +76,7 @@ focpage_operator: list = [
     "CAST(timestamp AS TIMESTAMP) AS timestamp",
 ]
 
-operatorpage_operators: list = [
+rtppmdata_operatorpage_operators: list = [
     "CAST(sectorCode AS STRING) AS sectorCode",
     "CAST(sectorName AS STRING) AS sectorName",
     "CAST(total AS INT) AS Total",
@@ -91,7 +91,7 @@ operatorpage_operators: list = [
     "CAST(timestamp AS TIMESTAMP) AS timestamp",
 ]
 
-operatorpage_serviceoperators: list = [
+rtppmdata_operatorpage_servicegroups: list = [
     "CAST(name AS STRING) AS Name",
     "CAST(Total AS INT) AS Total",
     "CAST(OnTime AS INT) AS OnTime",

@@ -5,7 +5,7 @@ from pyspark.sql.types import (
 )
 
 # rtppmdata.nationalpage.nationalppm
-nationalpage_nationalppm = StructType(
+rtppmdata_nationalpage_nationalppm = StructType(
     [
         StructField("Total", StringType(), True),
         StructField("OnTime", StringType(), True),
@@ -22,7 +22,7 @@ nationalpage_nationalppm = StructType(
 )
 
 # rtppmdata.nationalpage.sector
-nationalpage_nationalsector = StructType(
+rtppmdata_nationalpage_sector = StructType(
     [
         StructField("sectorCode", StringType(), True),
         StructField("sectorName", StringType(), True),
@@ -41,7 +41,7 @@ nationalpage_nationalsector = StructType(
 
 
 # rtppmdata.nationalpage.operator
-nationalpage_nationaloperator = StructType(
+rtppmdata_nationalpage_operator = StructType(
     [
         StructField("Total", StringType(), True),
         StructField("PPM_text", StringType(), True),
@@ -57,7 +57,7 @@ nationalpage_nationaloperator = StructType(
 
 
 # rtppmdata.oocpage.operator
-oocpage_operator = StructType(
+rtppmdata_oocpage_operator = StructType(
     [
         StructField("Total", StringType()),
         StructField("PPM_text", StringType()),
@@ -73,7 +73,7 @@ oocpage_operator = StructType(
 
 
 # rtppmdata.focpage.nationalppm
-focpage_nationalppm = StructType(
+rtppmdata_focpage_nationalppm = StructType(
     [
         StructField("Total", StringType(), True),
         StructField("OnTime", StringType(), True),
@@ -90,7 +90,7 @@ focpage_nationalppm = StructType(
 
 
 # rtppmdata.focpage.operator
-focpage_operator = StructType(
+rtppmdata_focpage_operator = StructType(
     [
         StructField("Total", StringType()),
         StructField("PPM_text", StringType()),
@@ -106,7 +106,7 @@ focpage_operator = StructType(
 
 
 # rtppmdata.operatorpage.operators
-operatorpage_operators = StructType(
+rtppmdata_operatorpage_operators = StructType(
     [
         StructField("sectorCode", StringType()),
         StructField("sectorName", StringType()),
@@ -125,7 +125,7 @@ operatorpage_operators = StructType(
 
 
 # rtppmdata.operatorpage.servicegroups
-operatorpage_serviceoperators = StructType(
+rtppmdata_operatorpage_servicegroups = StructType(
     [
         StructField("name", StringType(), True),
         StructField("Total", StringType(), True),

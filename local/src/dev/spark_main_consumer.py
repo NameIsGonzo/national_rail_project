@@ -1,12 +1,25 @@
 import logging
-import importlib
 import os
 from pyspark.sql import SparkSession
-from spark_utils import insert_into_bq as save
+from spark_utils import save
+from pyspark.sql.functions import from_json, col, lit
+from spark_utils import incoming_schemas as schema
+from spark_utils import casting_strings as cast
 
 
 logging.basicConfig(level=logging.INFO)
 gcp_credentials: str = os.environ["GOOGLE_APPLICATION_CREDENTIALS"]
+
+# aggregations: dict = {
+#     "rtppmdata.nationalpage.nationalppm": ,
+#     "rtppmdata.nationalpage.sector": ,
+#     "rtppmdata.nationalpage.operator": ,
+#     "rtppmdata.oocpage.operator": ,
+#     "rtppmdata.focpage.nationalppm": ,
+#     "rtppmdata.focpage.operator": ,
+#     "rtppmdata.operatorpage.operators": ,
+#     "rtppmdata.operatorpage.servicegroups": ,
+# }
 
 
 class SparkConsumer:
@@ -26,13 +39,35 @@ class SparkConsumer:
         self.kafka_port = kafka_port
         self.kafka_topics = kafka_topics
 
+    def process_topic(self, spark: SparkSession, topic: str, topic_name: str) -> None:
+        """ Subscribes to topic and returns the streaming dataframe"""
+        kafka_options = {
+            "kafka.bootstrap.servers": f"{self.kafka_host}:{self.kafka_port}",
+            "subscribe": topic,
+            "startingOffsets": "latest",
+            "failOnDataLoss": "false",
+        }
+
+        df = (
+            spark.readStream.format("kafka")
+            .options(**kafka_options)
+            .load()
+            .selectExpr("CAST(value AS STRING)")
+            .select(from_json(col("value"), getattr(schema, topic_name)).alias("data"))
+            .select("data.*")
+            .selectExpr(getattr(cast, topic_name))
+            .withColumn("topic", lit(topic))
+        )
+
+        return df
+
     def consumeTopics(self):
         """ """
 
         packages = [
             f"org.apache.spark:spark-sql-kafka-0-10_{self.scala_version}:{self.spark_version}",
             f"org.apache.kafka:kafka-clients:{self.kafka_client}",
-            f"com.google.cloud.spark:spark-bigquery-with-dependencies_2.12:0.29.0"
+            f"com.google.cloud.spark:spark-bigquery-with-dependencies_2.12:0.29.0",
         ]
 
         spark = (
@@ -65,41 +100,19 @@ class SparkConsumer:
             .getOrCreate()
         )
 
-        historical_saving_queries: list = []
-        aggregations_queries: list = []
+        queries: list = []
 
         for topic in self.kafka_topics:
 
             topic_name: str = topic.replace(".", "_")
 
-            process_module = importlib.import_module(
-                name=f"spark_utils.process_topic_{topic_name}"
-            )
-            process_func = process_module.process_topic
-            aggregation_funct = process_module.aggregations
+            df = self.process_topic(spark, topic, topic_name)
+        
+            historical_query = save.save_historical_to_bq(df, topic_name)
+            queries.append(historical_query)
 
-            df = process_func(spark, topic, self.kafka_host, self.kafka_port)
-            results = aggregation_funct(df, topic)
-
-            if len(results) != 0:
-                for result in results:
-                    console_query = (result.writeStream
-                                        .outputMode('append')
-                                        .format('console')
-                                        .option("truncate", False)
-                                        .start()       
-                                    )
-                    aggregations_queries.append(console_query)
-
-            # query = save.save_historical_to_bq(df, topic_name)
-
-            # historical_saving_queries.append(query)
-
-        for query in aggregations_queries:
+        for query in queries:
             query.awaitTermination()
-
-        # for query in historical_saving_queries:
-        #     query.awaitTermination()
 
 
 if __name__ == "__main__":
