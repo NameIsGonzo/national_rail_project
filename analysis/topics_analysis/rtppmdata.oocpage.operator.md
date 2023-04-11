@@ -33,11 +33,3 @@ df_grouped_by_operator_and_rag = df.groupBy(col("name"), col("PPM_rag"), col("Ro
     count("*").alias("count_per_operator_and_rag")
 )
 ```
-
-### 2. Performance ratios
-Compute performance ratios like on-time ratio and late ratio to better understand the overall performance of OOC operators.
-
-```python
-df_with_ratios = df.withColumn("on_time_ratio", col("OnTime") / col("Total")) \
-    .withColumn("late_ratio", col("Late") / col("Total"))
-```
