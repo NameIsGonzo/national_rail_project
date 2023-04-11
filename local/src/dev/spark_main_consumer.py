@@ -5,21 +5,22 @@ from spark_utils import save
 from pyspark.sql.functions import from_json, col, lit
 from spark_utils import incoming_schemas as schema
 from spark_utils import casting_strings as cast
+from spark_utils import aggregations as agg
 
 
 logging.basicConfig(level=logging.INFO)
 gcp_credentials: str = os.environ["GOOGLE_APPLICATION_CREDENTIALS"]
 
-# aggregations: dict = {
-#     "rtppmdata.nationalpage.nationalppm": ,
-#     "rtppmdata.nationalpage.sector": ,
-#     "rtppmdata.nationalpage.operator": ,
-#     "rtppmdata.oocpage.operator": ,
-#     "rtppmdata.focpage.nationalppm": ,
-#     "rtppmdata.focpage.operator": ,
-#     "rtppmdata.operatorpage.operators": ,
-#     "rtppmdata.operatorpage.servicegroups": ,
-# }
+aggregations: dict = {
+    "rtppmdata.nationalpage.nationalppm": agg.focpage_nationalppm,
+    # "rtppmdata.nationalpage.sector": ,
+    # "rtppmdata.nationalpage.operator": ,
+    # "rtppmdata.oocpage.operator": ,
+    # "rtppmdata.focpage.nationalppm": ,
+    # "rtppmdata.focpage.operator": ,
+    # "rtppmdata.operatorpage.operators": ,
+    # "rtppmdata.operatorpage.servicegroups": ,
+}
 
 
 class SparkConsumer:
@@ -110,6 +111,11 @@ class SparkConsumer:
         
             historical_query = save.save_historical_to_bq(df, topic_name)
             queries.append(historical_query)
+
+            dfs = aggregations.get(topic)(df)
+
+            for df, aggregation in dfs:
+                save.save_to_realtime_data(df, topic_name, aggregation)
 
         for query in queries:
             query.awaitTermination()

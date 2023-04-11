@@ -34,20 +34,7 @@ df_grouped_by_operator_and_rag = df.groupBy(col("name"), col("PPM_rag"), col("Ro
 )
 ```
 
-### 2. Identify top and bottom performing operators
-Rank OOC operators based on their PPM and RollingPPM to identify top and bottom performers. This will help stakeholders understand which operators are doing well and which ones might need improvement.
-
-```python
-window_spec = Window.orderBy(col("PPM_text").desc())
-
-df_ranked_by_ppm = df.withColumn("ppm_rank", row_number().over(window_spec))
-
-window_spec = Window.orderBy(col("RollingPPM_text").desc())
-
-df_ranked_by_rolling_ppm = df_ranked_by_ppm.withColumn("rolling_ppm_rank", row_number().over(window_spec))
-```
-
-### 3. Performance ratios
+### 2. Performance ratios
 Compute performance ratios like on-time ratio and late ratio to better understand the overall performance of OOC operators.
 
 ```python

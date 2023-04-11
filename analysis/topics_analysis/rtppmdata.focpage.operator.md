@@ -40,26 +40,3 @@ df_grouped_by_operator_and_rag = df.groupBy(col("name"), col("PPM_rag"), col("Ro
     count("*").alias("count_per_operator_and_rag")
 )
 ```
-
-### 3. Identify top and bottom performing FOC operators:
-Rank FOC operators based on their PPM ratio and Rolling PPM ratio to identify top and bottom performers. This will help stakeholders understand which operators are doing well and which ones might need improvement.
-
-```python
-window_spec = Window.orderBy(col("ppm_ratio").desc())
-
-df_ranked_by_ppm = df_with_ratios.withColumn("ppm_rank", row_number().over(window_spec))
-
-window_spec = Window.orderBy(col("rolling_ppm_ratio").desc())
-
-df_ranked_by_ppm_and_rolling_ppm = df_ranked_by_ppm.withColumn("rolling_ppm_rank", row_number().over(window_spec))
-```
-
-### 4. Calculate rolling averages for PPM_text and RollingPPM_text by FOC operator:
-Compute rolling averages for PPM_text and RollingPPM_text to identify trends and understand how FOC operator performance is changing over time.
-
-```python
-window_spec = Window.partitionBy("name").orderBy(col("timestamp")).rowsBetween(-3, 0)  # Adjust the window size as needed
-
-df_with_rolling_avg = df.withColumn("rolling_ppm_avg", avg(col("PPM_text")).over(window_spec)) \
-    .withColumn("rolling_rolling_ppm_avg", avg(col("RollingPPM_text")).over(window_spec))
-```

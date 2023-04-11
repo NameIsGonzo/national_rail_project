@@ -37,27 +37,7 @@ df_service_groups_agg = df.groupBy("name").agg(
 )
 ```
 
-### 2. Top and bottom performing service groups
-Rank the service groups based on their average PPM and Rolling PPM to identify the top and bottom performers. This can help stakeholders understand which service groups are performing well and which ones might need improvement.
-
-```python
-window_spec_ppm = Window.orderBy(col("avg_ppm").desc())
-window_spec_rolling_ppm = Window.orderBy(col("avg_rolling_ppm").desc())
-
-df_ranked_service_groups = df_service_groups_agg.withColumn("ppm_rank", row_number().over(window_spec_ppm)) \
-    .withColumn("rolling_ppm_rank", row_number().over(window_spec_rolling_ppm))
-```
-
-### 3. Performance trends analysis
-Analyze the Rolling PPM trend indicator distribution for each service group. This can provide insights into the general direction of each service group's performance, helping stakeholders identify which groups have improving or deteriorating performance.
-
-```python
-df_trends = df.groupBy("name", "RollingPPM_trendInd").agg(
-    count("*").alias("trend_count")
-)
-```
-
-### 4. Performance distribution by RAG status
+### 2. Performance distribution by RAG status
 Calculate the distribution of PPM RAG and Rolling PPM RAG status for each service group. This can help stakeholders gain insights into the performance patterns of each service group.
 
 ```python

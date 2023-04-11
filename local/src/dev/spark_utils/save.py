@@ -46,7 +46,7 @@ def save_historical_to_bq(
             .option("checkpointLocation", checkpoint_location)
             .option("queryName", f"streaming_query_{topic}")
             .option("temporaryGcsBucket", bucket)
-            .trigger(processingTime="15 minutes")
+            .trigger(processingTime="5 minutes")
             .start()
         )
         logging.info(f"Succesfully loaded dataframe from topic: {topic}")
@@ -60,7 +60,7 @@ def save_to_realtime_data(
     topic: str,
     aggregation,
     project_id: str = "railscope-381421",
-    bq_dataset: str = "railscope",
+    bq_dataset: str = "railscope_",
     bucket: str = "railscope_realtime_data",
 ) -> DataStreamWriter:
     """ """
@@ -70,7 +70,7 @@ def save_to_realtime_data(
     try:
         query: DataStreamWriter = (
             df.writeStream.format("bigquery")
-            .option("table", f"{project_id}.{bq_dataset}.{table_name}")
+            .option("table", f"{project_id}.{bq_dataset}{aggregation}.{table_name}")
             .option("checkpointLocation", f'{checkpoint_location}_{aggregation}')
             .option("queryName", f"streaming_query_{table_name}")
             .option("temporaryGcsBucket", bucket)

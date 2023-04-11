@@ -36,25 +36,3 @@ df_with_ratios = df.withColumn("on_time_ratio", col("OnTime") / col("Total")) \
     .withColumn("late_ratio", col("Late") / col("Total")) \
     .withColumn("cancel_very_late_ratio", col("CancelVeryLate") / col("Total"))
 ```
-
-### 2. Rolling averages
-Calculate rolling averages for PPM_text and RollingPPM_text to identify trends
-and understand how performance is changing over time.
-
-```python
-window_spec = Window.orderBy(col("timestamp")).rowsBetween(-3, 0)  # Adjust the window size as needed
-
-df_with_rolling_avg = df.withColumn("rolling_ppm_avg", avg(col("PPM_text")).over(window_spec)) \
-    .withColumn("rolling_rolling_ppm_avg", avg(col("RollingPPM_text")).over(window_spec))
-```
-
-### 3. Analyze PPM_rag, PPM_ragDisplayFlag, RollingPPM_rag, and RollingPPM_trendInd
-These categorical fields can be used to count the occurrences of each category 
-over time or to understand the distribution of performance indicators.
-
-```python
-df_grouped_by_rag = df.groupBy(
-    col("PPM_rag")
-).agg(
-    count("*").alias("count_per_rag")
-```

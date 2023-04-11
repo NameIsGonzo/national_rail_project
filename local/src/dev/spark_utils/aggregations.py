@@ -162,3 +162,27 @@ def performance_count(df: DataFrame, topic: str) -> DataFrame:
             .select("name", "PPM_rag", "RollingPPM_rag", "count", "timestamp")
         )
         return df_grouped_by_rag
+
+
+def focpage_nationalppm(df: DataFrame) -> list[DataFrame]:
+    """Retrieves a list with all the aggregations needed for the topic"""
+    dataframes: list = []
+
+    # Ratios dataframe
+    df_with_ratios = (
+        df.withColumn("on_time_ratio", round((col("OnTime") / col("Total")) * 100, 2))
+        .withColumn("late_ratio", round((col("Late") / col("Total")) * 100, 2))
+        .select(
+            "Total",
+            "OnTime",
+            "Late",
+            "on_time_ratio",
+            "late_ratio",
+            "timestamp",
+        )
+    )
+    dataframes.append((df_with_ratios, "performance_ratios"))
+
+    # 
+    
+

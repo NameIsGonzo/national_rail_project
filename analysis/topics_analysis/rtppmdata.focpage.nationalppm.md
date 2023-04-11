@@ -32,29 +32,3 @@ Calculate on-time and late performance ratios for the entire FOC to gain a bette
 df_with_ratios = df.withColumn("on_time_ratio", col("OnTime") / col("Total")) \
     .withColumn("late_ratio", col("Late") / col("Total"))
 ```
-
-### 2. FOC Rolling Averages
-Compute rolling averages for PPM_text and RollingPPM_text to identify trends and understand how performance is changing over time.
-
-```python
-window_spec = Window.orderBy(col("timestamp")).rowsBetween(-3, 0)  # Adjust the window size as needed
-
-df_with_rolling_avg = df.withColumn("rolling_ppm_avg", avg(col("PPM_text")).over(window_spec)) \
-    .withColumn("rolling_rolling_ppm_avg", avg(col("RollingPPM_text")).over(window_spec))
-```
-
-### 3. Analyze FOC Performance Indicators
-Examine PPM_rag, PPM_ragDisplayFlag, RollingPPM_rag, and RollingPPM_trendInd to understand the distribution of performance indicators across the entire FOC.
-
-```python
-df_grouped_by_rag = df.groupBy(
-    col("PPM_rag"), col("PPM_ragDisplayFlag"), col("RollingPPM_rag"), col("RollingPPM_trendInd")
-).agg(
-    count("*").alias("count_per_rag")
-)
-```
-
-### 4. Compare FOC Performance with Other Sectors
-Assess the overall FOC performance in relation to other sectors or operator groups to understand how the FOC is performing compared to other parts of the rail system.
-
-

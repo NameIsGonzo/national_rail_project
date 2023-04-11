@@ -44,22 +44,3 @@ df_grouped_by_sector_and_rag = df.groupBy(col("sectorName"), col("PPM_rag"), col
     count("*").alias("count_per_sector_and_rag")
 )
 ```
-
-### 3. Calculate rolling averages for PPM_text and RollingPPM_text by sector:
-Compute rolling averages for PPM_text and RollingPPM_text values to identify trends and understand how performance is changing over time in each sector.
-
-```python
-window_spec = Window.partitionBy("sectorName").orderBy(col("timestamp")).rowsBetween(-3, 0)  # Adjust the window size as needed
-
-df_with_rolling_avg = df.withColumn("rolling_ppm_avg", avg(col("PPM_text")).over(window_spec)) \
-    .withColumn("rolling_rolling_ppm_avg", avg(col("RollingPPM_text")).over(window_spec))
-```
-
-### 4. Identify top and bottom performing sectors:
-Rank sectors based on their on-time ratio to identify top and bottom performers. This will help stakeholders understand which regions are doing well and which ones might need improvement.
-
-```python
-window_spec = Window.orderBy(col("on_time_ratio").desc())
-
-df_ranked_by_on_time_ratio = df_with_ratios.withColumn("on_time_rank", row_number().over(window_spec))
-```
