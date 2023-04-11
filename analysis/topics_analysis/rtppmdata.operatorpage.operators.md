@@ -34,16 +34,35 @@ These insights can help stakeholders identify performance patterns, monitor the 
 Calculate performance ratios such as on-time ratio, late ratio, and cancellation ratio for each TOC to better understand their overall performance.
 
 ```python
-df_with_ratios = df.withColumn("on_time_ratio", col("onTime") / col("total")) \
-    .withColumn("late_ratio", col("late") / col("total")) \
-    .withColumn("cancel_very_late_ratio", col("cancelVeryLate") / col("total"))
+df_with_ratios = (
+        df.withColumn("on_time_ratio", round((col("OnTime") / col("Total")) * 100, 2))
+        .withColumn("late_ratio", round((col("Late") / col("Total")) * 100, 2))
+        .withColumn(
+            "cancel_very_late_ratio",
+            round((col("CancelVeryLate") / col("Total")) * 100, 2),
+        )
+        .select(
+            "sectorName",
+            "Total",
+            "OnTime",
+            "Late",
+            "CancelVeryLate",
+            "on_time_ratio",
+            "late_ratio",
+            "cancel_very_late_ratio",
+            "timestamp",
+        )
+    )
 ```
 
 ### 2. Analyze PPM_rag, RollingPPM_rag, and RollingPPM_trendInd by TOC
 Calculate the distribution of performance indicators for each TOC to gain insights into their performance patterns.
 
 ```python
-df_grouped_by_toc_and_rag = df.groupBy(col("sectorName"), col("PPM_rag"), col("RollingPPM_rag"), col("RollingPPM_trendInd")).agg(
-    count("*").alias("count_per_toc_and_rag")
-)
+df_with_count = df.groupBy(
+        col("SectorName"),
+        col("PPM_rag"),
+        col("RollingPPM_rag"),
+        col("RollingPPM_trendInd"),
+    ).agg(count("*").alias("count_per_operator"))
 ```

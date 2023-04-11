@@ -29,6 +29,16 @@ The analysis focuses on data ingested from the UK Network Rail Feed to assess th
 Calculate on-time and late performance ratios for the entire FOC to gain a better understanding of the overall performance.
 
 ```python
-df_with_ratios = df.withColumn("on_time_ratio", col("OnTime") / col("Total")) \
-    .withColumn("late_ratio", col("Late") / col("Total"))
+df_with_ratios = (
+        df.withColumn("on_time_ratio", round((col("OnTime") / col("Total")) * 100, 2))
+        .withColumn("late_ratio", round((col("Late") / col("Total")) * 100, 2))
+        .select(
+            "Total",
+            "OnTime",
+            "Late",
+            "on_time_ratio",
+            "late_ratio",
+            "timestamp",
+        )
+    )
 ```

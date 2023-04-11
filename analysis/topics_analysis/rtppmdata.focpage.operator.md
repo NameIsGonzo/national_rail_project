@@ -24,19 +24,15 @@ The analysis focuses on data ingested from the UK Network Rail Feed to assess th
 
 ## Analysis
 
-### 1. Calculate performance ratios for each FOC operator
-Compute the PPM ratio (PPM_text / Total) and Rolling PPM ratio (RollingPPM_text / Total) for each operator to better understand their performance in the context of the total number of trains they operate.
-
-```python
-df_with_ratios = df.withColumn("ppm_ratio", col("PPM_text") / col("Total")) \
-    .withColumn("rolling_ppm_ratio", col("RollingPPM_text") / col("Total"))
-```
-
-### 2. Analyze PPM_rag, RollingPPM_rag, and RollingPPM_trendInd by FOC operator
+### 1. Analyze PPM_rag, RollingPPM_rag, and RollingPPM_trendInd by FOC operator
 Calculate the distribution of performance indicators (RAG status and trend) for each FOC operator to gain insights into their performance patterns.
 
 ```python
-df_grouped_by_operator_and_rag = df.groupBy(col("name"), col("PPM_rag"), col("RollingPPM_rag"), col("RollingPPM_trendInd")).agg(
-    count("*").alias("count_per_operator_and_rag")
-)
+ df_with_count = df.groupBy(
+        col("operatorCode"),
+        col("name"),
+        col("PPM_rag"),
+        col("RollingPPM_rag"),
+        col("RollingPPM_trendInd"),
+    ).agg(count("*").alias("count_per_operator"))
 ```

@@ -12,14 +12,18 @@ logging.basicConfig(level=logging.INFO)
 gcp_credentials: str = os.environ["GOOGLE_APPLICATION_CREDENTIALS"]
 
 aggregations: dict = {
-    "rtppmdata.nationalpage.nationalppm": agg.focpage_nationalppm,
-    # "rtppmdata.nationalpage.sector": ,
-    # "rtppmdata.nationalpage.operator": ,
-    # "rtppmdata.oocpage.operator": ,
-    # "rtppmdata.focpage.nationalppm": ,
-    # "rtppmdata.focpage.operator": ,
-    # "rtppmdata.operatorpage.operators": ,
-    # "rtppmdata.operatorpage.servicegroups": ,
+    "rtppmdata.nationalpage.nationalppm": agg.nationalpage_nationalppm,
+    "rtppmdata.nationalpage.sector": agg.nationalpage_sector,
+    "rtppmdata.nationalpage.operator": agg.nationalpage_operator,
+    "rtppmdata.oocpage.operator": agg.
+    oocpage_operator,
+    "rtppmdata.focpage.nationalppm": agg.focpage_nationalppm,
+    "rtppmdata.focpage.operator": agg.
+    focpage_operator,
+    "rtppmdata.operatorpage.operators": agg.
+    operatorpage_operators,
+    "rtppmdata.operatorpage.servicegroups": agg.
+    operatorpage_servicegroups,
 }
 
 
@@ -113,9 +117,10 @@ class SparkConsumer:
             queries.append(historical_query)
 
             dfs = aggregations.get(topic)(df)
-
+            
             for df, aggregation in dfs:
                 save.save_to_realtime_data(df, topic_name, aggregation)
+
 
         for query in queries:
             query.awaitTermination()

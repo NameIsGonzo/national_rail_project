@@ -32,7 +32,22 @@ Compute performance ratios like on-time ratio, late ratio,
 and cancellation ratio to better understand the overall performance.
 
 ```python
-df_with_ratios = df.withColumn("on_time_ratio", col("OnTime") / col("Total")) \
-    .withColumn("late_ratio", col("Late") / col("Total")) \
-    .withColumn("cancel_very_late_ratio", col("CancelVeryLate") / col("Total"))
+ df_with_ratios = (
+        df.withColumn("on_time_ratio", round((col("OnTime") / col("Total")) * 100, 2))
+        .withColumn("late_ratio", round((col("Late") / col("Total")) * 100, 2))
+        .withColumn(
+            "cancel_very_late_ratio",
+            round((col("CancelVeryLate") / col("Total")) * 100, 2),
+        )
+        .select(
+            "Total",
+            "OnTime",
+            "Late",
+            "CancelVeryLate",
+            "on_time_ratio",
+            "late_ratio",
+            "cancel_very_late_ratio",
+            "timestamp",
+        )
+    )
 ```

@@ -31,17 +31,12 @@ The analysis delves into data from the UK Network Rail Feed to evaluate the perf
 Calculate the average PPM and Rolling PPM for each service group to get a general understanding of their performance.
 
 ```python
-df_service_groups_agg = df.groupBy("name").agg(
-    avg("PPM_text").alias("avg_ppm"),
-    avg("RollingPPM_text").alias("avg_rolling_ppm")
-)
-```
-
-### 2. Performance distribution by RAG status
-Calculate the distribution of PPM RAG and Rolling PPM RAG status for each service group. This can help stakeholders gain insights into the performance patterns of each service group.
-
-```python
-df_grouped_by_rag = df.groupBy("name", "PPM_rag", "RollingPPM_rag").agg(
-    count("*").alias("count_per_service_group_and_rag")
-)
+df_with_avg_perf = (
+        df.groupBy("sectorName")
+        .agg(
+            avg("PPM_text").alias("avg_ppm"),
+            avg("RollingPPM_text").alias("avg_rolling_ppm"),
+        )
+        .select("name", "avg_ppm", "avg_rolling_ppm", "timestamp")
+    )
 ```

@@ -29,7 +29,11 @@ The analysis leverages data ingested from the UK Network Rail Feed to evaluate t
 Calculate the distribution of performance indicators for each operator to gain insights into their performance patterns.
 
 ```python
-df_grouped_by_operator_and_rag = df.groupBy(col("name"), col("PPM_rag"), col("RollingPPM_rag"), col("RollingPPM_trendInd")).agg(
-    count("*").alias("count_per_operator_and_rag")
-)
+df_with_count = df.groupBy(
+        col("operatorCode"),
+        col("name"),
+        col("PPM_rag"),
+        col("RollingPPM_rag"),
+        col("RollingPPM_trendInd"),
+    ).agg(count("*").alias("count_per_operator"))
 ```

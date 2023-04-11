@@ -5,170 +5,121 @@ import logging
 logging.basicConfig(level=logging.INFO)
 
 
-def performance_ratios(df: DataFrame, topic: str) -> DataFrame:
+def nationalpage_nationalppm(df: DataFrame) -> list[(DataFrame, str)]:
     """
-    Compute performance ratios like [on-time, late, cancellation]
-    to better understand of the overall performance
+    Returns a list with all the aggregations made to the DataFrame
     """
-    if topic == "rtppmdata.nationalpage.nationalppm":
-        df_with_ratios = (
-            df.withColumn(
-                "on_time_ratio", round((col("OnTime") / col("Total")) * 100, 2)
-            )
-            .withColumn("late_ratio", round((col("Late") / col("Total")) * 100, 2))
-            .withColumn(
-                "cancel_very_late_ratio",
-                round((col("CancelVeryLate") / col("Total")) * 100, 2),
-            )
-            .select(
-                "Total",
-                "OnTime",
-                "Late",
-                "CancelVeryLate",
-                "on_time_ratio",
-                "late_ratio",
-                "cancel_very_late_ratio",
-                "timestamp",
-            )
+    dataframes: list = []
+
+    df_with_ratios = (
+        df.withColumn("on_time_ratio", round((col("OnTime") / col("Total")) * 100, 2))
+        .withColumn("late_ratio", round((col("Late") / col("Total")) * 100, 2))
+        .withColumn(
+            "cancel_very_late_ratio",
+            round((col("CancelVeryLate") / col("Total")) * 100, 2),
         )
-        return df_with_ratios
-    elif topic in ["rtppmdata.nationalpage.sector", "rtppmdata.operatorpage.operators"]:
-        df_with_ratios = (
-            df.withColumn(
-                "on_time_ratio", round((col("OnTime") / col("Total")) * 100, 2)
-            )
-            .withColumn("late_ratio", round((col("Late") / col("Total")) * 100, 2))
-            .withColumn(
-                "cancel_very_late_ratio",
-                round((col("CancelVeryLate") / col("Total")) * 100, 2),
-            )
-            .select(
-                "sectorCode",
-                "sectorName",
-                "Total",
-                "OnTime",
-                "Late",
-                "CancelVeryLate",
-                "on_time_ratio",
-                "late_ratio",
-                "cancel_very_late_ratio",
-                "timestamp",
-            )
+        .select(
+            "Total",
+            "OnTime",
+            "Late",
+            "CancelVeryLate",
+            "on_time_ratio",
+            "late_ratio",
+            "cancel_very_late_ratio",
+            "timestamp",
         )
-        return df_with_ratios
-    elif topic == "rtppmdata.operatorpage.servicegroups":
-        df_with_ratios = (
-            df.withColumn(
-                "on_time_ratio", round((col("OnTime") / col("Total")) * 100, 2)
-            )
-            .withColumn("late_ratio", round((col("Late") / col("Total")) * 100, 2))
-            .withColumn(
-                "cancel_very_late_ratio",
-                round((col("CancelVeryLate") / col("Total")) * 100, 2),
-            )
-            .select(
-                "name",
-                "Total",
-                "OnTime",
-                "Late",
-                "CancelVeryLate",
-                "on_time_ratio",
-                "late_ratio",
-                "cancel_very_late_ratio",
-                "timestamp",
-            )
-        )
-        return df_with_ratios
-    else:
-        df_with_ratios = (
-            df.withColumn(
-                "on_time_ratio", round((col("OnTime") / col("Total")) * 100, 2)
-            )
-            .withColumn("late_ratio", round((col("Late") / col("Total")) * 100, 2))
-            .select(
-                "Total",
-                "OnTime",
-                "Late",
-                "on_time_ratio",
-                "late_ratio",
-                "timestamp",
-            )
-        )
-        return df_with_ratios
+    )
+    dataframes.append((df_with_ratios, "performance_ratios"))
+
+    return dataframes
 
 
-def performance_count(df: DataFrame, topic: str) -> DataFrame:
+def nationalpage_operator(df: DataFrame) -> list[(DataFrame, str)]:
     """
-    Examine PPM_rag, RollingPPM_rag to
-    understand the distribution of performance indicators across the entire FOC.
+    Returns a list with all the aggregations made to the DataFrame
     """
-    if topic in ["rtppmdata.focpage.nationalppm", "rtppmdata.nationalpage.nationalppm"]:
-        df_grouped_by_rag = (
-            df.groupBy(col("PPM_rag"), col("RollingPPM_rag"), col("timestamp"))
-            .agg(count("*").alias("count"))
-            .select("PPM_rag", "RollingPPM_rag", "count", "timestamp")
-        )
-        return df_grouped_by_rag
-    elif topic in [
-        "rtppmdata.focpage.operator",
-        "rtppmdata.nationalpage.operator",
-        "rtppmdata.oocpage.operator",
-    ]:
-        df_grouped_by_rag = (
-            df.groupBy(
-                col("operatorCode"),
-                col("name"),
-                col("PPM_rag"),
-                col("RollingPPM_rag"),
-                col("timestamp"),
-            )
-            .agg(count("*").alias("count"))
-            .select(
-                "operatorCode",
-                "name",
-                "PPM_rag",
-                "RollingPPM_rag",
-                "count",
-                "timestamp",
-            )
-        )
-        return df_grouped_by_rag
-    elif topic in ["rtppmdata.nationalpage.sector", "rtppmdata.operatorpage.operators"]:
-        df_grouped_by_rag = (
-            df.groupBy(
-                col("sectorCode"),
-                col("sectorName"),
-                col("PPM_rag"),
-                col("RollingPPM_rag"),
-                col("timestamp"),
-            )
-            .agg(count("*").alias("count"))
-            .select(
-                "sectorCode",
-                "sectorName",
-                "PPM_rag",
-                "RollingPPM_rag",
-                "count",
-                "timestamp",
-            )
-        )
-        return df_grouped_by_rag
-    else:
-        df_grouped_by_rag = (
-            df.groupBy(
-                col("name"), col("PPM_rag"), col("RollingPPM_rag"), col("timestamp")
-            )
-            .agg(count("*").alias("count"))
-            .select("name", "PPM_rag", "RollingPPM_rag", "count", "timestamp")
-        )
-        return df_grouped_by_rag
+    dataframes: list = []
+
+    # Count dataframe
+    df_with_count = df.groupBy(
+        col("operatorCode"),
+        col("name"),
+        col("PPM_rag"),
+        col("RollingPPM_rag"),
+        col("RollingPPM_trendInd"),
+    ).agg(count("*").alias("count_per_operator"))
+    dataframes.append((df_with_count, "performance_count"))
+
+    return dataframes
 
 
-def focpage_nationalppm(df: DataFrame) -> list[DataFrame]:
-    """Retrieves a list with all the aggregations needed for the topic"""
+def nationalpage_sector(df: DataFrame) -> list[(DataFrame, str)]:
+    """
+    Returns a list with all the aggregations made to the DataFrame
+    """
     dataframes: list = []
 
     # Ratios dataframe
+    df_with_ratios = (
+        df.withColumn("on_time_ratio", round((col("OnTime") / col("Total")) * 100, 2))
+        .withColumn("late_ratio", round((col("Late") / col("Total")) * 100, 2))
+        .withColumn(
+            "cancel_very_late_ratio",
+            round((col("CancelVeryLate") / col("Total")) * 100, 2),
+        )
+        .select(
+            "SectorCode",
+            "sectorName",
+            "Total",
+            "OnTime",
+            "Late",
+            "CancelVeryLate",
+            "on_time_ratio",
+            "late_ratio",
+            "cancel_very_late_ratio",
+            "timestamp",
+        )
+    )
+    dataframes.append((df_with_ratios, "performance_ratios"))
+
+    # Count dataframe
+    df_with_count = df.groupBy(
+        col("sectorCode"),
+        col("sectorName"),
+        col("PPM_rag"),
+        col("RollingPPM_rag"),
+        col("RollingPPM_trendInd"),
+    ).agg(count("*").alias("count_per_operator"))
+
+    dataframes.append((df_with_count, "performance_count"))
+
+    return dataframes
+
+
+def oocpage_operator(df: DataFrame) -> list[(DataFrame, str)]:
+    """
+    Returns a list with all the aggregations made to the DataFrame
+    """
+    dataframes: list = []
+
+    # Count dataframe
+    df_with_count = df.groupBy(
+        col("name"),
+        col("PPM_rag"),
+        col("RollingPPM_rag"),
+        col("RollingPPM_trendInd"),
+    ).agg(count("*").alias("count_per_operator"))
+    dataframes.append((df_with_count, "performance_count"))
+
+    return dataframes
+
+
+def focpage_nationalppm(df: DataFrame) -> list[(DataFrame, str)]:
+    """
+    Returns a list with all the aggregations made to the DataFrame
+    """
+    dataframes: list = []
+
     df_with_ratios = (
         df.withColumn("on_time_ratio", round((col("OnTime") / col("Total")) * 100, 2))
         .withColumn("late_ratio", round((col("Late") / col("Total")) * 100, 2))
@@ -183,6 +134,77 @@ def focpage_nationalppm(df: DataFrame) -> list[DataFrame]:
     )
     dataframes.append((df_with_ratios, "performance_ratios"))
 
-    # 
-    
+    return dataframes
 
+
+def focpage_operator(df: DataFrame) -> list[(DataFrame, str)]:
+    """
+    Returns a list with all the aggregations made to the DataFrame
+    """
+    dataframes: list = []
+
+    df_with_count = df.groupBy(
+        col("operatorCode"),
+        col("name"),
+        col("PPM_rag"),
+        col("RollingPPM_rag"),
+        col("RollingPPM_trendInd"),
+    ).agg(count("*").alias("count_per_operator"))
+    dataframes.append((df_with_count, "performance_count"))
+
+    return dataframes
+
+
+def operatorpage_operators(df: DataFrame) -> list[(DataFrame, str)]:
+    """
+    Returns a list with all the aggregations made to the DataFrame
+    """
+    dataframes: list = []
+
+    df_with_ratios = (
+        df.withColumn("on_time_ratio", round((col("OnTime") / col("Total")) * 100, 2))
+        .withColumn("late_ratio", round((col("Late") / col("Total")) * 100, 2))
+        .withColumn(
+            "cancel_very_late_ratio",
+            round((col("CancelVeryLate") / col("Total")) * 100, 2),
+        )
+        .select(
+            "sectorName",
+            "Total",
+            "OnTime",
+            "Late",
+            "CancelVeryLate",
+            "on_time_ratio",
+            "late_ratio",
+            "cancel_very_late_ratio",
+            "timestamp",
+        )
+    )
+    dataframes.append((df_with_ratios, "performance_ratios"))
+
+    df_with_count = df.groupBy(
+        col("SectorName"),
+        col("PPM_rag"),
+        col("RollingPPM_rag"),
+        col("RollingPPM_trendInd"),
+    ).agg(count("*").alias("count_per_operator"))
+    dataframes.append((df_with_count, "performance_count"))
+
+    return dataframes
+
+
+def operatorpage_servicegroups(df: DataFrame) -> list[(DataFrame, str)]:
+    """
+    Returns a list with all the aggregations made to the DataFrame
+    """
+    dataframes: list = []
+
+    df_with_avg_perf = (
+        df.groupBy("sectorName")
+        .agg(
+            avg("PPM_text").alias("avg_ppm"),
+            avg("RollingPPM_text").alias("avg_rolling_ppm"),
+        )
+        .select("name", "avg_ppm", "avg_rolling_ppm", "timestamp")
+    )
+    dataframes.append((df_with_avg_perf, "performance_avg"))
