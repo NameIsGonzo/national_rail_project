@@ -1,8 +1,5 @@
 from pyspark.sql import DataFrame
 from pyspark.sql.functions import col, round, count, avg, window
-import logging
-
-logging.basicConfig(level=logging.INFO)
 
 
 def nationalpage_nationalppm(df: DataFrame) -> list[(DataFrame, str)]:
@@ -41,13 +38,16 @@ def nationalpage_operator(df: DataFrame) -> list[(DataFrame, str)]:
     dataframes: list = []
 
     # Count dataframe
-    df_with_count = df.groupBy(
-        col("operatorCode"),
-        col("name"),
-        col("PPM_rag"),
-        col("RollingPPM_rag"),
-        col("RollingPPM_trendInd"),
-    ).agg(count("*").alias("count_per_operator"))
+    df_with_count = (
+        df.withWatermark("timestamp", "15 minutes")
+        .groupBy(
+            col("operatorCode"),
+            col("operatorName"),
+            col("PPM_rag"),
+            window(col("timestamp"), "15 minutes"),
+        )
+        .agg(count("*").alias("count_per_operator"))
+    )
     dataframes.append((df_with_count, "performance_count"))
 
     return dataframes
@@ -83,13 +83,16 @@ def nationalpage_sector(df: DataFrame) -> list[(DataFrame, str)]:
     dataframes.append((df_with_ratios, "performance_ratios"))
 
     # Count dataframe
-    df_with_count = df.groupBy(
-        col("sectorCode"),
-        col("sectorName"),
-        col("PPM_rag"),
-        col("RollingPPM_rag"),
-        col("RollingPPM_trendInd"),
-    ).agg(count("*").alias("count_per_operator"))
+    df_with_count = (
+        df.withWatermark("timestamp", "15 minutes")
+        .groupBy(
+            col("sectorCode"),
+            col("sectorName"),
+            col("PPM_rag"),
+            window(col("timestamp"), "15 minutes"),
+        )
+        .agg(count("*").alias("count_per_operator"))
+    )
 
     dataframes.append((df_with_count, "performance_count"))
 
@@ -103,12 +106,16 @@ def oocpage_operator(df: DataFrame) -> list[(DataFrame, str)]:
     dataframes: list = []
 
     # Count dataframe
-    df_with_count = df.groupBy(
-        col("name"),
-        col("PPM_rag"),
-        col("RollingPPM_rag"),
-        col("RollingPPM_trendInd"),
-    ).agg(count("*").alias("count_per_operator"))
+    df_with_count = (
+        df.withWatermark("timestamp", "15 minutes")
+        .groupBy(
+            col("OperatorCode"),
+            col("operatorName"),
+            col("PPM_rag"),
+            window(col("timestamp"), "15 minutes"),
+        )
+        .agg(count("*").alias("count_per_operator"))
+    )
     dataframes.append((df_with_count, "performance_count"))
 
     return dataframes
@@ -143,13 +150,16 @@ def focpage_operator(df: DataFrame) -> list[(DataFrame, str)]:
     """
     dataframes: list = []
 
-    df_with_count = df.groupBy(
-        col("operatorCode"),
-        col("name"),
-        col("PPM_rag"),
-        col("RollingPPM_rag"),
-        col("RollingPPM_trendInd"),
-    ).agg(count("*").alias("count_per_operator"))
+    df_with_count = (
+        df.withWatermark("timestamp", "15 minutes")
+        .groupBy(
+            col("operatorCode"),
+            col("operatorName"),
+            col("PPM_rag"),
+            window(col("timestamp"), "15 minutes"),
+        )
+        .agg(count("*").alias("count_per_operator"))
+    )
     dataframes.append((df_with_count, "performance_count"))
 
     return dataframes
@@ -182,12 +192,14 @@ def operatorpage_operators(df: DataFrame) -> list[(DataFrame, str)]:
     )
     dataframes.append((df_with_ratios, "performance_ratios"))
 
-    df_with_count = df.groupBy(
-        col("SectorName"),
-        col("PPM_rag"),
-        col("RollingPPM_rag"),
-        col("RollingPPM_trendInd"),
-    ).agg(count("*").alias("count_per_operator"))
+    df_with_count = (
+        df.withWatermark("timestamp", "15 minutes")
+        .groupBy(
+            col("SectorName"),
+            col("PPM_rag"),
+        )
+        .agg(count("*").alias("count_per_operator"))
+    )
     dataframes.append((df_with_count, "performance_count"))
 
     return dataframes
@@ -200,11 +212,18 @@ def operatorpage_servicegroups(df: DataFrame) -> list[(DataFrame, str)]:
     dataframes: list = []
 
     df_with_avg_perf = (
-        df.groupBy("sectorName")
+        df.withWatermark("timestamp", "15 minutes")
+        .groupBy(
+            "Name",
+            "PPM_text",
+            "RollingPPM_text",
+            window(col("timestamp"), "15 minutes"),
+        )
         .agg(
             avg("PPM_text").alias("avg_ppm"),
             avg("RollingPPM_text").alias("avg_rolling_ppm"),
         )
-        .select("name", "avg_ppm", "avg_rolling_ppm", "timestamp")
     )
     dataframes.append((df_with_avg_perf, "performance_avg"))
+
+    return dataframes
