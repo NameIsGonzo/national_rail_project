@@ -1,4 +1,4 @@
 kafka-stack-docker-compose/
 local/src/sandbox
 /local/src/sandbox
-Checkpoints/
+checkpoints/
