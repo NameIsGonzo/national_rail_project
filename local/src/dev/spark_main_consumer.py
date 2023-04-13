@@ -15,15 +15,11 @@ aggregations: dict = {
     "rtppmdata.nationalpage.nationalppm": agg.nationalpage_nationalppm,
     "rtppmdata.nationalpage.sector": agg.nationalpage_sector,
     "rtppmdata.nationalpage.operator": agg.nationalpage_operator,
-    "rtppmdata.oocpage.operator": agg.
-    oocpage_operator,
+    "rtppmdata.oocpage.operator": agg.oocpage_operator,
     "rtppmdata.focpage.nationalppm": agg.focpage_nationalppm,
-    "rtppmdata.focpage.operator": agg.
-    focpage_operator,
-    "rtppmdata.operatorpage.operators": agg.
-    operatorpage_operators,
-    "rtppmdata.operatorpage.servicegroups": agg.
-    operatorpage_servicegroups,
+    "rtppmdata.focpage.operator": agg.focpage_operator,
+    "rtppmdata.operatorpage.operators": agg.operatorpage_operators,
+    "rtppmdata.operatorpage.servicegroups": agg.operatorpage_servicegroups,
 }
 
 
@@ -45,7 +41,7 @@ class SparkConsumer:
         self.kafka_topics = kafka_topics
 
     def process_topic(self, spark: SparkSession, topic: str, topic_name: str) -> None:
-        """ Subscribes to topic and returns the streaming dataframe"""
+        """Subscribes to topic and returns the streaming dataframe"""
         kafka_options = {
             "kafka.bootstrap.servers": f"{self.kafka_host}:{self.kafka_port}",
             "subscribe": topic,
@@ -112,15 +108,19 @@ class SparkConsumer:
             topic_name: str = topic.replace(".", "_")
 
             df = self.process_topic(spark, topic, topic_name)
-        
+
             historical_query = save.save_historical_to_bq(df, topic_name)
             queries.append(historical_query)
 
             dfs = aggregations.get(topic)(df)
-            
-            for df, aggregation in dfs:
-                save.save_to_realtime_data(df, topic_name, aggregation)
 
+            for df, aggregation in dfs:
+                if aggregation == "performance_count":
+                    save.save_to_realtime_data(
+                        df, topic_name, aggregation, output_mode="Complete"
+                    )
+                else:
+                    save.save_to_realtime_data(df, topic_name, aggregation)
 
         for query in queries:
             query.awaitTermination()
