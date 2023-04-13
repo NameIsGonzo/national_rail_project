@@ -55,23 +55,26 @@ def save_historical_to_bq(
         logging.warning(f"An error ocurred while uploading {topic} into the BigQuery")
         logging.info(str(e))
 
+
 def save_to_realtime_data(
     df: DataFrame,
     topic: str,
     aggregation,
+    output_mode: str = "Append",
     project_id: str = "railscope-381421",
     bq_dataset: str = "railscope_",
     bucket: str = "railscope_realtime_data",
 ) -> DataStreamWriter:
     """ """
     checkpoint_location = create_checkpoint_location(topic, bucket)
-    table_name: str = f'{topic[10:]}_{aggregation}'
+    table_name: str = f"{topic[10:]}_{aggregation}"
 
     try:
         query: DataStreamWriter = (
             df.writeStream.format("bigquery")
+            .outputMode(output_mode)
             .option("table", f"{project_id}.{bq_dataset}{aggregation}.{table_name}")
-            .option("checkpointLocation", f'{checkpoint_location}_{aggregation}')
+            .option("checkpointLocation", f"{checkpoint_location}_{aggregation}")
             .option("queryName", f"streaming_query_{table_name}")
             .option("temporaryGcsBucket", bucket)
             .trigger(processingTime="15 minutes")
