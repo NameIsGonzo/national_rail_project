@@ -50,17 +50,14 @@ The architecture of this project involves several steps to collect, process, and
 
 4. Spark Streaming ingests the data and performs schema enforcement for all incoming messages from the Kafka brokers.
 
-5. The data is then loaded to Google Cloud Platform (GCP) without any modification.
+6. After validating the schema, we cast the messages into their proper types.
 
-6. After validating the schema and loading it into a bucket, we cast the messages into their proper types.
+7. Streaming DataFrames are processed to create aggregations that provide business value to the data.
 
-7. Dataframes are processed to create aggregations that provide business value to the data.
 
-8. Certain dataframes can be joined with others to retrieve more complex insights.
+9. All Streaming DataFrames are loaded into temporal GCS buckets.
 
-9. All dataframes are loaded to a GCS bucket.
-
-10. The data is loaded every hour from the data lake (GCS bucket) into our data warehouse (BigQuery) partitioned by timestamp.
+10. Data it's automatically loaded from the GCS Bucket into their respective table in BigQuery.
 
 11. The Google Data Studio dashboard is powered by the BigQuery dataset.
 
