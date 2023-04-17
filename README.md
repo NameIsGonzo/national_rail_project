@@ -13,11 +13,12 @@ The dashboard will display key performance indicators such as on-time percentage
 The dashboard will be designed for use by both operations managers and other stakeholders who need to monitor the performance of the National Rail system, as well as the general public. By making the dashboard publicly available, anyone can monitor the performance of the National Rail system without having to study the technical aspects of the underlying APIs.
 
 ## 🚆 Project Analysis
+
+## [🔍 Explore the Analysis](./analysis/README.md)
 ![National Dashboard](./images/national_dashboard.png)
 
 Welcome to the project analysis section! Here, you can find all the in-depth analyses I have conducted on the UK Network Rail Feed dataset to evaluate the performance of the railway system. These analyses cover various aspects such as Public Performance Measure (PPM), trends, and performance distributions, providing valuable insights for stakeholders to make informed decisions on service improvements.
 
-[🔍 Explore the Analysis](./analysis/README.md)
 
 ## 📚 Project Glossary
 Discover the definitions and explanations of terminology used throughout the project. This glossary provides clarity on key terms, making it easier to understand the context and purpose of the analyses.
