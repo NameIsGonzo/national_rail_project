@@ -43,6 +43,16 @@ In this section we will leaverage all the processing to GCP servers bla bla ba
 ## 💻 Local
 If you want to run this project "locally" you can go to this section, please take in mind that you will need to use some cloud services from gcp like GCS for data lake storage, BigQuery for Data warehousing and Google Data Studio to create the dashboards
 
+### Steps to run this project
+
+1.
+2.
+3.
+4.
+5.
+
+
+
 ### Project architecture overview
 
 ![Project architecture overview](./images/RailScope.png)
