@@ -82,7 +82,7 @@ class SparkConsumer:
             .config("spark.jars.packages", ",".join(packages))
             .config(
                 "spark.jars",
-                "/Users/gonzo/Desktop/RailScope/national_rail_project/local/src/hadoop/gcs-connector-hadoop3-latest.jar",
+                "/Users/gonzo/Desktop/RailScope/national_rail_project/local/src/dev/hadoop/gcs-connector-hadoop3-latest.jar",
             )
             .config(
                 "spark.hadoop.fs.gs.impl",
