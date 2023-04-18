@@ -43,13 +43,35 @@ In this section we will leaverage all the processing to GCP servers bla bla ba
 ## 💻 Local
 If you want to run this project "locally" you can go to this section, please take in mind that you will need to use some cloud services from gcp like GCS for data lake storage, BigQuery for Data warehousing and Google Data Studio to create the dashboards
 
-### Steps to run this project
+## Steps to run this project
 
-1.
-2.
+### 1. Kafka server
+1. Open a new terminal
+2. Navigate into the following directory = RailScope/national_rail_project/local/src/dev/docker/
+3. Run docker compose up
+4. Wait until all services get in a healthy status
+
+Once all container are up an running
+
+### 2. Spark application
+1. Make sure you have spark installed in your local, if not go to [installation guide](local/README.md)
+2. [Submit the spark application](https://spark.apache.org/docs/3.4.0/submitting-applications.html#content)
 3.
-4.
-5.
+4. 
+
+
+### 3. API connnection and message producer
+1. Make sure you have a working Network Rail Account, if not go back to the pre-requesite section.
+2. Move into the following directory = RailScope/national_rail_project/local/src/dev
+3. Run the following command
+```bash
+python message_producer --stomp_username YOUR_EMAIL --stomp_password YOUR_PASSWORD
+```
+4. If you experience disconections while using this script you can use the following flags to modify the hearbeat interval and reconnection based on your timeout differences.
+```bash
+--stomp_heartbeat_interval_ms 
+--stomp_reconnect_delay_sec
+```
 
 
 
