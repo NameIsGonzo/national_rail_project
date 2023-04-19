@@ -45,24 +45,49 @@ If you want to run this project "locally" you can go to this section, please tak
 
 ## Steps to run this project
 
-### 1. Kafka server
+### 1. Credentials
+In order to execute this project, you'll need to provide some credentials which will allow you to store the data in GCP.
+
+1. Create a service account in IAM with the following permissions:
+    1. BigQuery Admin
+    2. Storage Admin
+2. Download the json key
+3. Export the json key directory into a enviroment variable
+```bash
+- MacOS
+export GOOGLE_APPLICATION_CREDENTIALS = YOUR_JSON_KEY_DIRECTORY
+
+- Windows
+set GOOGLE_APPLICATION_CREDENTIALS = YOUR_JSON_KEY_DIRECTORY
+
+- Linux
+export GOOGLE_APPLICATION_CREDENTIALS=YOUR_JSON_KEY_DIRECTORY
+```
+
+
+### 2. Kafka server
 1. Open a new terminal
-2. Navigate into the following directory = RailScope/national_rail_project/local/src/dev/docker/
+2. Navigate into the following directory = **RailScope/national_rail_project/local/src/dev/docker/**
 3. Run docker compose up
 4. Wait until all services get in a healthy status
 
 Once all container are up an running
 
-### 2. Spark application
+### 3. Spark application
 1. Make sure you have spark installed in your local, if not go to [installation guide](local/README.md)
 2. [Submit the spark application](https://spark.apache.org/docs/3.4.0/submitting-applications.html#content)
-3.
-4. 
+3.Move into the following directory = **RailScope/national_rail_project/local/src/dev**
+4. Run the following program in the same terminal you submitted the spark application
+```bash
+python spark_main_consumer.py
+```
+5. Wait until the application starts
+6. Go to localhost:8080 to monitor the performance.
 
 
-### 3. API connnection and message producer
+### 4. API connnection and message producer
 1. Make sure you have a working Network Rail Account, if not go back to the pre-requesite section.
-2. Move into the following directory = RailScope/national_rail_project/local/src/dev
+2. Move into the following directory = **RailScope/national_rail_project/local/src/dev**
 3. Run the following command
 ```bash
 python message_producer --stomp_username YOUR_EMAIL --stomp_password YOUR_PASSWORD
