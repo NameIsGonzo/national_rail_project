@@ -64,7 +64,6 @@ set GOOGLE_APPLICATION_CREDENTIALS = YOUR_JSON_KEY_DIRECTORY
 export GOOGLE_APPLICATION_CREDENTIALS=YOUR_JSON_KEY_DIRECTORY
 ```
 
-
 ### 2. Kafka server
 1. Open a new terminal
 2. Navigate into the following directory = **RailScope/national_rail_project/local/src/dev/docker/**
@@ -76,7 +75,7 @@ Once all container are up an running
 ### 3. Spark application
 1. Make sure you have spark installed in your local, if not go to [installation guide](local/README.md)
 2. [Submit the spark application](https://spark.apache.org/docs/3.4.0/submitting-applications.html#content)
-3.Move into the following directory = **RailScope/national_rail_project/local/src/dev**
+3. Move into the following directory = **RailScope/national_rail_project/local/src/dev**
 4. Run the following program in the same terminal you submitted the spark application
 ```bash
 python spark_main_consumer.py
