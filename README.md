@@ -31,7 +31,7 @@ Discover the definitions and explanations of terminology used throughout the pro
 
 ## 🛠️ Pre requisites:
 
-1. 📡 Network Rail Account
+1. Network Rail Account
 
     First, register for an account by visiting https://publicdatafeeds.networkrail.co.uk/. 
     You will receive a confirmation email 📧. Follow the instructions to log in and change your password. When your account is active, you can connect to the service. Your account may be in one of three states - the system will send you an email when your account is activated and able to access feeds.
@@ -40,7 +40,9 @@ Discover the definitions and explanations of terminology used throughout the pro
 
 
 ## ☁️ Cloud 
-In this section we will leaverage all the processing to GCP servers bla bla ba
+In this section we will leaverage all the processing to GCP servers 
+
+!- **Still work in progress** -!
 
 ## 💻 Local
 If you want to run this project "locally" you can go to this section, please take in mind that you will need to use some cloud services from gcp like GCS for data lake storage, BigQuery for Data warehousing and Google Data Studio to create the dashboards
@@ -115,7 +117,7 @@ python message_producer --stomp_username YOUR_EMAIL --stomp_password YOUR_PASSWO
 --stomp_reconnect_delay_sec
 ```
 
-
+Once all of this steps have been accomplished, data will start being ingested into the Kafka clusters and then processed by Spark Structured Streaming, the data will have a trigger time of 15 minutes which means, that data will get uploaded every 15 minutes into our DWH but it gets processed as soon as it comes.
 
 ### Project architecture overview
 
