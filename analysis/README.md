@@ -1,6 +1,7 @@
 # 🚆 Project analysis
 This document provides an overview of the various analyses conducted throughout the project, along with brief descriptions of each. These analyses have been carefully designed to offer valuable insights into the performance of the UK Network Rail system, helping stakeholders identify areas for improvement and monitor the impact of interventions.
 
+
 ### National Page
 1. [Public Performance Measure](topics_analysis/rtppmdata.nationalpage.nationalppm.md)
 2. [Operators](topics_analysis/rtppmdata.nationalpage.operator.md)
@@ -12,6 +13,10 @@ This document provides an overview of the various analyses conducted throughout 
 
 ### Open Access Operator Company (OOC)
 1. [Operators](topics_analysis/rtppmdata.oocpage.operator.md)
+
+
+
+**This section already has it's metrics represented in the dashboards from the National Page, FOC and OOC.**
 
 ### Train Operating Companies (TOCs)
 1. [Operators](topics_analysis/rtppmdata.operatorpage.operators.md)

@@ -3,6 +3,7 @@
 ## Real Time Public Performance Measure (RTPPM)
 
 ## National Public Performance Measure
+![national_dashboard](../../images/national_dashboard.png)
 
 ### Description
 The analysis leverages data ingested from the UK Network Rail Feed to calculate various performance metrics and ratios, identify trends, and understand the distribution of performance indicators. 

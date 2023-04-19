@@ -3,6 +3,7 @@
 ## Real Time Public Performance Measure (RTPPM)
 
 ## Sectors
+![national_sectors_dashboard](../../images/national_sectors_dashboard.png)
 
 ## Description
 The analysis leverages data ingested from the UK Network Rail Feed to evaluate the performance of each sector within the rail network. By examining various performance metrics, such as the Public Performance Measure (PPM), Rolling PPM, and corresponding performance indicators (RAG status and trend), the analysis provides insights into the performance of the rail system across different geographical regions. This information can be valuable for stakeholders to identify areas that may require improvement or further investigation, as well as to track the impact of interventions on the rail system's performance within each sector.

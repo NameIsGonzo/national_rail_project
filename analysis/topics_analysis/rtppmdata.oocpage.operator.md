@@ -3,6 +3,8 @@
 ## Real Time Public Performance Measure (RTPPM)
 
 ## OOC Public Performance Measure
+![ooc_dashboard](../../images/ooc_dashboard.png)
+
 
 ## Description
 The analysis focuses on data ingested from the UK Network Rail Feed to evaluate the performance of Open Access Operators Companies (OOC) within the UK national railway system. By examining various performance metrics, such as the Public Performance Measure (PPM), Rolling PPM, and corresponding performance indicators (RAG status and trend), the analysis aims to provide insights into the operational efficiency of these non-franchised train operators. These insights can help stakeholders identify areas that require improvement, monitor the impact of interventions, and facilitate informed decision-making to enhance the performance of Open Access Operators across the rail network.

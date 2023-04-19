@@ -3,6 +3,8 @@
 ## Real Time Public Performance Measure (RTPPM)
 
 ## FOC Public Performance Measure
+![foc_dashboard](../../images/foc_dashboard.png)
+
 
 ## Description
 The analysis focuses on data ingested from the UK Network Rail Feed to assess the performance of Freight Operating Companies (FOC) within the UK national railway system, specifically examining their Public Performance Measure (PPM) results. By analyzing various performance metrics, such as total trains, on-time trains, late trains, PPM percentage, and Rolling PPM percentage, along with their corresponding performance indicators (RAG status and trend), the analysis aims to provide insights into the operational efficiency of freight transport services. These insights can help stakeholders identify areas that require improvement, monitor the impact of interventions, and facilitate informed decision-making to enhance the performance of freight operators across the rail network.
