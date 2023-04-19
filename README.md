@@ -31,10 +31,12 @@ Discover the definitions and explanations of terminology used throughout the pro
 
 ## 🛠️ Pre requisites:
 
-### 📡 Network Rail Account
+1. 📡 Network Rail Account
 
-First, register for an account by visiting https://publicdatafeeds.networkrail.co.uk/. 
-You will receive a confirmation email 📧. Follow the instructions to log in and change your password. When your account is active, you can connect to the service. Your account may be in one of three states - the system will send you an email when your account is activated and able to access feeds.
+    First, register for an account by visiting https://publicdatafeeds.networkrail.co.uk/. 
+    You will receive a confirmation email 📧. Follow the instructions to log in and change your password. When your account is active, you can connect to the service. Your account may be in one of three states - the system will send you an email when your account is activated and able to access feeds.
+2. Terraform [installation guide](https://developer.hashicorp.com/terraform/downloads?product_intent=terraform)
+3. Docker [installation guide](https://www.docker.com)
 
 
 ## ☁️ Cloud 
@@ -45,7 +47,7 @@ If you want to run this project "locally" you can go to this section, please tak
 
 ## Steps to run this project
 
-### 1. Credentials
+### 1. Credentials and Cloud Infrastructure
 In order to execute this project, you'll need to provide some credentials which will allow you to store the data in GCP.
 
 1. Create a service account in IAM with the following permissions:
@@ -63,6 +65,21 @@ set GOOGLE_APPLICATION_CREDENTIALS = YOUR_JSON_KEY_DIRECTORY
 - Linux
 export GOOGLE_APPLICATION_CREDENTIALS=YOUR_JSON_KEY_DIRECTORY
 ```
+4. Open a new terminal and move into the following dir = **/RailScope/national_rail_project/cloud/Terraform**
+5. Initialize Terraform
+```bash
+terraform init
+```
+6. If prompted to authorize Cloud Shell, click Authorize
+7. View the Terraform execution plan
+```bash
+terraform plan
+```
+8.  Apply the changes
+```bash
+terraform apply
+```
+9. Type **yes** and press **Enter**
 
 ### 2. Kafka server
 1. Open a new terminal
@@ -83,6 +100,7 @@ python spark_main_consumer.py
 5. Wait until the application starts
 6. Go to localhost:8080 to monitor the performance.
 
+Once the spark application it's up and running
 
 ### 4. API connnection and message producer
 1. Make sure you have a working Network Rail Account, if not go back to the pre-requesite section.
