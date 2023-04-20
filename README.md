@@ -145,3 +145,7 @@ The architecture of this project involves several steps to collect, process, and
 11. The Google Data Studio dashboard is powered by the BigQuery dataset.
 
 This project architecture overview outlines the high-level steps involved in collecting and processing data from UK NationalRail Feed. Each step is designed to ensure the efficient and accurate processing of the data, from extraction to analysis.
+
+
+## Special Thanks
+- @iobruno
