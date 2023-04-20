@@ -40,8 +40,11 @@ The dashboard will be designed for use by both operations managers and other sta
 ## [🔍 Explore the Analysis](./analysis/README.md)
 
 **Google Data Studio**
+
 [National Dashboard](https://lookerstudio.google.com/s/qZlYU9sPN-c)
+
 [Freight Operating Company Dashboard](https://lookerstudio.google.com/s/myDLBxNg17o)
+
 [Open Access Operator Company Dashboard](https://lookerstudio.google.com/s/mkKoFA4Gboo)
 
 Welcome to the project analysis section! Here, you can find all the in-depth analyses I have conducted on the UK Network Rail Feed dataset to evaluate the performance of the railway system. These analyses cover various aspects such as Public Performance Measure (PPM), trends, and performance distributions, providing valuable insights for stakeholders to make informed decisions on service improvements.
